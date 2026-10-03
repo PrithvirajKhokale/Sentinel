@@ -82,3 +82,7 @@ See [Table 6 extraction notes](data-extraction.md) for the observed source colum
 ## 9. Full August extraction context
 
 The full Table 6 output adds ministry, sector, all contributing PDF/printed pages, and raw physical cells as JSON. See [full extraction audit](august-full-extraction.md) for definitions, coverage and explicit missing-marker counts.
+
+## 10. Monthly snapshot fields
+
+The monthly history retains all raw extraction fields and adds source_sha256 and source_empty_fields_json (explicitly observed blank fields). report_month_iso identifies the snapshot; documented_reporting_cutoff_date/raw and cutoff source page are separate from publication_date and first_available_date, which remain unknown. Normalized numeric/date columns never replace raw values or turn missing markers into zero. The primary key is project_code plus report_month_iso; absence is not a completion indicator. See [monthly field policy](monthly-project-history.md).
