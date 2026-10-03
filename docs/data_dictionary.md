@@ -78,3 +78,7 @@ Actual Physical Progress - Planned Physical Progress
 ## 8. Observed August 2026 report schema
 
 See [Table 6 extraction notes](data-extraction.md) for the observed source columns, units, raw-value policy, and validated first 10 records. The fields above remain provisional; they are not all present in this report.
+
+## 9. Full August extraction context
+
+The full Table 6 output adds ministry, sector, all contributing PDF/printed pages, and raw physical cells as JSON. See [full extraction audit](august-full-extraction.md) for definitions, coverage and explicit missing-marker counts.

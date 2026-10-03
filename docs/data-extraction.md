@@ -2,6 +2,8 @@
 
 Reviewed on 2026-10-03. Both local inputs exist: `data/raw/FlashReport_April2026.pdf` (3,215,216 bytes) and `data/raw/FlashReport_August_2026.pdf` (6,468,411 bytes). Only August was extracted. Work is on `feat/data-extraction`; no model training.
 
+The extractor has since been extended to the full August table; see [full extraction audit](august-full-extraction.md) for current behavior, continuation support and limitations. The results below describe the original sample run.
+
 ## Source and scope
 
 August has 153 PDF pages. Table 6: All Ongoing Projects has a divider at PDF page 56 (printed page 55). Its data starts at PDF page 57 (printed page 56). Serial numbers 1–10 are all on that first data page under Ministry of Civil Aviation / Aviation & Aviation Infrastructure. The CSV carries `source_filename`, `report_month` as the literal `AUGUST 2026`, one-based `pdf_page`, and `printed_page`. Month is read from the page, not inferred from a filename.
@@ -41,7 +43,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe scripts/extract_ongoing_projects.py data/raw/FlashReport_August_2026.pdf --output data/processed/august_2026_table6_first10.csv --validation data/validation/august_2026_table6_first10.json --reference tests/fixtures/august_2026_table6_first10.json
 ```
 
-The script accepts any source path, output path, validation path, and positive `--limit` (default 10). The reference is optional for other reports; those runs receive independent cell checks but no visual-reference certification. No output CSV is written until extraction and supplied-reference checks pass.
+The script accepts any source path, output path, validation path, and positive `--limit` (default 10). The reference is optional for other reports; those runs receive independent cell checks but no visual-reference certification. The current CLI writes accepted records and diagnostics, then exits nonzero if coverage or reference validation fails; see the full extraction audit.
 
 ## Validation results
 
