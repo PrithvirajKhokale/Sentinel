@@ -1,0 +1,961 @@
+{
+  "description": "Proposed responses, not a running API. Record values and counts mapped from validated artifacts; error example is illustrative.",
+  "examples": {
+    "project_list": {
+      "request": "GET /api/v1/projects?report_month=2026-08&project_code=701530&page=1&page_size=25",
+      "response": {
+        "data": [
+          {
+            "project_code": "701530",
+            "report_month": "2026-08",
+            "report_month_label": "AUGUST 2026",
+            "serial_no": "1721",
+            "identity": {
+              "project_name": "Ken-Betwa Linking Development Project",
+              "agency": "(Department of Water Resources, River Development,)",
+              "ministry": "Department of Water Resources, River Development & GR",
+              "sector": "Water Resources",
+              "state": "Multi-States (Madhya Pradesh, Uttar Pradesh)"
+            },
+            "values": {
+              "legacy_ocms_code": {
+                "raw": "(-)",
+                "normalized": null,
+                "unit": null,
+                "missing_reason": "source_marker"
+              },
+              "pmgid": {
+                "raw": "(-)",
+                "normalized": null,
+                "unit": null,
+                "missing_reason": "source_marker"
+              },
+              "approval_date": {
+                "raw": "NA",
+                "normalized": null,
+                "unit": "month",
+                "missing_reason": "source_marker"
+              },
+              "start_date": {
+                "raw": "(03/2022)",
+                "normalized": "2022-03",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "original_target_doc": {
+                "raw": "03/2029",
+                "normalized": "2029-03",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "revised_doc": {
+                "raw": "(-)",
+                "normalized": null,
+                "unit": "month",
+                "missing_reason": "source_marker"
+              },
+              "original_cost_rs_crore": {
+                "raw": "21,030.00",
+                "normalized": "21030",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "revised_cost_rs_crore": {
+                "raw": "0.00",
+                "normalized": "0",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "cumulative_expenditure_rs_crore": {
+                "raw": "8,530.86",
+                "normalized": "8530.86",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "physical_progress_pct": {
+                "raw": "0.00",
+                "normalized": "0",
+                "unit": "percent",
+                "missing_reason": null
+              }
+            },
+            "provenance": {
+              "source_filename": "FlashReport_August_2026.pdf",
+              "source_sha256": "af9fad425ca081ab4c1fa49fedc1640ac0e6b199f04372761a31507754a03b02",
+              "pdf_pages": [
+                151
+              ],
+              "printed_pages": [
+                150
+              ],
+              "physical_cells": [
+                "1721",
+                "Ken-Betwa Linking Development Project\n(Department of Water Resources, River Development,)\n(701530)\n(-) (-)",
+                "Multi-States\n(Madhya Pradesh,\nUttar Pradesh)",
+                "NA\n(03/2022)",
+                "03/2029\n(-)",
+                "21,030.00\n0.00",
+                "8,530.86",
+                "0.00"
+              ]
+            },
+            "temporal": {
+              "reporting_cutoff_date": "2026-09-24",
+              "reporting_cutoff_raw": "latest by 24th September 2026",
+              "source_pdf_page": 2,
+              "publication_date": null,
+              "first_available_date": null,
+              "source_platform": "CRIP"
+            },
+            "quality": {
+              "snapshot_flags": [
+                {
+                  "scope": "snapshot",
+                  "code": "missing_value",
+                  "fields": [
+                    "approval_date"
+                  ],
+                  "report_month": "2026-08",
+                  "source_pdf_pages": [
+                    151
+                  ],
+                  "message": "Source reports a missing value."
+                },
+                {
+                  "scope": "snapshot",
+                  "code": "missing_value",
+                  "fields": [
+                    "revised_doc"
+                  ],
+                  "report_month": "2026-08",
+                  "source_pdf_pages": [
+                    151
+                  ],
+                  "message": "Source reports a missing value."
+                },
+                {
+                  "scope": "snapshot",
+                  "code": "missing_value",
+                  "fields": [
+                    "legacy_ocms_code"
+                  ],
+                  "report_month": "2026-08",
+                  "source_pdf_pages": [
+                    151
+                  ],
+                  "message": "Source reports a missing value."
+                },
+                {
+                  "scope": "snapshot",
+                  "code": "missing_value",
+                  "fields": [
+                    "pmgid"
+                  ],
+                  "report_month": "2026-08",
+                  "source_pdf_pages": [
+                    151
+                  ],
+                  "message": "Source reports a missing value."
+                }
+              ],
+              "source_notes": []
+            }
+          }
+        ],
+        "meta": {
+          "contract_version": "1",
+          "dataset_version": "756d0304736b2f6a61a5fee7363a07e23c583611319fd4f17699ac6f4942d24a",
+          "validation_status": "validated_history",
+          "filters": {
+            "report_month": "2026-08",
+            "project_code": [
+              "701530"
+            ]
+          },
+          "pagination": {
+            "page": 1,
+            "page_size": 25,
+            "total_items": 1,
+            "total_pages": 1
+          }
+        },
+        "warnings": []
+      }
+    },
+    "project_detail": {
+      "request": "GET /api/v1/projects/701530?report_month=2026-07",
+      "response": {
+        "data": {
+          "project_code": "701530",
+          "report_month": "2026-07",
+          "report_month_label": "JULY 2026",
+          "serial_no": "1765",
+          "identity": {
+            "project_name": "Ken-Betwa Linking Development Project",
+            "agency": "(Department of Water Resources, River Development,)",
+            "ministry": "Department of Water Resources, River Development & GR",
+            "sector": "Water Resources",
+            "state": "Multi-States (Madhya Pradesh, Uttar Pradesh)"
+          },
+          "values": {
+            "legacy_ocms_code": {
+              "raw": "(-)",
+              "normalized": null,
+              "unit": null,
+              "missing_reason": "source_marker"
+            },
+            "pmgid": {
+              "raw": "(-)",
+              "normalized": null,
+              "unit": null,
+              "missing_reason": "source_marker"
+            },
+            "approval_date": {
+              "raw": "NA",
+              "normalized": null,
+              "unit": "month",
+              "missing_reason": "source_marker"
+            },
+            "start_date": {
+              "raw": "(03/2022)",
+              "normalized": "2022-03",
+              "unit": "month",
+              "missing_reason": null
+            },
+            "original_target_doc": {
+              "raw": "03/2029",
+              "normalized": "2029-03",
+              "unit": "month",
+              "missing_reason": null
+            },
+            "revised_doc": {
+              "raw": "(-)",
+              "normalized": null,
+              "unit": "month",
+              "missing_reason": "source_marker"
+            },
+            "original_cost_rs_crore": {
+              "raw": "21030.00",
+              "normalized": "21030",
+              "unit": "Rs. crore",
+              "missing_reason": null
+            },
+            "revised_cost_rs_crore": {
+              "raw": "(21030.00)",
+              "normalized": "21030",
+              "unit": "Rs. crore",
+              "missing_reason": null
+            },
+            "cumulative_expenditure_rs_crore": {
+              "raw": "8530.86",
+              "normalized": "8530.86",
+              "unit": "Rs. crore",
+              "missing_reason": null
+            },
+            "physical_progress_pct": {
+              "raw": "0",
+              "normalized": "0",
+              "unit": "percent",
+              "missing_reason": null
+            }
+          },
+          "provenance": {
+            "source_filename": "FlashReport_July_2026.pdf",
+            "source_sha256": "dcf52cea3b2ed6f97a49739af833f877c2afb55f61d5c43cb162f97ef6f3a9f3",
+            "pdf_pages": [
+              152
+            ],
+            "printed_pages": [
+              151
+            ],
+            "physical_cells": [
+              "1765",
+              "Ken-Betwa Linking Development Project\n(Department of Water Resources, River Development,)\n(701530)\n(-) (-)",
+              "Multi-States\n(Madhya Pradesh,\nUttar Pradesh)",
+              "NA\n(03/2022)",
+              "03/2029\n(-)",
+              "21030.00\n(21030.00)",
+              "8530.86",
+              "0"
+            ]
+          },
+          "temporal": {
+            "reporting_cutoff_date": "2026-08-21",
+            "reporting_cutoff_raw": "latest by 21st August 2026",
+            "source_pdf_page": 2,
+            "publication_date": null,
+            "first_available_date": null,
+            "source_platform": "CRIP"
+          },
+          "quality": {
+            "snapshot_flags": [
+              {
+                "scope": "snapshot",
+                "code": "missing_value",
+                "fields": [
+                  "approval_date"
+                ],
+                "report_month": "2026-07",
+                "source_pdf_pages": [
+                  152
+                ],
+                "message": "Source reports a missing value."
+              },
+              {
+                "scope": "snapshot",
+                "code": "missing_value",
+                "fields": [
+                  "revised_doc"
+                ],
+                "report_month": "2026-07",
+                "source_pdf_pages": [
+                  152
+                ],
+                "message": "Source reports a missing value."
+              },
+              {
+                "scope": "snapshot",
+                "code": "missing_value",
+                "fields": [
+                  "legacy_ocms_code"
+                ],
+                "report_month": "2026-07",
+                "source_pdf_pages": [
+                  152
+                ],
+                "message": "Source reports a missing value."
+              },
+              {
+                "scope": "snapshot",
+                "code": "missing_value",
+                "fields": [
+                  "pmgid"
+                ],
+                "report_month": "2026-07",
+                "source_pdf_pages": [
+                  152
+                ],
+                "message": "Source reports a missing value."
+              }
+            ],
+            "source_notes": []
+          }
+        },
+        "meta": {
+          "contract_version": "1",
+          "dataset_version": "756d0304736b2f6a61a5fee7363a07e23c583611319fd4f17699ac6f4942d24a",
+          "validation_status": "validated_history",
+          "filters": {
+            "report_month": "2026-07"
+          }
+        },
+        "warnings": []
+      }
+    },
+    "monthly_history": {
+      "request": "GET /api/v1/projects/400298/history?from_month=2026-06&to_month=2026-07",
+      "response": {
+        "data": [
+          {
+            "project_code": "400298",
+            "report_month": "2026-06",
+            "report_month_label": "JUNE 2026",
+            "serial_no": "516",
+            "identity": {
+              "project_name": "Nadikudi - Srikalahasti New Line",
+              "agency": "(South Central Railway [SCR] - II)",
+              "ministry": "Ministry of Railways",
+              "sector": "Railways",
+              "state": "Andhra Pradesh"
+            },
+            "values": {
+              "legacy_ocms_code": {
+                "raw": "(-)",
+                "normalized": null,
+                "unit": null,
+                "missing_reason": "source_marker"
+              },
+              "pmgid": {
+                "raw": "(-)",
+                "normalized": null,
+                "unit": null,
+                "missing_reason": "source_marker"
+              },
+              "approval_date": {
+                "raw": "03/2012",
+                "normalized": "2012-03",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "start_date": {
+                "raw": "(12/2016)",
+                "normalized": "2016-12",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "original_target_doc": {
+                "raw": "05/2027",
+                "normalized": "2027-05",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "revised_doc": {
+                "raw": "(03/2028)",
+                "normalized": "2028-03",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "original_cost_rs_crore": {
+                "raw": "2312",
+                "normalized": "2312",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "revised_cost_rs_crore": {
+                "raw": "(5932)",
+                "normalized": "5932",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "cumulative_expenditure_rs_crore": {
+                "raw": "3119.31",
+                "normalized": "3119.31",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "physical_progress_pct": {
+                "raw": "55.02",
+                "normalized": "55.02",
+                "unit": "percent",
+                "missing_reason": null
+              }
+            },
+            "provenance": {
+              "source_filename": "FlashReport_June_2026.pdf",
+              "source_sha256": "d26872ac9336b451d311e823646560d29d8a6c2fbc9fdca9fd78fc22fd08ca15",
+              "pdf_pages": [
+                84
+              ],
+              "printed_pages": [
+                83
+              ],
+              "physical_cells": [
+                "516",
+                "Nadikudi - Srikalahasti New Line\n(South Central Railway [SCR] - II)\n(400298)\n(-) (-)",
+                "Andhra Pradesh",
+                "03/2012\n(12/2016)",
+                "05/2027\n(03/2028)",
+                "2312\n(5932)",
+                "3119.31",
+                "55.02"
+              ]
+            },
+            "temporal": {
+              "reporting_cutoff_date": "2026-07-24",
+              "reporting_cutoff_raw": "latest by 24th July 2026",
+              "source_pdf_page": 2,
+              "publication_date": null,
+              "first_available_date": null,
+              "source_platform": "CRIP"
+            },
+            "quality": {
+              "snapshot_flags": [
+                {
+                  "scope": "snapshot",
+                  "code": "missing_value",
+                  "fields": [
+                    "legacy_ocms_code"
+                  ],
+                  "report_month": "2026-06",
+                  "source_pdf_pages": [
+                    84
+                  ],
+                  "message": "Source reports a missing value."
+                },
+                {
+                  "scope": "snapshot",
+                  "code": "missing_value",
+                  "fields": [
+                    "pmgid"
+                  ],
+                  "report_month": "2026-06",
+                  "source_pdf_pages": [
+                    84
+                  ],
+                  "message": "Source reports a missing value."
+                }
+              ],
+              "source_notes": []
+            }
+          },
+          {
+            "project_code": "400298",
+            "report_month": "2026-07",
+            "report_month_label": "JULY 2026",
+            "serial_no": "524",
+            "identity": {
+              "project_name": "Nadikude-Srikalahasti 308.7 km",
+              "agency": "(CAO/C/SCoR SCoR mor)",
+              "ministry": "Ministry of Railways",
+              "sector": "Railways",
+              "state": "Andhra Pradesh"
+            },
+            "values": {
+              "legacy_ocms_code": {
+                "raw": "(-)",
+                "normalized": null,
+                "unit": null,
+                "missing_reason": "source_marker"
+              },
+              "pmgid": {
+                "raw": "(-)",
+                "normalized": null,
+                "unit": null,
+                "missing_reason": "source_marker"
+              },
+              "approval_date": {
+                "raw": "03/2012",
+                "normalized": "2012-03",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "start_date": {
+                "raw": "(08/2015)",
+                "normalized": "2015-08",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "original_target_doc": {
+                "raw": "05/2027",
+                "normalized": "2027-05",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "revised_doc": {
+                "raw": "(03/2028)",
+                "normalized": "2028-03",
+                "unit": "month",
+                "missing_reason": null
+              },
+              "original_cost_rs_crore": {
+                "raw": "2312.00",
+                "normalized": "2312",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "revised_cost_rs_crore": {
+                "raw": "(5906.03)",
+                "normalized": "5906.03",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "cumulative_expenditure_rs_crore": {
+                "raw": "2535.68",
+                "normalized": "2535.68",
+                "unit": "Rs. crore",
+                "missing_reason": null
+              },
+              "physical_progress_pct": {
+                "raw": "2",
+                "normalized": "2",
+                "unit": "percent",
+                "missing_reason": null
+              }
+            },
+            "provenance": {
+              "source_filename": "FlashReport_July_2026.pdf",
+              "source_sha256": "dcf52cea3b2ed6f97a49739af833f877c2afb55f61d5c43cb162f97ef6f3a9f3",
+              "pdf_pages": [
+                80
+              ],
+              "printed_pages": [
+                79
+              ],
+              "physical_cells": [
+                "524",
+                "Nadikude-Srikalahasti 308.7 km\n(CAO/C/SCoR SCoR mor)\n(400298)\n(-) (-)",
+                "Andhra Pradesh",
+                "03/2012\n(08/2015)",
+                "05/2027\n(03/2028)",
+                "2312.00\n(5906.03)",
+                "2535.68",
+                "2"
+              ]
+            },
+            "temporal": {
+              "reporting_cutoff_date": "2026-08-21",
+              "reporting_cutoff_raw": "latest by 21st August 2026",
+              "source_pdf_page": 2,
+              "publication_date": null,
+              "first_available_date": null,
+              "source_platform": "CRIP"
+            },
+            "quality": {
+              "snapshot_flags": [
+                {
+                  "scope": "snapshot",
+                  "code": "missing_value",
+                  "fields": [
+                    "legacy_ocms_code"
+                  ],
+                  "report_month": "2026-07",
+                  "source_pdf_pages": [
+                    80
+                  ],
+                  "message": "Source reports a missing value."
+                },
+                {
+                  "scope": "snapshot",
+                  "code": "missing_value",
+                  "fields": [
+                    "pmgid"
+                  ],
+                  "report_month": "2026-07",
+                  "source_pdf_pages": [
+                    80
+                  ],
+                  "message": "Source reports a missing value."
+                }
+              ],
+              "source_notes": []
+            }
+          }
+        ],
+        "meta": {
+          "contract_version": "1",
+          "dataset_version": "756d0304736b2f6a61a5fee7363a07e23c583611319fd4f17699ac6f4942d24a",
+          "validation_status": "validated_history",
+          "filters": {
+            "from_month": "2026-06",
+            "to_month": "2026-07"
+          },
+          "pagination": {
+            "page": 1,
+            "page_size": 25,
+            "total_items": 2,
+            "total_pages": 1
+          },
+          "comparisons": [
+            {
+              "project_code": "400298",
+              "before_month": "2026-06",
+              "after_month": "2026-07",
+              "identity_review_status": "not_reviewed_for_this_pair",
+              "screening_policy": "monthly-history-v1",
+              "trend_eligible": false,
+              "completion_trend_eligible": false,
+              "changes": {
+                "original_cost_rs_crore_raw": {
+                  "before_raw": "2312",
+                  "after_raw": "2312.00",
+                  "status": "unchanged",
+                  "delta": "0.00",
+                  "raw_text_changed": true
+                },
+                "revised_cost_rs_crore_raw": {
+                  "before_raw": "(5932)",
+                  "after_raw": "(5906.03)",
+                  "status": "decreased",
+                  "delta": "-25.97",
+                  "raw_text_changed": true
+                },
+                "cumulative_expenditure_rs_crore_raw": {
+                  "before_raw": "3119.31",
+                  "after_raw": "2535.68",
+                  "status": "decreased",
+                  "delta": "-583.63",
+                  "raw_text_changed": true
+                },
+                "physical_progress_pct_raw": {
+                  "before_raw": "55.02",
+                  "after_raw": "2",
+                  "status": "decreased",
+                  "delta": "-53.02",
+                  "raw_text_changed": true
+                },
+                "approval_date_raw": {
+                  "before_raw": "03/2012",
+                  "after_raw": "03/2012",
+                  "status": "unchanged",
+                  "delta": "0",
+                  "raw_text_changed": false
+                },
+                "start_date_raw": {
+                  "before_raw": "(12/2016)",
+                  "after_raw": "(08/2015)",
+                  "status": "brought_forward",
+                  "delta": "-16",
+                  "raw_text_changed": true
+                },
+                "original_target_doc_raw": {
+                  "before_raw": "05/2027",
+                  "after_raw": "05/2027",
+                  "status": "unchanged",
+                  "delta": "0",
+                  "raw_text_changed": false
+                },
+                "revised_doc_raw": {
+                  "before_raw": "(03/2028)",
+                  "after_raw": "(03/2028)",
+                  "status": "unchanged",
+                  "delta": "0",
+                  "raw_text_changed": false
+                }
+              },
+              "identity_differences": {
+                "project_name": {
+                  "before": "Nadikudi - Srikalahasti New Line",
+                  "after": "Nadikude-Srikalahasti 308.7 km"
+                },
+                "agency": {
+                  "before": "(South Central Railway [SCR] - II)",
+                  "after": "(CAO/C/SCoR SCoR mor)"
+                }
+              },
+              "baseline_changes": {
+                "start_date_raw": {
+                  "before_raw": "(12/2016)",
+                  "after_raw": "(08/2015)",
+                  "status": "brought_forward",
+                  "delta": "-16",
+                  "raw_text_changed": true
+                },
+                "revised_cost_rs_crore_raw": {
+                  "before_raw": "(5932)",
+                  "after_raw": "(5906.03)",
+                  "status": "decreased",
+                  "delta": "-25.97",
+                  "raw_text_changed": true
+                }
+              },
+              "auxiliary_identifier_changes": {
+                "legacy_ocms_code_raw": {
+                  "before_raw": "(-)",
+                  "after_raw": "(-)",
+                  "status": "both_missing"
+                },
+                "pmgid_raw": {
+                  "before_raw": "(-)",
+                  "after_raw": "(-)",
+                  "status": "both_missing"
+                }
+              },
+              "before_missing_values": {
+                "legacy_ocms_code_raw": "(-)",
+                "pmgid_raw": "(-)"
+              },
+              "after_missing_values": {
+                "legacy_ocms_code_raw": "(-)",
+                "pmgid_raw": "(-)"
+              },
+              "quality_flags": [
+                "unreviewed_identity_change",
+                "baseline_start_date_raw",
+                "baseline_revised_cost_rs_crore_raw",
+                "reported_progress_decrease_requires_review",
+                "reported_expenditure_decrease_requires_review",
+                "before_missing_legacy_ocms_code_raw",
+                "before_missing_pmgid_raw",
+                "after_missing_legacy_ocms_code_raw",
+                "after_missing_pmgid_raw"
+              ],
+              "trend_review_reasons": [
+                "unreviewed_identity_change",
+                "baseline_start_date_raw",
+                "baseline_revised_cost_rs_crore_raw",
+                "reported_progress_decrease_requires_review",
+                "reported_expenditure_decrease_requires_review"
+              ],
+              "source_notes": []
+            }
+          ],
+          "not_observed_months": []
+        },
+        "warnings": [
+          {
+            "scope": "pair",
+            "code": "reported_decreases",
+            "fields": [
+              "physical_progress_pct",
+              "cumulative_expenditure_rs_crore"
+            ],
+            "report_month": null,
+            "source_pdf_pages": [
+              84,
+              80
+            ],
+            "message": "Reported decreases require review; cause is unknown."
+          }
+        ]
+      }
+    },
+    "portfolio_summary": {
+      "request": "GET /api/v1/portfolio-summary?report_month=2026-08&comparison_month=2026-07",
+      "response": {
+        "data": {
+          "report_month": "2026-08",
+          "counts": {
+            "snapshot_records": 1731,
+            "distinct_project_codes": 1731,
+            "ministries": 17,
+            "sectors": 21
+          },
+          "quality_counts": {
+            "snapshot_flags": [
+              {
+                "code": "completion_before_start",
+                "field": "revised_doc",
+                "count": 1
+              },
+              {
+                "code": "missing_value",
+                "field": "approval_date",
+                "count": 2
+              },
+              {
+                "code": "missing_value",
+                "field": "legacy_ocms_code",
+                "count": 1731
+              },
+              {
+                "code": "missing_value",
+                "field": "pmgid",
+                "count": 1731
+              },
+              {
+                "code": "missing_value",
+                "field": "revised_doc",
+                "count": 303
+              }
+            ],
+            "missing_values": [
+              {
+                "field": "approval_date",
+                "missing_reason": "source_marker",
+                "count": 2
+              },
+              {
+                "field": "legacy_ocms_code",
+                "missing_reason": "source_marker",
+                "count": 1731
+              },
+              {
+                "field": "pmgid",
+                "missing_reason": "source_marker",
+                "count": 1731
+              },
+              {
+                "field": "revised_doc",
+                "missing_reason": "source_marker",
+                "count": 303
+              }
+            ]
+          },
+          "comparison": {
+            "before_month": "2026-07",
+            "after_month": "2026-08",
+            "before_scope_count": 1775,
+            "after_scope_count": 1731,
+            "shared_scope_codes": 1694,
+            "before_only": 81,
+            "after_only": 37,
+            "presence_scope": "unfiltered_report",
+            "progress_changes": {
+              "increased": 610,
+              "unchanged": 1071,
+              "decreased": 13
+            },
+            "expenditure_changes": {
+              "unchanged": 361,
+              "increased": 1279,
+              "decreased": 54
+            },
+            "completion_date_changes": {
+              "original_target_doc_raw": {
+                "unchanged": 1690,
+                "postponed": 2,
+                "brought_forward": 2
+              },
+              "revised_doc_raw": {
+                "both_missing": 272,
+                "postponed": 235,
+                "unchanged": 1122,
+                "became_available": 55,
+                "brought_forward": 10
+              }
+            },
+            "missing_field_records": 1694,
+            "screening_policy": "monthly-history-v1",
+            "trend_eligible": 0,
+            "trend_excluded": 1694,
+            "exclusion_reasons": {
+              "baseline_revised_cost_rs_crore_raw": 1694,
+              "documented_split_scope_requires_review": 20,
+              "unreviewed_identity_change": 29,
+              "baseline_start_date_raw": 139,
+              "reported_expenditure_decrease_requires_review": 54,
+              "reported_progress_decrease_requires_review": 13,
+              "baseline_original_cost_rs_crore_raw": 4,
+              "before_completion_before_start_revised_doc_raw": 1,
+              "after_completion_before_start_revised_doc_raw": 1,
+              "missing_metric_or_baseline": 2
+            }
+          }
+        },
+        "meta": {
+          "contract_version": "1",
+          "dataset_version": "756d0304736b2f6a61a5fee7363a07e23c583611319fd4f17699ac6f4942d24a",
+          "validation_status": "validated_history",
+          "filters": {
+            "report_month": "2026-08",
+            "comparison_month": "2026-07"
+          }
+        },
+        "warnings": [
+          {
+            "scope": "pair",
+            "code": "conservative_baseline_screen",
+            "fields": [
+              "revised_cost_rs_crore"
+            ],
+            "report_month": "2026-08",
+            "source_pdf_pages": [],
+            "message": "All 1694 shared matches fail the conservative gate because revised-cost baselines change to published zeros. This does not prove all measurements unusable."
+          },
+          {
+            "scope": "report",
+            "code": "headline_roll_forward_gap",
+            "fields": [],
+            "report_month": "2026-08",
+            "source_pdf_pages": [
+              4
+            ],
+            "message": "Published headline counts do not close the simple monthly roll-forward (difference -34); individual causes are unknown."
+          }
+        ]
+      }
+    },
+    "validation_error": {
+      "illustrative": true,
+      "request": "GET /api/v1/projects?report_month=August",
+      "http_status": 422,
+      "response": {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "Request parameters are invalid.",
+          "details": [
+            {
+              "location": "query.report_month",
+              "code": "invalid_month_format",
+              "message": "Expected YYYY-MM."
+            }
+          ]
+        },
+        "meta": {
+          "contract_version": "1",
+          "dataset_version": null
+        }
+      }
+    }
+  }
+}
