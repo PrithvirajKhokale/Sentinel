@@ -74,3 +74,7 @@ Difference between actual and planned physical progress.
 Progress Variance =
 Actual Physical Progress - Planned Physical Progress
 ```
+
+## 8. Observed August 2026 report schema
+
+See [Table 6 extraction notes](data-extraction.md) for the observed source columns, units, raw-value policy, and validated first 10 records. The fields above remain provisional; they are not all present in this report.

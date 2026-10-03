@@ -99,3 +99,12 @@ coverage.xml
 *.sqlite-wal
 *.sqlite-shm
 /Microsoft/Windows/PowerShell/
+
+# Source reports (local inputs)
+/data/raw/*.pdf
+
+# Generated PDF validation evidence
+/data/validation/
+
+# Reviewed extraction sample
+!/data/processed/august_2026_table6_first10.csv
