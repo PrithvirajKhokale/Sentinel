@@ -108,3 +108,6 @@ coverage.xml
 
 # Reviewed extraction sample
 !/data/processed/august_2026_table6_first10.csv
+
+# Immutable local dataset archives
+/data/revisions/

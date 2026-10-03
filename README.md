@@ -51,3 +51,7 @@ Risk Engine        Explainability
               v
        Web Dashboard
 ```
+
+## Local monitoring backend
+
+See [local setup, migrations, validated import and API checks](docs/backend-local.md). The first delivery provides project list/detail endpoints on loopback only, without predictions or shared deployment.

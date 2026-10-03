@@ -2,7 +2,7 @@
 
 ## Scope and existing stack
 
-This is a proposed read-only monitoring architecture grounded in the validated April-August 2026 history: 9,321 snapshots, 2,111 project codes; monthly counts 1,981 / 1,987 / 1,847 / 1,775 / 1,731. No backend, frontend or database migration is implemented by these documents.
+This is a proposed read-only monitoring architecture grounded in the validated April-August 2026 history: 9,321 snapshots, 2,111 project codes; monthly counts 1,981 / 1,987 / 1,847 / 1,775 / 1,731. The local first delivery now implements migrations, validated import and project list/detail APIs; see [backend setup](backend-local.md). The frontend, history/portfolio HTTP endpoints and shared deployment remain unimplemented.
 
 Retain existing decisions: Python extraction; FastAPI with Pydantic request/response validation; PostgreSQL storage through SQLAlchemy; React with Vite for the MVP frontend. Candidate baseline, Random Forest and XGBoost evaluation remains a separate future research track. No validated model or model response exists today.
 
