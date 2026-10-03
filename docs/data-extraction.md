@@ -71,3 +71,7 @@ The generated validation JSON includes source SHA-256, both engines' cell text, 
 | 10 | 611047 | Jammu | 861.37 | 0.00 | 388.13 | 61.35 | (11/2026) |
 
 Full-report follow-ups: [August full extraction](august-full-extraction.md) and [April extraction and comparison](april-extraction-comparison.md).
+
+## April?August monthly history
+
+See [monthly history validation and reproduction](monthly-project-history.md) for independently inspected May, June and July sources, complete snapshots, reviewed fixtures, adjacent comparisons, and source limitations.

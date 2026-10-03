@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "reports": [
+    {
+      "report_month": "APRIL 2026",
+      "report_month_iso": "2026-04",
+      "pdf": "data/raw/FlashReport_April2026.pdf",
+      "source_sha256": "90a6959e976da6928440efdea9c68847d1178356e4c0ebd078c51026ddb118d5",
+      "csv": "data/processed/april_2026_ongoing_all.csv",
+      "audit": "data/validation/april_2026_ongoing_all.json",
+      "references": [
+        "tests/fixtures/april_2026_ongoing_visual_samples.json"
+      ],
+      "expected_project_count": 1981,
+      "expected_ministries": 17,
+      "observed_table_number": 6,
+      "divider_pdf_page": 54,
+      "project_pdf_page_range": [
+        55,
+        162
+      ],
+      "contents_pdf_page": 2,
+      "headline_pdf_page": 4,
+      "summary_table_number": 1,
+      "summary_pdf_pages": [
+        24
+      ],
+      "source_platform": "IPM",
+      "documented_reporting_cutoff_date": "2026-05-19",
+      "documented_reporting_cutoff_raw": "latest by 19th May 2026",
+      "cutoff_source_pdf_page": 2,
+      "publication_date": null,
+      "first_available_date": null,
+      "availability_note": "No publication/first-availability date documented in the inspected PDF; latest-by is a reporting/submission cutoff, not publication availability.",
+      "source_notes": [],
+      "headline_commissioned_during_month": 9,
+      "headline_newly_added_during_month": 55,
+      "source_observations": []
+    },
+    {
+      "report_month": "MAY 2026",
+      "report_month_iso": "2026-05",
+      "pdf": "data/raw/FlashReport_May2026.pdf",
+      "source_sha256": "480d98632cd1b1d4fe70b58a5a753924b2735b0135e7c8507c1ec05ff2ddf005",
+      "csv": "data/processed/may_2026_ongoing_all.csv",
+      "audit": "data/validation/may_2026_ongoing_all.json",
+      "references": [
+        "tests/fixtures/may_2026_ongoing_visual_samples.json"
+      ],
+      "expected_project_count": 1987,
+      "expected_ministries": 17,
+      "observed_table_number": 6,
+      "divider_pdf_page": 53,
+      "project_pdf_page_range": [
+        54,
+        162
+      ],
+      "contents_pdf_page": 2,
+      "headline_pdf_page": 4,
+      "summary_table_number": 1,
+      "summary_pdf_pages": [
+        24
+      ],
+      "source_platform": "IPM",
+      "documented_reporting_cutoff_date": "2026-06-24",
+      "documented_reporting_cutoff_raw": "latest by 24th June 2026",
+      "cutoff_source_pdf_page": 2,
+      "publication_date": null,
+      "first_available_date": null,
+      "availability_note": "No publication/first-availability date documented in the inspected PDF; latest-by is a reporting/submission cutoff, not publication availability.",
+      "source_notes": [
+        {
+          "kind": "unpublished_inconsistent_expenditure",
+          "source_pdf_page": 162,
+          "project_codes": [
+            "618051",
+            "618307",
+            "619065",
+            "619113",
+            "618816"
+          ],
+          "text": "These five project IDs are not published because cumulative expenditure is inconsistent; publication awaits rectification."
+        },
+        {
+          "kind": "revised_cost_reconciliation",
+          "source_pdf_page": 162,
+          "text": "Projects with revised cost below Rs.150 crore are under reconciliation."
+        }
+      ],
+      "headline_commissioned_during_month": 16,
+      "headline_newly_added_during_month": 35,
+      "source_observations": [
+        {
+          "kind": "publication_note_conflict",
+          "source_note_pdf_page": 162,
+          "project_code": "618816",
+          "observation": "The closing note lists618816 as not published, but an ongoing Table6 row for that code is actually present. Preserve both the note and the row; cause unknown."
+        }
+      ]
+    },
+    {
+      "report_month": "JUNE 2026",
+      "report_month_iso": "2026-06",
+      "pdf": "data/raw/FlashReport_June_2026.pdf",
+      "source_sha256": "d26872ac9336b451d311e823646560d29d8a6c2fbc9fdca9fd78fc22fd08ca15",
+      "csv": "data/processed/june_2026_ongoing_all.csv",
+      "audit": "data/validation/june_2026_ongoing_all.json",
+      "references": [
+        "tests/fixtures/june_2026_ongoing_visual_samples.json"
+      ],
+      "expected_project_count": 1847,
+      "expected_ministries": 17,
+      "observed_table_number": 6,
+      "divider_pdf_page": 58,
+      "project_pdf_page_range": [
+        59,
+        159
+      ],
+      "contents_pdf_page": 2,
+      "headline_pdf_page": 4,
+      "summary_table_number": 1,
+      "summary_pdf_pages": [
+        24
+      ],
+      "source_platform": "CRIP",
+      "documented_reporting_cutoff_date": "2026-07-24",
+      "documented_reporting_cutoff_raw": "latest by 24th July 2026",
+      "cutoff_source_pdf_page": 2,
+      "publication_date": null,
+      "first_available_date": null,
+      "availability_note": "No publication/first-availability date documented in the inspected PDF; latest-by is a reporting/submission cutoff, not publication availability.",
+      "source_notes": [],
+      "headline_commissioned_during_month": 130,
+      "headline_newly_added_during_month": 17,
+      "source_observations": [
+        {
+          "kind": "documented_withholding",
+          "source_pdf_page": 160,
+          "project_codes": [
+            "617933",
+            "617917",
+            "617944",
+            "617957",
+            "617981",
+            "617993",
+            "617977",
+            "617982",
+            "618006",
+            "618007",
+            "618046",
+            "618062",
+            "618090",
+            "618136",
+            "618144",
+            "618181",
+            "618167",
+            "618192",
+            "618208",
+            "618220",
+            "618229",
+            "618342",
+            "618343",
+            "618432"
+          ],
+          "observed_in_ongoing_table": [],
+          "text": "June explicitly withholds these 24 IDs because cumulative expenditure data is inconsistent. It does not label them completed. No inferred completion or cause for other absent codes."
+        }
+      ]
+    },
+    {
+      "report_month": "JULY 2026",
+      "report_month_iso": "2026-07",
+      "pdf": "data/raw/FlashReport_July_2026.pdf",
+      "source_sha256": "dcf52cea3b2ed6f97a49739af833f877c2afb55f61d5c43cb162f97ef6f3a9f3",
+      "csv": "data/processed/july_2026_ongoing_all.csv",
+      "audit": "data/validation/july_2026_ongoing_all.json",
+      "references": [
+        "tests/fixtures/july_2026_ongoing_visual_samples.json"
+      ],
+      "expected_project_count": 1775,
+      "expected_ministries": 17,
+      "observed_table_number": 6,
+      "divider_pdf_page": 54,
+      "project_pdf_page_range": [
+        55,
+        152
+      ],
+      "contents_pdf_page": 2,
+      "headline_pdf_page": 4,
+      "summary_table_number": 1,
+      "summary_pdf_pages": [
+        24
+      ],
+      "source_platform": "CRIP",
+      "documented_reporting_cutoff_date": "2026-08-21",
+      "documented_reporting_cutoff_raw": "latest by 21st August 2026",
+      "cutoff_source_pdf_page": 2,
+      "publication_date": null,
+      "first_available_date": null,
+      "availability_note": "No publication/first-availability date documented in the inspected PDF; latest-by is a reporting/submission cutoff, not publication availability.",
+      "source_notes": [
+        {
+          "kind": "completed_table_publication_exclusion",
+          "source_pdf_page": 152,
+          "project_codes": [
+            "617933",
+            "617917",
+            "617944",
+            "617957",
+            "617977",
+            "618006",
+            "618007",
+            "618046",
+            "618062",
+            "618090",
+            "618144",
+            "618181",
+            "618167",
+            "618192",
+            "618208",
+            "618220",
+            "618229",
+            "618005",
+            "618023",
+            "618165",
+            "618179"
+          ],
+          "text": "The report explicitly describes these as completed projects whose publication is withheld for inconsistent cumulative expenditure. This note is not inferred from absence in ongoing rows."
+        },
+        {
+          "kind": "documented_project_split",
+          "source_pdf_page": 152,
+          "parent_project_code": "706775",
+          "total_projects_including_parent": 26,
+          "published_projects_including_parent": 20,
+          "project_codes": [
+            "706775",
+            "976009",
+            "240484",
+            "914467",
+            "476006",
+            "124199",
+            "437130",
+            "660056",
+            "108841",
+            "462136",
+            "175860",
+            "317725",
+            "171218",
+            "938832",
+            "946208",
+            "665021",
+            "222253",
+            "708687",
+            "210914",
+            "547243"
+          ],
+          "text": "The report states project706775 split into26 projects including original;20 are available and six will be onboarded later. Retain separate codes, do not aggregate or assign an event date."
+        },
+        {
+          "kind": "revised_cost_reconciliation",
+          "source_pdf_page": 152,
+          "text": "Projects with revised cost below Rs.150 crore are under reconciliation."
+        }
+      ],
+      "headline_commissioned_during_month": 25,
+      "headline_newly_added_during_month": 36,
+      "source_observations": []
+    },
+    {
+      "report_month": "AUGUST 2026",
+      "report_month_iso": "2026-08",
+      "pdf": "data/raw/FlashReport_August_2026.pdf",
+      "source_sha256": "af9fad425ca081ab4c1fa49fedc1640ac0e6b199f04372761a31507754a03b02",
+      "csv": "data/processed/august_2026_table6_all.csv",
+      "audit": "data/validation/august_2026_table6_all.json",
+      "references": [
+        "tests/fixtures/august_2026_table6_first10.json",
+        "tests/fixtures/august_2026_table6_visual_samples.json"
+      ],
+      "expected_project_count": 1731,
+      "expected_ministries": 17,
+      "observed_table_number": 6,
+      "divider_pdf_page": 56,
+      "project_pdf_page_range": [
+        57,
+        152
+      ],
+      "contents_pdf_page": 2,
+      "headline_pdf_page": 4,
+      "summary_table_number": 1,
+      "summary_pdf_pages": [
+        24,
+        25
+      ],
+      "source_platform": "CRIP",
+      "documented_reporting_cutoff_date": "2026-09-24",
+      "documented_reporting_cutoff_raw": "latest by 24th September 2026",
+      "cutoff_source_pdf_page": 2,
+      "publication_date": null,
+      "first_available_date": null,
+      "availability_note": "No publication/first-availability date documented in the inspected PDF; latest-by is a reporting/submission cutoff, not publication availability.",
+      "source_notes": [],
+      "headline_commissioned_during_month": 47,
+      "headline_newly_added_during_month": 37,
+      "source_observations": []
+    }
+  ],
+  "observed_schema": [
+    "Sl.No",
+    "Project Name (Agency) (Project Code) (Legacy OCMS Code) (PMGID)",
+    "State",
+    "Date of Approval (Start Date) MM/YYYY",
+    "Orignal/Target DoC (Revised DoC) MM/YYYY",
+    "Orignal Cost / Revised Cost in Rs. Crore",
+    "Cumulative Expenditure in Rs. Crore",
+    "Physical Progress (%)"
+  ]
+}

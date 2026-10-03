@@ -11,7 +11,7 @@ import pdfplumber
 import pymupdf
 
 MONTH = r"(JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)\s+(20\d{2})"
-MARKERS = {"-", "(-)", "NA", "(NA)", "N/A", "(N/A)"}
+MARKERS = {"-", "(-)", "NA", "(NA)", "N/A", "(N/A)", "()"}
 
 
 def normalize(value):
@@ -56,11 +56,16 @@ def parse_row(cells):
         raise ValueError("Missing or ambiguous project/legacy/PMG identifier block")
     name, agency = split_agency(identity[:match.start()])
     approval, start = pair(cells[3], "approval/start")
-    original_doc, revised_doc = pair(cells[4], "completion")
+    # Visually verified May pattern: the only completion text is the
+    # parenthesized revised marker; the unparenthesized original slot is blank.
+    # Keep that source blank, rather than manufacture a marker or date.
+    original_doc, revised_doc = ("", "(-)") if cells[4].strip() == "(-)" else pair(cells[4], "completion")
     original_cost, revised_cost = pair(cells[5], "cost")
     for label, value in [("approval", approval), ("start", start),
                          ("original completion", original_doc), ("revised completion", revised_doc)]:
         bare = value[1:-1] if value.startswith("(") and value.endswith(")") else value
+        if (value == "()" or (label == "original completion" and value == "" and cells[4].strip() == "(-)")):
+            continue
         if bare not in {"-", "NA", "N/A"} and not re.fullmatch(r"(0[1-9]|1[0-2])/\d{4}", bare):
             raise ValueError(f"Ambiguous {label} date: {value!r}")
     for label, value in [("original cost", original_cost), ("revised cost", revised_cost),
@@ -122,7 +127,9 @@ def assemble(rows, limit=None):
                           ministry=pending["ministry"], sector=pending["sector"],
                           pdf_pages=";".join(map(str, dict.fromkeys(pages))),
                           printed_pages=";".join(map(str, dict.fromkeys(printed))),
-                          source_cells_json=json.dumps(pending["cells"], ensure_ascii=False))
+                          source_cells_json=json.dumps(pending["cells"], ensure_ascii=False),
+                          source_empty_fields_json=json.dumps(["original_target_doc_raw"]
+                                                              if parsed["original_target_doc_raw"] == "" else []))
             records.append(parsed)
             evidence.append(dict(serial_no=parsed["serial_no"], project_code=parsed["project_code"],
                                  parts=pending["parts"]))
@@ -293,11 +300,15 @@ def audit(records, rows, totals, report_counts, issues, full, table1=None, reque
     codes = defaultdict(list)
     for record in records:
         codes[record["project_code"]].append(record["serial_no"])
-    blank, markers = defaultdict(list), defaultdict(list)
+    blank, markers, source_empty = defaultdict(list), defaultdict(list), defaultdict(list)
     for record in records:
         for key, value in record.items():
             if not value:
-                blank[key].append(record["serial_no"])
+                documented = (key == "original_target_doc_raw"
+                              and record.get("revised_doc_raw") == "(-)"
+                              and json.loads(record.get("source_cells_json", "[]"))[4:5] == ["(-)"]
+                              and key in json.loads(record.get("source_empty_fields_json", "[]")))
+                (source_empty if documented else blank)[key].append(record["serial_no"])
             elif value in MARKERS:
                 markers[key].append(record["serial_no"])
     ministry_counts = dict(Counter(r["ministry"] for r in records))
@@ -309,7 +320,7 @@ def audit(records, rows, totals, report_counts, issues, full, table1=None, reque
                   duplicate_serials={str(k):v for k,v in count.items() if v > 1},
                   serial_order_matches=serials == sorted(serials),
                   duplicate_project_codes={k:v for k,v in codes.items() if len(v)>1},
-                  blank_fields=dict(blank), explicit_missing_markers=dict(markers),
+                  blank_fields=dict(blank), source_empty_fields=dict(source_empty), explicit_missing_markers=dict(markers),
                   ministry_counts=ministry_counts, unique_sectors=sorted({r["sector"] for r in records}),
                   section_count_checks=totals, section_count_mismatches=[t for t in totals if not t["matches"]],
                   section_total_sum=sum(t["expected"] for t in totals),
@@ -384,9 +395,14 @@ def main():
                                    mismatches=mismatches))
             reference_checks.append(dict(serial_no=expected["serial_no"],
                                          fields_checked=len(expected), matches=not mismatches))
+    source_hash = hashlib.sha256(args.pdf.read_bytes()).hexdigest()
+    for record in records:
+        record["source_sha256"] = source_hash
     result = audit(records, rows, totals, report_counts, issues, args.all, table1, requested_limit=limit)
     result.update(source_filename=args.pdf.name,
-                  source_sha256=hashlib.sha256(args.pdf.read_bytes()).hexdigest(),
+                  source_sha256=source_hash,
+                  extractor_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                  reference_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in args.reference},
                   reference_checks=reference_checks, headings=headings, evidence=evidence)
     args.validation.parent.mkdir(parents=True, exist_ok=True)
     # Always write rejection/ambiguity evidence, even when extraction is incomplete.
