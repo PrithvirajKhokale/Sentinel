@@ -1,0 +1,3636 @@
+{
+  "review_version": 1,
+  "review_date": "2026-10-03",
+  "method": "Manual review of all 125 flagged before/after source descriptions, state coverage, original costs, start dates and page provenance. Not a visual reinspection of all 125 PDF rows; selected anomalies have prior visual evidence. Final agency-pair review separately identifies changed railway-zone acronyms rather than assuming all office labels are harmless.",
+  "input_pdf_sha256": {
+    "april_pdf": "90a6959e976da6928440efdea9c68847d1178356e4c0ebd078c51026ddb118d5",
+    "august_pdf": "af9fad425ca081ab4c1fa49fedc1640ac0e6b199f04372761a31507754a03b02"
+  },
+  "reviews": [
+    {
+      "project_code": "400012",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Kandla Gorakhpur LPG Pipeline",
+          "agency": "(Ministry of Petroleum & Natural Gas)",
+          "state": "Multi-States (Gujarat, Madhya Pradesh, Uttar Pradesh)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Energy Storage",
+          "original_cost_rs_crore_raw": "10088",
+          "start_date_raw": "(12/2018)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "72"
+        },
+        "august": {
+          "project_name": "Kandla Gorakhpur LPG Pipeline",
+          "agency": "(Indian Oil Corporation Limited [IOCL])",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Energy Storage",
+          "original_cost_rs_crore_raw": "10,088.00",
+          "start_date_raw": "(12/2018)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "74"
+        }
+      }
+    },
+    {
+      "project_code": "400204",
+      "classification": "unresolved",
+      "reason": "April administrative-place route and August Bahraich?Khalilabad route have different endpoint detail; the reports do not establish alias equivalence. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Bahraich-Shravasti-Balrampur-Siddharthnagar -Santkabir nagar",
+          "agency": "(North Eastern Railway [NER])",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "4939.78",
+          "start_date_raw": "(03/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "91"
+        },
+        "august": {
+          "project_name": "Bahraich - Khalilabad via Bhinga, Shravasti, Balrampur, Utraula, Domriyaganj, Mehdawal, Bansi 240.26 km",
+          "agency": "(CAOC/NER NER mor)",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "4,939.78",
+          "start_date_raw": "(08/2021)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "400205",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Sahjanwa-Dohrighat",
+          "agency": "(North Eastern Railway [NER])",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1319.75",
+          "start_date_raw": "(03/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "91"
+        },
+        "august": {
+          "project_name": "Sahjanwa - Dohrighat 81.17 km",
+          "agency": "(CAOC/NER NER mor)",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,319.75",
+          "start_date_raw": "(06/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "400223",
+      "classification": "material_reported_change",
+      "reason": "August describes a broader Tiruchchirappalli?Nagore?Karaikal package and material modification; equivalence to the narrower April description is unconfirmed. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Nagapattinam-Tiruturaipundi and Karaikal-Peralam New Line",
+          "agency": "(Ministry of Railways)",
+          "state": "Multi-States (Puducherry, Tamil Nadu)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "713",
+          "start_date_raw": "(01/2019)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Tiruchchirappalli-Nagore-Karaikal with extension of Nagapattinam-Velankani- Tiruthiraipundi incl. new material modification of Karaikal - Peralam 23 km new line",
+          "agency": "(CAOC/SR SR mor)",
+          "state": "Multi-States (Puducherry, Tamil Nadu)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "713.00",
+          "start_date_raw": "(12/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "400247",
+      "classification": "material_reported_change",
+      "reason": "August adds gauge conversion, connections and bridge work to the published work description. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Kalinarayanpur-Krishnanagar Doubling Alongwith Krishnanagar - Chapra New Line And Naihati-Ranaghat 3rd Line.",
+          "agency": "(Eastern Railway [ER] - I)",
+          "state": "West Bengal",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1000",
+          "start_date_raw": "(11/2005)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "92"
+        },
+        "august": {
+          "project_name": "Kalinarayanpur-Krishnanagar with Krishnanagar-Shantipur-Nabadwipghat - GC, Krishnanagar-Chartala, MM for Krishnanagar-Chapra-NL, Naihati-Ranaghat-3rd line, Nabadwipghat-Nabadwipdham upto BB loop 9.58 km, Ranaghat-Lalgola- strengthening bridge No.2",
+          "agency": "(CAOC/ER ER mor)",
+          "state": "West Bengal",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,000.00",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "400254",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Sakri -Hasanpur [via Harnagar - Kusheshwar Asthan] New Railway line",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "735.2",
+          "start_date_raw": "(08/1997)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "Sakri-Hasanpur 79 km",
+          "agency": "(CAO/Con/North/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "735.20",
+          "start_date_raw": "(01/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "400291",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Doubling of Kirandul-Jagdalpur Line [150 km]",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1589",
+          "start_date_raw": "(03/2013)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "Kirandul-Jagdalpur 150 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,589.00",
+          "start_date_raw": "(11/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "400298",
+      "classification": "unresolved",
+      "reason": "Corridor/state text is compatible, but the agency label changes from SCR/South Central Railway to SCoR. The reports do not establish whether responsibility or scope changed; do not certify this as a harmless agency rename. Metric/baseline flags remain separate.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Nadikudi - Srikalahasti New Line",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2312",
+          "start_date_raw": "(12/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "80"
+        },
+        "august": {
+          "project_name": "Nadikude-Srikalahasti 308.7 km",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,312.00",
+          "start_date_raw": "(10/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "82"
+        }
+      }
+    },
+    {
+      "project_code": "400301",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Multi Product Pipeline from Irugur to Devangonthi",
+          "agency": "(Department of Water Resources, River Development & GR)",
+          "state": "Multi-States (Karnataka, Tamil Nadu)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Energy Storage",
+          "original_cost_rs_crore_raw": "678",
+          "start_date_raw": "(11/2012)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "72"
+        },
+        "august": {
+          "project_name": "Multi Product Pipeline from Irugur to Devangonthi",
+          "agency": "(Department of Water Resources, River Development & GR)",
+          "state": "Tamil Nadu",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Energy Storage",
+          "original_cost_rs_crore_raw": "678.00",
+          "start_date_raw": "(11/2012)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "74"
+        }
+      }
+    },
+    {
+      "project_code": "611751",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "AURANGABAD-ANKAI - DOUBLING PROJECT 98.25 Km",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "960.64",
+          "start_date_raw": "(05/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Aurangabad-Ankai 98.25 km",
+          "agency": "(CAOCON/SCR SCR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "960.64",
+          "start_date_raw": "(04/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "611752",
+      "classification": "unresolved",
+      "reason": "Corridor/state text is compatible, but the agency label changes from SCR/South Central Railway to SCoR. The reports do not establish whether responsibility or scope changed; do not certify this as a harmless agency rename. Metric/baseline flags remain separate.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "GOOTY-PENDEKALLU DOUBLING 29.225 Km",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "351.83",
+          "start_date_raw": "(06/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "80"
+        },
+        "august": {
+          "project_name": "Doubling between Gooty-Pendakallu 29.225 km PB73/2023-24/NR",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "351.83",
+          "start_date_raw": "(06/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "611754",
+      "classification": "unresolved",
+      "reason": "Rail-over-rail track becomes rail road over double line; bridge/work-type wording is ambiguous. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "GUNTAKAL WEST-MALLAPPA GATE RAIL OVER RAIL - ROR TRACK",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "293.3",
+          "start_date_raw": "(07/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "80"
+        },
+        "august": {
+          "project_name": "South Central Railway - Rail road over double line between Guntakal West-Mallapa Gate 9.64 km PB34/CR/2023-24",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "293.30",
+          "start_date_raw": "(11/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "611855",
+      "classification": "unresolved",
+      "reason": "April ties the Devgarh?Nathdwara segment to Marwar?Mavli; August names Nathdwara Mavli?Devgarh. Package boundaries are unclear. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Devgarh Madariya - Nathdwara Gauge Conversion [82.54 Km] part of Marwar - Mavli Gauge Conversion [152 Km]",
+          "agency": "(North Western Railway [NWR])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "968.92",
+          "start_date_raw": "(01/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Nathdwara Mavli - Devgarh Madariya 82.542 km",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "968.92",
+          "start_date_raw": "(07/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "611884",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Bhiwani - Dobh Bahali Doubling Project [42.30 Km]",
+          "agency": "(North Western Railway [NWR])",
+          "state": "Haryana",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "471",
+          "start_date_raw": "(02/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "83"
+        },
+        "august": {
+          "project_name": "Doubling between Bhiwani - Dobh Bahali PB73/2023-24/NR",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Haryana",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "471.00",
+          "start_date_raw": "(11/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "611918",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state; length difference is consistent with the published display precision/rounding. No engineering equivalence beyond the report text is asserted. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Kosamba Umarpada 70 Km",
+          "agency": "(PCE/WR)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "468",
+          "start_date_raw": "(07/2022)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "83"
+        },
+        "august": {
+          "project_name": "Kosamba- Umarpada 69.70 Km PB32/WR/2023-24",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "468.00",
+          "start_date_raw": "(01/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "611943",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "New Broad Gauge line between Naliya to Jakhau Port",
+          "agency": "(Western Railway [WR] - II)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "410.26",
+          "start_date_raw": "(02/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "83"
+        },
+        "august": {
+          "project_name": "New BG line between Naliya - Jakhau Port 24.88 Km",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "410.26",
+          "start_date_raw": "(08/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "612072",
+      "classification": "unresolved",
+      "reason": "April Ahmedabad bypass wording becomes Geratpur?Sanand fourth line; equivalence of endpoint/bypass description is unresolved. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "4th LINE BETWEEN BAREJADI NANDEJ-SANAND-AHMEDABAD BYPASS",
+          "agency": "(Western Railway WR - II)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "961.67",
+          "start_date_raw": "(02/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "83"
+        },
+        "august": {
+          "project_name": "Barejadi Nandej Geratpur - Sanand - 4th line 38.20 km",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "961.67",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "612132",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Transmission Scheme for Evacuation of power from REZ in Rajasthan [20 GW] under Phase-III Part D Phase I [Sikar Khetri Transmission Ltd]",
+          "agency": "(Power Grid Corporation of India Limited [POWERGRID])",
+          "state": "Multi-States (Delhi, Rajasthan)",
+          "ministry": "Ministry of Power",
+          "sector": "Transmission & Distribution",
+          "original_cost_rs_crore_raw": "2423",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "66"
+        },
+        "august": {
+          "project_name": "Transmission Scheme for Evacuation of power from REZ in Rajasthan [20 GW] under Phase-III Part D Phase I [Sikar Khetri Transmission Ltd]",
+          "agency": "(Power Grid Corporation of India Limited [POWERGRID])",
+          "state": "Multi-States (Delhi, Haryana, Rajasthan)",
+          "ministry": "Ministry of Power",
+          "sector": "Transmission & Distribution",
+          "original_cost_rs_crore_raw": "2,423.00",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "67"
+        }
+      }
+    },
+    {
+      "project_code": "612815",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "4th line between Nipania Bhatapara 14.4 Km",
+          "agency": "(South East Central Railway [SECR] - II)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "170.49",
+          "start_date_raw": "(05/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "Nipania-Bhatapra 14.4 km 4th line PB72/NR/2022-23",
+          "agency": "(CAOC/SECR SECR mor)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "170.49",
+          "start_date_raw": "(05/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "612845",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state; length difference is consistent with the published display precision/rounding. No engineering equivalence beyond the report text is asserted. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Gauge Conversion of Pachora-Jamner with Extension upto Malkapur [Bodwad] [84.34 Kms]",
+          "agency": "(Central Railway [CR] - II)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "955.39",
+          "start_date_raw": "(01/2026)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Pachora-Jamner with extension upto Malkapur-Narrow gauge to broad gauge 84 km",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "955.39",
+          "start_date_raw": "(01/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "612853",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Gurdaspur Jammu Pipeline",
+          "agency": "(Gas Authority of India Limited [GAIL])",
+          "state": "Multi-States (Jammu and Kashmir, Punjab)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "521.9",
+          "start_date_raw": "(07/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "Gurdaspur Jammu Pipeline",
+          "agency": "(Gas Authority of India Limited [GAIL])",
+          "state": "Punjab",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "521.90",
+          "start_date_raw": "(07/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "78"
+        }
+      }
+    },
+    {
+      "project_code": "615915",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state; length difference is consistent with the published display precision/rounding. No engineering equivalence beyond the report text is asserted. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Rourkela-Bondamunda A-Cabin 5th line [9.6 km]",
+          "agency": "(CAO/C/SER)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "244.99",
+          "start_date_raw": "(12/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Rourkela-Bondamunda A-Cabin 5th line 10 km Umbrella work PB57/2019-20/NR",
+          "agency": "(CAO/C/SER SER mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "244.99",
+          "start_date_raw": "(12/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "616227",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Chandil - Anara - Damodar - 3rd line [121.26 km]",
+          "agency": "(CAO/C/SER)",
+          "state": "Multi-States (Jharkhand, West Bengal)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1932.01",
+          "start_date_raw": "(07/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "3rd line between Chandil - Anara- Damodar section 121.26 km",
+          "agency": "(CAO/C/SER SER mor)",
+          "state": "Multi-States (Jharkhand, West Bengal)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,932.01",
+          "start_date_raw": "(10/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "616254",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Visakh Raipur Pipeline Project",
+          "agency": "(Ministry of Petroleum and Natural Gas)",
+          "state": "Multi-States (Andhra Pradesh, Chhattisgarh, Odisha)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "2212",
+          "start_date_raw": "(09/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "Visakh Raipur Pipeline Project",
+          "agency": "(Hindustan Petroleum Corporation Limited)",
+          "state": "Multi-States (Chhattisgarh, Odisha)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "2,212.00",
+          "start_date_raw": "(09/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "77"
+        }
+      }
+    },
+    {
+      "project_code": "616586",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Bangriposi-Gorumahisani new line [ 85.60 km ]",
+          "agency": "(CAO/C/SER)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2269.49",
+          "start_date_raw": "(09/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Bangriposi - Gorumahisani 85.60 km PB9/SECR/2023-24",
+          "agency": "(CAO/C/SER SER mor)",
+          "state": "Multi-States (Odisha, West Bengal)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,269.49",
+          "start_date_raw": "(07/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "616588",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Buramara-Chakulia new line [59.96 km]",
+          "agency": "(South Eastern Railway [SER] - I)",
+          "state": "Multi-States (Jharkhand, Odisha, West Bengal)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1459.13",
+          "start_date_raw": "(12/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Buramara - Chakulia 59.96 km PB9/SECR/2023-24",
+          "agency": "(CAO/C/SER SER mor)",
+          "state": "Multi-States (Jharkhand, Odisha, West Bengal)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,459.13",
+          "start_date_raw": "(07/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "616694",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Flyover between Siju and Paradeep coaching Yard to avoid Surface crossing of trains",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "200.77",
+          "start_date_raw": "(10/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Flyover between Siju & Paradeep coaching yard 7 km PB73/2023-24/NR",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "200.77",
+          "start_date_raw": "(05/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "616695",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Paradeep - Badabandha 3rd & 4th Line / 18.51kms",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "300.15",
+          "start_date_raw": "(04/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Construction of Paradeep- Badabandha 3rd & 4th line 18.51 km PB34/ECOR/2023-24",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "300.15",
+          "start_date_raw": "(03/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "616697",
+      "classification": "unresolved",
+      "reason": "April port tie line becomes Gangavaram Port?Visakhapatnam Steel Plant tie line; precise work boundaries are unclear. Agency also changes ECoR to SCoR; organizational equivalence is unconfirmed.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "3rd & 4th line between Vadlapudi -Gate Jn. cabin and Tie line between Gate Junction to Gangavaram port",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "154.28",
+          "start_date_raw": "(03/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "3rd & 4 th line Vadlapudi-Gate Jn. incl. tie line between Gangavaram Port- Visakhapatnam Steel Plant12.04 km PB73/2023-24/NR",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "154.28",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "616699",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Multi tracking of Son Nagar-Andal 374.53 rkm & 814.38 tkm",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Multi-States (Bihar, Jharkhand)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "12333.57",
+          "start_date_raw": "(08/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Multi tracking of Son Nagar-Andal 374.53 rkm & 814.38 tkm PB34/ECOR/2023-24",
+          "agency": "(CAO/Con/South/MHX ECR mor)",
+          "state": "Multi-States (Bihar, Jharkhand, Uttar Pradesh, West Bengal)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "12,333.57",
+          "start_date_raw": "(03/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "616701",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Lumding Furkating Doubling Project 140 km",
+          "agency": "(Northeast Frontier Railway [NFR])",
+          "state": "Multi-States (Assam, Nagaland)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2123.7",
+          "start_date_raw": "(01/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Lumding-Furkating section 140 km Umbrella work PB57/2019-20/NR",
+          "agency": "(CAO/C-1/NFR NFR mor)",
+          "state": "Assam",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,123.70",
+          "start_date_raw": "(09/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "616839",
+      "classification": "unresolved",
+      "reason": "April Naupada?Gunupur extension becomes Gunupur?Therubali; distinguish existing line from new work before using trends. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Naupada-Gunupur - New line upto Theruvali [73.62 km]",
+          "agency": "(Indian Railway)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1165.89",
+          "start_date_raw": "(04/2026)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Gunupur - Therubali new line 73.62 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,165.89",
+          "start_date_raw": "(03/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "616841",
+      "classification": "material_reported_change",
+      "reason": "Published endpoint changes from Merta City to Merta Katyasani. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "PUSHKAR- MERTA CITY NEW LINE",
+          "agency": "(North Western Railway [NWR])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "799.64",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Pushkar - Merta Katyasani 51.346 km",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "799.64",
+          "start_date_raw": "(02/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "616843",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "AJMER- CHANDERIYA DOUBLING",
+          "agency": "(North Western Railway [NWR])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1634.79",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Ajmer-Chanderiya section 178.28 km Umbrella work PB57/2019-20/NR",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,634.79",
+          "start_date_raw": "(09/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "617210",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Tiupati Katpadi 104.39 kms",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1215.56",
+          "start_date_raw": "(04/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "Tirupati-Pakala-Katpadi Doubling 104.39 Km Item83/NR/2024-25",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Multi-States (Andhra Pradesh, Tamil Nadu)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,215.56",
+          "start_date_raw": "(12/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "617214",
+      "classification": "unresolved",
+      "reason": "Corridor/state text is compatible, but the agency label changes from SCR/South Central Railway to SCoR. The reports do not establish whether responsibility or scope changed; do not certify this as a harmless agency rename. Metric/baseline flags remain separate.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Rail Connectivity to Errupalem Amravati Namburu 57 Km",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Multi-States (Andhra Pradesh, Telangana)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2047.4",
+          "start_date_raw": "(11/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "South Central Railway- Rail connectivity to Amaravati, Capital of Andhra Pradesh Errupalem- Amaravati- Namburu New line 57 km PB7/WR/2023-24",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Multi-States (Andhra Pradesh, Telangana)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,047.40",
+          "start_date_raw": "(01/2026)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "617216",
+      "classification": "unresolved",
+      "reason": "Corridor/state text is compatible, but the agency label changes from SCR/South Central Railway to SCoR. The reports do not establish whether responsibility or scope changed; do not certify this as a harmless agency rename. Metric/baseline flags remain separate.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "3rd Line between Gudur Renigunta 83.17 Km",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "877.34",
+          "start_date_raw": "(10/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "South Central Railway- 3rd line between Gudur-Renigunta stations 83.17 km PB34/CR/2023-24",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Andhra Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "877.34",
+          "start_date_raw": "(03/2026)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "617231",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Construction of Bulb line at Nabinagar Ankorah of East Central Railway",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "611.74",
+          "start_date_raw": "(06/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "East Central Railway - Construction of Bulb line at Nabinagar Ankorah 17.49Km PB45/ECoR/2024-25.",
+          "agency": "(CAO/Con/South/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "611.74",
+          "start_date_raw": "(09/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "617239",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Doubling of Narkatiaganj Raxaul Sitamarhi Darbhanga & Sitamarhi Muzaffarpur 256 KM",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "4079.95",
+          "start_date_raw": "(11/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "Narkatiaganj-Raxaul-Sitamarhi-Darbhanga & Sitamarhi-Muzaffarpur Sections doubling 256 km Umbrella work PB57/2019-20/NR",
+          "agency": "(CAO/Con/North/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "4,079.95",
+          "start_date_raw": "(11/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "617245",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Katihar Kumedpur & Katihar Mukuria BG Doubling Project",
+          "agency": "(Northeast Frontier Railway [NFR])",
+          "state": "Multi-States (Bihar, West Bengal)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "942.64",
+          "start_date_raw": "(08/2022)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Katihar-Kumedpur & Katihar-Mukuria 64.5 km Umbrella work PB57/2019-20/NR",
+          "agency": "(CAO/C-II/NFR NFR mor)",
+          "state": "Multi-States (Bihar, West Bengal)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "942.64",
+          "start_date_raw": "(07/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "617333",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Surface triangle line bet. Bhadura stn and new crossing stn Karma",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "199.96",
+          "start_date_raw": "(05/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "91"
+        },
+        "august": {
+          "project_name": "Construction of surface traingle between Bhadaura and new crossing station Karma Dildarnagar-Taraghat line 11.1 km PB72/NR/2022-23",
+          "agency": "(CAO/Con/South/MHX ECR mor)",
+          "state": "Multi-States (Bihar, Uttar Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "199.96",
+          "start_date_raw": "(05/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "617364",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Double Chord line Between Nilaje-Kopar",
+          "agency": "(CentralRailway)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "338.33",
+          "start_date_raw": "(01/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Central Railway - Double chord line between Nilaje and Kopar 4.495 km PB34/CR/2023-24",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "338.33",
+          "start_date_raw": "(01/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "617372",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state with spelling/label variants and added descriptive detail. Identity text alone has no explicit conflicting scope; metric/baseline changes are separately flagged. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Doubling between Pradhankunta-Patherih-Bhojudih of East Central Railway",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Jharkhand",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "349.22",
+          "start_date_raw": "(11/2022)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "84"
+        },
+        "august": {
+          "project_name": "Pradhankhunta Jn-Patherdih Bazar-Bhojudih 17.1 km Umbrella work PB57/2019- 20/NR",
+          "agency": "(CAO/Con/South/MHX ECR mor)",
+          "state": "Jharkhand",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "349.22",
+          "start_date_raw": "(12/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "617404",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "POKHRAN - RAMDEVRA New Line",
+          "agency": "(North Western Railway [NWR])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "189.21",
+          "start_date_raw": "(04/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "North Western Railway - New line between Ramdevra and Pokhran via Bhairav Gufa - Kailash Tekri 13.38 Km PB30/NR/2025-26",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "189.21",
+          "start_date_raw": "(03/2026)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "617412",
+      "classification": "unresolved",
+      "reason": "August omits April specified residential-quarter quantities/types; cannot establish whether omission is abbreviation or scope change.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Construction of One Tower of Office Complex and another Tower of Residential quarters consisting of 10Nos. Type-V, 10Nos. Type-VI & 1No.Type-VII Quarters i/c internal water supply, sanitary installation and all development and bulk services, Horticulture works on EPC Mode-I basis i/c comprehensive operation and maintenance of Civil, E&M services for 7 years after completion of original construction work for Ranga Reddy, Secunderabad, Medchal, AuditI, Audit-II Commissionerates of Central Tax at Khajaguda, Serilingampally, Hyderabad.",
+          "agency": "(Central Public Works Department - CPWD)",
+          "state": "Telangana",
+          "ministry": "Ministry of Housing & Urban Affairs",
+          "sector": "Construction",
+          "original_cost_rs_crore_raw": "644",
+          "start_date_raw": "(11/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "67"
+        },
+        "august": {
+          "project_name": "Construction of One Tower of Office Complex and another Tower of Residential quarters i/c internal water supply, sanitary installation and all development and bulk services, Horticulture works on EPC Mode-I basis i/c comprehensive operation and maintenance of Civil, E&M services for 7 years after completion of original construction work for Ranga Reddy, Secunderabad, Medchal, AuditI, Audit-II Commissionerates of Central Tax at Khajaguda, Serilingampally, Hyderabad.",
+          "agency": "(Central Public Works Department - CPWD)",
+          "state": "Telangana",
+          "ministry": "Ministry of Housing & Urban Affairs",
+          "sector": "Construction",
+          "original_cost_rs_crore_raw": "644.00",
+          "start_date_raw": "(11/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "69"
+        }
+      }
+    },
+    {
+      "project_code": "617827",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Pipeline Rehabilitation Project, Phase-II",
+          "agency": "(Ministry of Petroleum & Natural Gas)",
+          "state": "Multi-States (Assam, Bihar, West Bengal)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "680",
+          "start_date_raw": "(12/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "Pipeline Rehabilitation Project, Phase-II",
+          "agency": "(Oil India Limited)",
+          "state": "Assam",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "680.00",
+          "start_date_raw": "(12/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "74"
+        }
+      }
+    },
+    {
+      "project_code": "617832",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state; length difference is consistent with the published display precision/rounding. No engineering equivalence beyond the report text is asserted. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Koderma-Arigada Doubling 133.38 Km of East Central Railway",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Jharkhand",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2887.11",
+          "start_date_raw": "(06/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "84"
+        },
+        "august": {
+          "project_name": "Koderma-Barkakana Arigada 133 Km",
+          "agency": "(CAO/Con/South/MHX ECR mor)",
+          "state": "Jharkhand",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,887.11",
+          "start_date_raw": "(06/2026)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "618797",
+      "classification": "unresolved",
+      "reason": "Long highway/package descriptions overlap but April bypass-link wording is not explicit in August; chainage equivalence requires authoritative confirmation. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Mayjilar Jaisalmer with Jaisalmer Bypass Link Road Section of NH-11 Part of BM-7 & Sundra Myajilar Ambsingh ki Dhani Road part of Munabao Tanot project NH-70",
+          "agency": "(National Highways Authority of India [NHAI])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Road Transport & Highways",
+          "sector": "Roads & Highways",
+          "original_cost_rs_crore_raw": "1237.71",
+          "start_date_raw": "(12/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "143"
+        },
+        "august": {
+          "project_name": "Widening Strengthening of 2-Lane with Paved Shoulder from MyajlarJaisalmer from Design Chainage 0000 to 98350 Section of NH-11 & SundraMyajlarAmbasingh ki Dhani Road from Design Chainage 46000 to 81601, part of MunabaoTanot Road Section of NH-70 along with Strengthening/Widening of Existing Connection of NH-70 & NH-11 of length 0.914 km in the State of Rajasthan under NHO on Hybrid Annuity Mode",
+          "agency": "(NHAI)",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Road Transport & Highways",
+          "sector": "Roads & Highways",
+          "original_cost_rs_crore_raw": "1,237.71",
+          "start_date_raw": "(12/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "134"
+        }
+      }
+    },
+    {
+      "project_code": "619184",
+      "classification": "material_reported_change",
+      "reason": "August omits April km155?181 segment and changes km138.00 to138.300; package equivalence is unconfirmed. These are source-description differences, not independently established engineering changes.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Rehabilitation and up-gradation of section to Intermediate/2-Lane with hard shoulder from Km 107.760 to Km 129.445 After Middle strait to Humphrey, Km 130.600 to Km 138.00 After Humphrey to Kadamtala & Km 155.00 to Km 181.0 End of Jarwa to Rangat of NH-04 in UT of A&N on EPC Package-IIIA",
+          "agency": "(NHIDCL)",
+          "state": "Andaman & Nicobar",
+          "ministry": "Ministry of Road Transport & Highways",
+          "sector": "Roads & Highways",
+          "original_cost_rs_crore_raw": "207.45",
+          "start_date_raw": "(03/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "92"
+        },
+        "august": {
+          "project_name": "Rehabilitation and up-gradation and completion of balance works of the section from Km 107.760 km to 129.445 km After Middle strait to Humphrey, Km 130.600 to 138.300 After Humphrey to Kadamtala of NH-4 Intermediate/2-Lane with hard shoulder in the Union Territory of Andaman & Nicobar Islands on EPC basis Package- IIIA",
+          "agency": "(NHIDCL)",
+          "state": "Andaman & Nicobar",
+          "ministry": "Ministry of Road Transport & Highways",
+          "sector": "Roads & Highways",
+          "original_cost_rs_crore_raw": "207.45",
+          "start_date_raw": "(03/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "701228",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Kochi - Koottanad - Bangalore - Mangalore Pipeline Phase-II",
+          "agency": "(Ministry of Petroleum & Natural Gas)",
+          "state": "Multi-States (Karnataka, Kerala, Tamil Nadu)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "2915",
+          "start_date_raw": "(06/2009)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "Kochi - Koottanad - Bangalore - Mangalore Pipeline Phase-II",
+          "agency": "(Gas Authority of India Limited [GAIL])",
+          "state": "Tamil Nadu",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "2,915.00",
+          "start_date_raw": "(06/2009)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "78"
+        }
+      }
+    },
+    {
+      "project_code": "701330",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Mehsana-Bhatinda & Bhatinda-Jammu Natural Gas Pipeline",
+          "agency": "(Ministry of Petroleum & Natural Gas)",
+          "state": "Multi-States (Gujarat, Haryana, Punjab, Rajasthan)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "7392",
+          "start_date_raw": "(07/2011)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "Mehsana-Bhatinda & Bhatinda-Jammu Natural Gas Pipeline",
+          "agency": "(Indian Oil Corporation Limited [IOCL])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "7,392.00",
+          "start_date_raw": "(07/2011)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "78"
+        }
+      }
+    },
+    {
+      "project_code": "701338",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "City Gas Distribution Maharashtra Natural Gas Limited",
+          "agency": "(Ministry of Petroleum & Natural Gas)",
+          "state": "Multi-States (Karnataka, Maharashtra)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "5535",
+          "start_date_raw": "(01/2006)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "City Gas Distribution Maharashtra Natural Gas Limited",
+          "agency": "(Gas Authority of India Limited [GAIL])",
+          "state": "Karnataka",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "5,535.00",
+          "start_date_raw": "(01/2006)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "76"
+        }
+      }
+    },
+    {
+      "project_code": "701344",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Dhamra Haldia Pipeline Project",
+          "agency": "(Ministry of Petroleum & Natural Gas)",
+          "state": "Multi-States (Odisha, West Bengal)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "1030.65",
+          "start_date_raw": "(03/2020)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "Dhamra Haldia Pipeline Project",
+          "agency": "(Gas Authority of India Limited [GAIL])",
+          "state": "West Bengal",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "1,030.65",
+          "start_date_raw": "(03/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "79"
+        }
+      }
+    },
+    {
+      "project_code": "701346",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "North East Gas Grid",
+          "agency": "(Ministry of Petroleum & Natural Gas)",
+          "state": "Multi-States (Arunachal Pradesh, Assam, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, Tripura, West Bengal)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "9265",
+          "start_date_raw": "(04/2020)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "North East Gas Grid",
+          "agency": "(Indradhanush Gas Grid Limited)",
+          "state": "Tripura",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "9,265.00",
+          "start_date_raw": "(04/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "78"
+        }
+      }
+    },
+    {
+      "project_code": "701349",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Paradip-Numaligarh Crude Oil Pipeline [PNCPL] & Crude Oil Import Terminal [COIT] at Paradip",
+          "agency": "(Ministry of Petroleum & Natural Gas)",
+          "state": "Multi-States (Assam, Bihar, Jharkhand, Odisha, West Bengal)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Energy Storage",
+          "original_cost_rs_crore_raw": "10228",
+          "start_date_raw": "(01/2019)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "72"
+        },
+        "august": {
+          "project_name": "Paradip-Numaligarh Crude Oil Pipeline [PNCPL] & Crude Oil Import Terminal [COIT] at Paradip",
+          "agency": "(Numaligarh Refinery Limited)",
+          "state": "West Bengal",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Energy Storage",
+          "original_cost_rs_crore_raw": "10,228.00",
+          "start_date_raw": "(01/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "74"
+        }
+      }
+    },
+    {
+      "project_code": "703586",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Baiyyappanahalli - Hosur Doubling Project [48 km]",
+          "agency": "(Karnataka Rail Infrastructure Development Company Limited [K-RIDE])",
+          "state": "Multi-States (Karnataka, Tamil Nadu)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "498.7",
+          "start_date_raw": "(02/2019)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Baiyyappanahalli-Hosur 48 km",
+          "agency": "(M.D/KRIDE SWR mor)",
+          "state": "Multi-States (Karnataka, Tamil Nadu)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "498.70",
+          "start_date_raw": "(11/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705357",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Baramati Lonand New Line Project",
+          "agency": "(Central Railway)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "138.48",
+          "start_date_raw": "(03/1999)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Baramati - Lonand 54 km",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "138.48",
+          "start_date_raw": "(04/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705358",
+      "classification": "unresolved",
+      "reason": "Khurda becomes Khurda Road; station/endpoint specificity cannot be confirmed from these report labels alone. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Khurda-Bolangir New Broad Gauge Rail Link [301km]",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "3792",
+          "start_date_raw": "(03/2001)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Khurda Road-Bolangir 301 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "3,792.00",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "705359",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Talcher-Bimlagarh New Railway Line",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1928",
+          "start_date_raw": "(12/2004)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Talcher-Bimlagarh 154 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,928.00",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "705366",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Hajipur-Sagauli New line",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2067",
+          "start_date_raw": "(10/2004)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "Hajipur-Sagauli via Vaishali 148.3 km",
+          "agency": "(CAO/Con/North/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,067.00",
+          "start_date_raw": "(12/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "705368",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Araria Supaul New BG Line",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1605",
+          "start_date_raw": "(03/2009)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "Araria-Supaul 92 km",
+          "agency": "(CAO/Con/North/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,605.00",
+          "start_date_raw": "(12/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "705375",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Koderma-Tilaiya New Line",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Multi-States (Bihar, Jharkhand)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1626",
+          "start_date_raw": "(03/2002)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Koderma-Tilaiya 68 km",
+          "agency": "(CAO/Con/South/MHX ECR mor)",
+          "state": "Multi-States (Bihar, Jharkhand)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,626.00",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705385",
+      "classification": "material_reported_change",
+      "reason": "Published length changes from100.52km to97km, beyond display rounding. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Pirpainti - Jasidih [100.52 Km] New BG line",
+          "agency": "(Eastern Railway [ER] - I)",
+          "state": "Multi-States (Bihar, Jharkhand)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2555",
+          "start_date_raw": "(03/2022)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Pirpainti - Jasidih 97 km",
+          "agency": "(CAOC/ER ER mor)",
+          "state": "Multi-States (Bihar, Jharkhand)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,555.00",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705391",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Jiribam-Imphal new line project",
+          "agency": "(Northeast Frontier Railway [NFR])",
+          "state": "Manipur",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "14323",
+          "start_date_raw": "(12/2007)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "Jiribam-Imphal 110 km",
+          "agency": "(CAO/C-III/NFR NFR mor)",
+          "state": "Manipur",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "14,323.00",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705392",
+      "classification": "material_reported_change",
+      "reason": "Published length changes from82.5km to88km; endpoint wording also changes. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Dimapur [Dhansiri]-Sukhobi Kohima [Zubza] NL [82.5 Km]",
+          "agency": "(Northeast Frontier Railway [NFR] - II)",
+          "state": "Multi-States (Assam, Nagaland)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "6663",
+          "start_date_raw": "(02/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Dimapur-Kohima 88 km",
+          "agency": "(CAO/C-1/NFR NFR mor)",
+          "state": "Multi-States (Assam, Nagaland)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "6,663.00",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705419",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Gwalior - Seopurkala with extension to Kota [Gauge Conversion]",
+          "agency": "(North Central Railway)",
+          "state": "Multi-States (Madhya Pradesh, Rajasthan)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2913",
+          "start_date_raw": "(07/2018)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Gwalior-Sheorpurkalan with extension to Kota 284 km",
+          "agency": "(CAO/C/NCR NCR mor)",
+          "state": "Madhya Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,913.00",
+          "start_date_raw": "(09/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705424",
+      "classification": "material_reported_change",
+      "reason": "Published length changes from36km to33.23km, beyond display rounding. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Chandigarh-Baddi New Rail Line- 36 km",
+          "agency": "(Northen Railway [NR])",
+          "state": "Multi-States (Haryana, Himachal Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1540",
+          "start_date_raw": "(02/2018)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Chandigarh-Baddi 33.23 km",
+          "agency": "(CAOC/NR NR mor)",
+          "state": "Multi-States (Haryana, Himachal Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,540.00",
+          "start_date_raw": "(11/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705453",
+      "classification": "material_reported_change",
+      "reason": "August explicitly adds an alignment material modification via Amjhera. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "New line Dahod-Indore via Sardarpur, Jabuwa and Dhar",
+          "agency": "(Western Railway [WR] - II)",
+          "state": "Multi-States (Gujarat, Madhya Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "456.07",
+          "start_date_raw": "(06/2012)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Dahod-Indore via Sardarpur, Jhabua & Dhar 200.97 km incl. material modification for change in alignment via Amjhera 4.82 km",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Multi-States (Gujarat, Madhya Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "456.07",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705454",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state with spelling/label variants and added descriptive detail. Identity text alone has no explicit conflicting scope; metric/baseline changes are separately flagged. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Chhota Udaipur - Dhar New Line Project [157 km]",
+          "agency": "(Western Railway [WR] - II)",
+          "state": "Multi-States (Gujarat, Madhya Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1794",
+          "start_date_raw": "(01/2014)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Chhota Udepur-Dhar 157 km",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Multi-States (Gujarat, Madhya Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,794.00",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705457",
+      "classification": "material_reported_change",
+      "reason": "August includes additional Fatehabad?Ujjain and Rau?DADN works. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Ratlam-Mhow-Khandwa-Akola Gauge Conversion",
+          "agency": "(Western Railway [WR] - II)",
+          "state": "Multi-States (Madhya Pradesh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1656.25",
+          "start_date_raw": "(03/2010)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Ratlam-Mhow-Khandwa-Akola 472.64 km including material modification for Fatehabad-Chandrawati Ganj-Ujjain 22.96 km and Rau-DADN doubling 9.40 km",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Multi-States (Madhya Pradesh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,656.25",
+          "start_date_raw": "(07/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705458",
+      "classification": "unresolved",
+      "reason": "August adds electrification to gauge-conversion wording; abbreviation versus added work is unresolved. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Miyagam-Karjan-Dabhoi-Samlaya [GC]",
+          "agency": "(Western Railway [WR] - II)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "483.88",
+          "start_date_raw": "(01/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "83"
+        },
+        "august": {
+          "project_name": "Miyagam-Karjan-Dabhoi-Samlaya 96.46 km- Gauge conversion with electrification",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "483.88",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "705480",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency also changes from North Central Railway to WCR; actual transfer is unconfirmed.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Lalitpur-Satna, Rewa-Singrauli & Mahoba-Khajuraho",
+          "agency": "(North Central Railway)",
+          "state": "Madhya Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "8914",
+          "start_date_raw": "(03/1998)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Lalitpur-Satna, Rewa-Singrauli & Mahoba-Khajuraho 541 km",
+          "agency": "(CE/C-4/WCR WCR mor)",
+          "state": "Multi-States (Madhya Pradesh, Uttar Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "8,914.00",
+          "start_date_raw": "(07/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705481",
+      "classification": "material_reported_change",
+      "reason": "Published length changes from276.50km to262km, beyond display rounding. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Ramganjmandi-Bhopal New Line Project [276.50 km]",
+          "agency": "(West Central Railway [WCR] - II)",
+          "state": "Multi-States (Madhya Pradesh, Rajasthan)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "3032",
+          "start_date_raw": "(10/2004)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Ramganj Mandi-Bhopal 262 km",
+          "agency": "(CPM/Kota WCR mor)",
+          "state": "Multi-States (Madhya Pradesh, Rajasthan)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "3,032.00",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705489",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Madurai- Tuticorin New Line",
+          "agency": "(Ministry of Railways)",
+          "state": "Tamil Nadu",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "601.43",
+          "start_date_raw": "(09/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "91"
+        },
+        "august": {
+          "project_name": "Madurai-Tuticorin via Aruppukkottai 143.5 km",
+          "agency": "(CAOC/SR SR mor)",
+          "state": "Tamil Nadu",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "601.43",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "705490",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Gadag-Wadi New Railway Line [257 km]",
+          "agency": "(South Western Railway [SWR] - II)",
+          "state": "Karnataka",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2842",
+          "start_date_raw": "(08/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "84"
+        },
+        "august": {
+          "project_name": "Gadag - Wadi 257.26 km",
+          "agency": "(CAOC/SWR SWR mor)",
+          "state": "Karnataka",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,842.00",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "705491",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Marikuppam - Kuppam New Line Project [23.70 Km]",
+          "agency": "(South Western Railway [SWR] - II)",
+          "state": "Multi-States (Andhra Pradesh, Karnataka)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "297",
+          "start_date_raw": "(10/2018)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "Marikuppam-Kuppam 23.7 km",
+          "agency": "(CAOC/SWR SWR mor)",
+          "state": "Multi-States (Andhra Pradesh, Karnataka)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "297.00",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705493",
+      "classification": "material_reported_change",
+      "reason": "Published length changes from164.44km to167km, beyond display rounding. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Hubli-Ankola New Line Project [164.44 km]",
+          "agency": "(South Western Railway [SWR] - II)",
+          "state": "Karnataka",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "5174",
+          "start_date_raw": "(01/2000)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "84"
+        },
+        "august": {
+          "project_name": "Hubli-Ankola 167 km",
+          "agency": "(CAOC/SWR SWR mor)",
+          "state": "Karnataka",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "5,174.00",
+          "start_date_raw": "(05/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705495",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Bagalkot-Kudachi New Railway Line [142 km]",
+          "agency": "(South Western Railway [SWR] - II)",
+          "state": "Karnataka",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1378",
+          "start_date_raw": "(11/2012)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "84"
+        },
+        "august": {
+          "project_name": "Bagalkot-Kudachi 142 km",
+          "agency": "(CAOC/SWR SWR mor)",
+          "state": "Karnataka",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,378.00",
+          "start_date_raw": "(01/2021)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705498",
+      "classification": "material_reported_change",
+      "reason": "Published length changes from67.35km to67.62km at comparable precision. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "3rd Line Kalyan - Kasara [67.35 Kilometres]",
+          "agency": "(Central Railway)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "792.89",
+          "start_date_raw": "(09/2015)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Kalyan-Kasara - 3rd line 67.62 km",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "792.89",
+          "start_date_raw": "(04/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705500",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "3rd Line Wardha - Sewagram - Nagpur",
+          "agency": "(Central Railway [CR] - II)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "540.02",
+          "start_date_raw": "(05/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Wardha Sevagram-Nagpur - 3rd line 76.3 km",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "540.02",
+          "start_date_raw": "(07/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705502",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "3rd Line Wardha - Ballarshah [132 Kilometres]",
+          "agency": "(Central Railway [CR] - II)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1384.72",
+          "start_date_raw": "(12/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Wardha-Balharshah - 3rd line 132 km",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,384.72",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705504",
+      "classification": "material_reported_change",
+      "reason": "Published length changes from247.6km to247.50km at comparable precision. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Doubling of Daund Manmad Line [247.6 km]",
+          "agency": "(Central Railway)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2081.27",
+          "start_date_raw": "(03/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "Daund - Manmad 247.50 km",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,081.27",
+          "start_date_raw": "(09/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705505",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "4th Line Wardha - Nagpur [78.7 Kilometres]",
+          "agency": "(Central Railway [CR] - II)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "637.95",
+          "start_date_raw": "(05/2018)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "Wardha-Nagpur - 4th line 78.70 km",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "637.95",
+          "start_date_raw": "(08/2021)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705507",
+      "classification": "unresolved",
+      "reason": "August labels Itarsi?Nagpur work as balance work; comparable full-project versus remaining-work denominator is unconfirmed. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Itarsi - Nagpur Third Railway Line [280 km]",
+          "agency": "(Central Railway [CR] - II)",
+          "state": "Multi-States (Madhya Pradesh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2449.91",
+          "start_date_raw": "(09/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Itarsi-Nagpur bal. 280 km",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Multi-States (Madhya Pradesh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,449.91",
+          "start_date_raw": "(02/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705511",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Jagdalpur-Koraput",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Multi-States (Chhattisgarh, Odisha)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1547",
+          "start_date_raw": "(03/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Jagdalpur-Koraput 110.22 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Multi-States (Chhattisgarh, Odisha)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,547.00",
+          "start_date_raw": "(11/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705512",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Doubling of Kottavalasa-Koraput Rail Line [189 KM]",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Multi-States (Andhra Pradesh, Odisha)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2500",
+          "start_date_raw": "(01/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "Kottavalasa-Koraput 189.278 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Multi-States (Andhra Pradesh, Odisha)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,500.00",
+          "start_date_raw": "(11/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705513",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Koraput - Singapur Railway Doubling",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2362",
+          "start_date_raw": "(12/2015)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Koraput-Singapur Road 164.56 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,362.00",
+          "start_date_raw": "(11/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "705515",
+      "classification": "unresolved",
+      "reason": "August contains duplicated 85 85km in the name; route order is reversed and length text is ambiguous. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "3rd & 4th Railway Line Project from Salegaon to Budhapank via Rajathgarh.",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1173",
+          "start_date_raw": "(12/2015)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Budhapank-Salegaon via Rajatgarh - 3rd & 4th line 85 85 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,173.00",
+          "start_date_raw": "(10/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "705526",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Samastipur-Darbhanga Doubling Railway Project",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "519",
+          "start_date_raw": "(12/2015)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "Samastipur-Darbhanga 38 km",
+          "agency": "(CAO/Con/North/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "519.00",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "705527",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Sagauli-Valmiknagar",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1216",
+          "start_date_raw": "(03/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "Sagauli - Valmikinagar 109.7 km",
+          "agency": "(CAO/Con/North/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,216.00",
+          "start_date_raw": "(12/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "705528",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state with spelling/label variants and added descriptive detail. Identity text alone has no explicit conflicting scope; metric/baseline changes are separately flagged. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Muzaffarpur-Sugauli",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1586",
+          "start_date_raw": "(03/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "Muzaffarpur - Sagauli 100.6 km",
+          "agency": "(CAO/Con/North/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,586.00",
+          "start_date_raw": "(12/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "705567",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Burhwal Gonda 3rd line",
+          "agency": "(North Eastern Railway [NER])",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1016",
+          "start_date_raw": "(07/2019)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "91"
+        },
+        "august": {
+          "project_name": "Burhwal - Gonda - 3rd line 61.72 km",
+          "agency": "(CAOC/NER NER mor)",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,016.00",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "705572",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Doubling of New Bonggigaon to Kamakhya via Goalpara - 176 km",
+          "agency": "(Northeast Frontier Railway [NFR])",
+          "state": "Assam",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "4060",
+          "start_date_raw": "(09/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "81"
+        },
+        "august": {
+          "project_name": "New Bongaigaon - Goalpara - Guwahati Kamakhya 176 km",
+          "agency": "(CAO/C-III/NFR NFR mor)",
+          "state": "Assam",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "4,060.00",
+          "start_date_raw": "(08/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "705598",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state; length difference is consistent with the published display precision/rounding. No engineering equivalence beyond the report text is asserted. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Jhansi - Bina Third Railway Line [153 Km]",
+          "agency": "(CAO/C/NCR)",
+          "state": "Multi-States (Madhya Pradesh, Uttar Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2002",
+          "start_date_raw": "(03/2018)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "89"
+        },
+        "august": {
+          "project_name": "Jhansi-Bina - 3rd line 152.57 km",
+          "agency": "(CAO/C/NCR NCR mor)",
+          "state": "Multi-States (Madhya Pradesh, Uttar Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,002.00",
+          "start_date_raw": "(10/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705610",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Renigunta, Wadi & Gooty Bypass Railway Project",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Multi-States (Andhra Pradesh, Karnataka)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "302",
+          "start_date_raw": "(04/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "Renigunta 9.60 km, Wadi 7.60 km & Gooty 3.8 km - Bypass",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Multi-States (Andhra Pradesh, Tamil Nadu)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "302.00",
+          "start_date_raw": "(02/2021)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705616",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Jharsuguda-Bilaspur Fourth Railway Line [206 km]",
+          "agency": "(SECR)",
+          "state": "Multi-States (Chhattisgarh, Odisha)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2140",
+          "start_date_raw": "(09/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Jharsuguda - Bilaspur - 4th line 206 km",
+          "agency": "(CAOC/SECR SECR mor)",
+          "state": "Multi-States (Chhattisgarh, Odisha)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,140.00",
+          "start_date_raw": "(09/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705617",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state; length difference is consistent with the published display precision/rounding. No engineering equivalence beyond the report text is asserted. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Rajnandgaon - Nagpur [Kalumna] Third Railway Line [228.30 km]",
+          "agency": "(South East Central Railway [SECR] - II)",
+          "state": "Multi-States (Chhattisgarh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "3545",
+          "start_date_raw": "(12/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "87"
+        },
+        "august": {
+          "project_name": "Rajnandgaon-Nagpur - 3rd line 228 km",
+          "agency": "(CAOC/SECR SECR mor)",
+          "state": "Multi-States (Chhattisgarh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "3,545.00",
+          "start_date_raw": "(12/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705628",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state; length difference is consistent with the published display precision/rounding. No engineering equivalence beyond the report text is asserted. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Doubling of Hatia [Ranchi]-Bondamunda Rail Line - 159 km",
+          "agency": "(South Eastern Railway - JH)",
+          "state": "Multi-States (Jharkhand, Odisha)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "3029",
+          "start_date_raw": "(02/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Bondamunda - Ranchi 158.50 km",
+          "agency": "(CAO/C/SER SER mor)",
+          "state": "Multi-States (Jharkhand, Odisha)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "3,029.00",
+          "start_date_raw": "(05/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705632",
+      "classification": "unresolved",
+      "reason": "Corridor/state text is compatible, but the agency label changes from SCR/South Central Railway to SCoR. The reports do not establish whether responsibility or scope changed; do not certify this as a harmless agency rename. Metric/baseline flags remain separate.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Vijayawada - Kazipet Byepass line",
+          "agency": "(South Central Railway [SCR] - II)",
+          "state": "Multi-States (Andhra Pradesh, Telangana)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "647",
+          "start_date_raw": "(04/2016)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "Vijayawada19.50 km & Kazipet10.65 km -Byepass line",
+          "agency": "(CAO/C/SCoR SCoR mor)",
+          "state": "Multi-States (Andhra Pradesh, Telangana)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "647.00",
+          "start_date_raw": "(07/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705638",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Kumbalam-Turavur doubling project [15.59 Km]",
+          "agency": "(Ministry of Railways)",
+          "state": "Kerala",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "813",
+          "start_date_raw": "(04/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "84"
+        },
+        "august": {
+          "project_name": "Kumbalam-Turavur - Patch doubling 15.59 km",
+          "agency": "(CAO/CN/ERS SR mor)",
+          "state": "Kerala",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "813.00",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705639",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Ernakulam-Kumbalam doubling project [7.71 Km]",
+          "agency": "(SR-ERS)",
+          "state": "Kerala",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "601",
+          "start_date_raw": "(04/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "84"
+        },
+        "august": {
+          "project_name": "Ernakulam-Kumbalam - Patch doubling 7.71 km",
+          "agency": "(CAO/CN/ERS SR mor)",
+          "state": "Kerala",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "601.00",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705659",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Satna-Rewa Railway Line Doubling Project",
+          "agency": "(West Central Railway [WCR] - II)",
+          "state": "Madhya Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "500",
+          "start_date_raw": "(08/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Satna - Rewa 50 km",
+          "agency": "(CE/C-4/WCR WCR mor)",
+          "state": "Madhya Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "500.00",
+          "start_date_raw": "(09/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705661",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Katni Grade Separator/Bye Pass",
+          "agency": "(Indian Railway Construction International Limited [IRCON])",
+          "state": "Madhya Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1248",
+          "start_date_raw": "(09/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Katni - Grade separator / bypass 21.50 km",
+          "agency": "(GM IRCON KATNI WCR mor)",
+          "state": "Madhya Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,248.00",
+          "start_date_raw": "(11/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705667",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state; length difference is consistent with the published display precision/rounding. No engineering equivalence beyond the report text is asserted. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Mathura-Jhansi Third Railway Line [274 Km]",
+          "agency": "(RVNL - II)",
+          "state": "Multi-States (Madhya Pradesh, Rajasthan, Uttar Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "5961",
+          "start_date_raw": "(03/2018)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Mathura-Jhansi - 3rd line 273.80 km",
+          "agency": "(CMD / RVNL RVNL mor)",
+          "state": "Multi-States (Madhya Pradesh, Rajasthan, Uttar Pradesh)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "5,961.00",
+          "start_date_raw": "(09/2021)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705735",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Solapur-tuljapur-Osmanabad",
+          "agency": "(Central Railway)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "904.92",
+          "start_date_raw": "(12/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "86"
+        },
+        "august": {
+          "project_name": "Solapur-Osmanabad - New line via Tuljapur 84.44 km umbrella work PB23/2018- 19/NR",
+          "agency": "(CAOC/CR CR mor)",
+          "state": "Maharashtra",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "904.92",
+          "start_date_raw": "(01/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "705741",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Jeypore-Navarangpur New Rail Line Project",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "748",
+          "start_date_raw": "(04/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Jeypore - Navarangpur 38 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "748.00",
+          "start_date_raw": "(10/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "705742",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Jeypore-Malkanagiri New Railway Line Project",
+          "agency": "(East Coast Railway [ECoR] - II)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2344",
+          "start_date_raw": "(12/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Jeypore - Malkangiri 130 km",
+          "agency": "(CAO/C/ECOR ECoR mor)",
+          "state": "Odisha",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,344.00",
+          "start_date_raw": "(10/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "705752",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Gudha-Thatha Mithri Construction of Railway Track Project",
+          "agency": "(North Western Railway [NWR])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "819.48",
+          "start_date_raw": "(04/2019)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Gudha-Thathana Mithri - Construction of dedicated test track for testing and trial of rolling stocks and infrastructure components umbrella work PB23/2018-19/NR",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "819.48",
+          "start_date_raw": "(09/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "705761",
+      "classification": "material_reported_change",
+      "reason": "Published length changes from96km to103km, beyond display rounding. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "SHIMOGA - SHIKARIPURA - RANEBENNUR [96 Km]",
+          "agency": "(South Western Railway [SWR] - II)",
+          "state": "Karnataka",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1454",
+          "start_date_raw": "(02/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "84"
+        },
+        "august": {
+          "project_name": "Shimoga-Shikaripura-Ranebennur 103 km umbrella work PB23/2018-19/NR",
+          "agency": "(CAOC/SWR SWR mor)",
+          "state": "Karnataka",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,454.00",
+          "start_date_raw": "(02/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "705764",
+      "classification": "material_reported_change",
+      "reason": "Corridor/state text is compatible, but agency changes from Western Railway/WR to NWR. This is a material reported responsibility label change; cause or actual transfer is unconfirmed.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Nimach-Badi Sadri New Rail Line Project",
+          "agency": "(Western Railway [WR] - II)",
+          "state": "Multi-States (Madhya Pradesh, Rajasthan)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "495",
+          "start_date_raw": "(09/2021)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "88"
+        },
+        "august": {
+          "project_name": "Nimach-Badi Sadri NL Project 48 km",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Multi-States (Madhya Pradesh, Rajasthan)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "495.00",
+          "start_date_raw": "(08/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "87"
+        }
+      }
+    },
+    {
+      "project_code": "705780",
+      "classification": "unresolved",
+      "reason": "August publishes125km and116.95km with exclusion wording; relationship to the April work denominator is unclear. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Bhatni-Aurnihar with electrification excluding Indara-Mau",
+          "agency": "(RVNL - I)",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2529",
+          "start_date_raw": "(03/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "92"
+        },
+        "august": {
+          "project_name": "Bhatni - Aunrihar with electrification 125 km excl Indara - Mau 116.95 km",
+          "agency": "(CMD / RVNL RVNL mor)",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "2,529.00",
+          "start_date_raw": "(07/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "705782",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Barabanki-Malhaur 3rd & 4th Railway Line Project",
+          "agency": "(Ministry of Railways)",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "407",
+          "start_date_raw": "(04/2017)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "92"
+        },
+        "august": {
+          "project_name": "Barabanki-Malhaur - 3rd & 4th Line 32.84 km",
+          "agency": "(CAO/C-II/NR NR mor)",
+          "state": "Uttar Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "407.00",
+          "start_date_raw": "(11/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "705783",
+      "classification": "material_reported_change",
+      "reason": "August explicitly includes a freight line at Gill station. These are source-description differences, not independently established engineering changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Ludhiana- Killa Raipur Railway Doubling Project",
+          "agency": "(Railway)",
+          "state": "Punjab",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "237.64",
+          "start_date_raw": "(12/2022)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "90"
+        },
+        "august": {
+          "project_name": "Ludhiana-Kila Raipur 19 km with freight line at Gill station",
+          "agency": "(CAOC/NR NR mor)",
+          "state": "Punjab",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "237.64",
+          "start_date_raw": "(03/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "705933",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Nimach-Ratlam Doubling [133 Km]",
+          "agency": "(Western Railway [WR] - II)",
+          "state": "Madhya Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1095.88",
+          "start_date_raw": "(10/2021)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "85"
+        },
+        "august": {
+          "project_name": "Nimach-Ratlam 133 km",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Madhya Pradesh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,095.88",
+          "start_date_raw": "(01/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "85"
+        }
+      }
+    },
+    {
+      "project_code": "706763",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Rajkot - Kanalus Doubling Project [111.2 Kms]",
+          "agency": "(Western Railway WR - II)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1080.58",
+          "start_date_raw": "(12/2021)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "83"
+        },
+        "august": {
+          "project_name": "Rajkot-Kanalus 111.20 km",
+          "agency": "(CAOCWR WR mor)",
+          "state": "Gujarat",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,080.58",
+          "start_date_raw": "(12/2019)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "706836",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Dedicated Test Track for RDSO /Phase-II Project",
+          "agency": "(North Western Railway [NWR])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "466.42",
+          "start_date_raw": "(01/2022)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "91"
+        },
+        "august": {
+          "project_name": "Dedicatedtest track for RDSO Phase-2 34 km Umbrella work PB22/2019-20/NR",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "466.42",
+          "start_date_raw": "(10/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "88"
+        }
+      }
+    },
+    {
+      "project_code": "706854",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Boridand - Ambikapur Doubling Line Project",
+          "agency": "(South East Central Railway [SECR] - II)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1376",
+          "start_date_raw": "(04/2022)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "Boridand-Ambikapur 118.81 km Umbrella work PB57/2019-20/NR",
+          "agency": "(CAOC/SECR SECR mor)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,376.00",
+          "start_date_raw": "(03/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    },
+    {
+      "project_code": "706865",
+      "classification": "harmless_text_change",
+      "reason": "Same corridor and state with spelling/label variants and added descriptive detail. Identity text alone has no explicit conflicting scope; metric/baseline changes are separately flagged. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Chandargaon - Cansaulium Rail Flyover Project [16 Km]",
+          "agency": "(South Western Railway [SWR] - II)",
+          "state": "Goa",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1892",
+          "start_date_raw": "(04/2026)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "83"
+        },
+        "august": {
+          "project_name": "Chandorgaon-Cansaulim rail flyover 16 km Umbrella work PB57/2019-20/NR",
+          "agency": "(CAOC/SWR SWR mor)",
+          "state": "Goa",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "1,892.00",
+          "start_date_raw": "(01/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "706866",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "Sawaimadhopur Bye Pass Line Project",
+          "agency": "(North Western Railway [NWR])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "304",
+          "start_date_raw": "(01/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "91"
+        },
+        "august": {
+          "project_name": "Sawaimadhopur - Bypass line 6.98 km Umbrella work PB57/2019-20/NR",
+          "agency": "(CAOC/NWR NWR mor)",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "304.00",
+          "start_date_raw": "(12/2023)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "89"
+        }
+      }
+    },
+    {
+      "project_code": "709794",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "City Gas Distribution Projects at Fazilka [except area already authorized], Ganganagar and Hanumangarh districts",
+          "agency": "(Bharat Petroleum Corporation Limited [BPCL])",
+          "state": "Multi-States (Punjab, Rajasthan)",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "3207",
+          "start_date_raw": "(12/2022)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "75"
+        },
+        "august": {
+          "project_name": "City Gas Distribution Projects at Fazilka [except area already authorized], Ganganagar and Hanumangarh districts",
+          "agency": "(Bharat Petroleum Corporation Limited [BPCL])",
+          "state": "Rajasthan",
+          "ministry": "Ministry of Petroleum & Natural Gas",
+          "sector": "Oil & Gas",
+          "original_cost_rs_crore_raw": "3,207.00",
+          "start_date_raw": "(12/2022)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "78"
+        }
+      }
+    },
+    {
+      "project_code": "709815",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "4TH LINE - BHATAPARA-HATHBAND [8.8 KM] [PB-72/NR/2022-23]",
+          "agency": "(SECR)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "177.03",
+          "start_date_raw": "(05/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "4th line - Bhatapara-Hathband 8.8 km PB72/NR/2022-23",
+          "agency": "(CAOC/SECR SECR mor)",
+          "state": "Multi-States (Chhattisgarh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "177.03",
+          "start_date_raw": "(09/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "709816",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "4TH LINE - BHILAI-BHILAI NAGAR [8.8 KM] [PB-72/NR/2022-23]",
+          "agency": "(SECR)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "177.34",
+          "start_date_raw": "(05/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "4th line - Bhilai-Bhilai nagar 8.8 km PB72/NR/2022-23",
+          "agency": "(CAOC/SECR SECR mor)",
+          "state": "Multi-States (Chhattisgarh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "177.34",
+          "start_date_raw": "(09/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "709817",
+      "classification": "material_reported_change",
+      "reason": "Published state coverage changes; this is material metadata, but does not establish a physical scope change or its cause. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "4TH LINE - DADHAPARA-BELHA [9.2 KM] [PB-72/NR/2022-23]",
+          "agency": "(SECR)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "169.06",
+          "start_date_raw": "(05/2024)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "4th line - Dadhapara-Belha 9.2 km PB72/NR/2022-23",
+          "agency": "(CAOC/SECR SECR mor)",
+          "state": "Multi-States (Chhattisgarh, Maharashtra)",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "169.06",
+          "start_date_raw": "(02/2024)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "86"
+        }
+      }
+    },
+    {
+      "project_code": "709819",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "3RD AND 4TH LINE - SARAGBUNDIA AND MADWARANI",
+          "agency": "(SECR)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "167.64",
+          "start_date_raw": "(05/2025)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "3rd & 4th line - Saragbundia & Madwarani 12.2 km PB72/NR/2022-23",
+          "agency": "(CAOC/SECR SECR mor)",
+          "state": "Chhattisgarh",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "167.64",
+          "start_date_raw": "(05/2025)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "84"
+        }
+      }
+    },
+    {
+      "project_code": "900874",
+      "classification": "harmless_text_change",
+      "reason": "Same named corridor/work and state; differences are spelling, punctuation, word order, shortened work labels, added descriptive length or budget-reference detail. No conflicting scope is explicit in the identity text. This judgment covers text only, not metric comparability or start-date changes. Agency wording was also reviewed: the labels share the organization/zone acronym, or the previously generic ministry/railway label becomes a more specific implementing-office label without an explicit contradiction. This does not independently certify unchanged responsibility.",
+      "reviewed_values": {
+        "april": {
+          "project_name": "JHAJHA - BATIA",
+          "agency": "(East Central Railway [ECR] - I)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "588.18",
+          "start_date_raw": "(03/2023)",
+          "source_filename": "FlashReport_April2026.pdf",
+          "pdf_pages": "82"
+        },
+        "august": {
+          "project_name": "Jhajha - Batia 20 km Umbrella work PB23/2018-19/NR",
+          "agency": "(CAO/Con/South/MHX ECR mor)",
+          "state": "Bihar",
+          "ministry": "Ministry of Railways",
+          "sector": "Railways",
+          "original_cost_rs_crore_raw": "588.18",
+          "start_date_raw": "(01/2020)",
+          "source_filename": "FlashReport_August_2026.pdf",
+          "pdf_pages": "83"
+        }
+      }
+    }
+  ]
+}

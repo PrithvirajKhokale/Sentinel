@@ -1,4 +1,4 @@
-"""Extract PAIMANA Table 6 with raw values, heading context and coverage audits."""
+"""Extract the discovered PAIMANA All Ongoing Projects table with raw values and audits."""
 import argparse
 from collections import Counter, defaultdict
 import csv
@@ -65,7 +65,8 @@ def parse_row(cells):
             raise ValueError(f"Ambiguous {label} date: {value!r}")
     for label, value in [("original cost", original_cost), ("revised cost", revised_cost),
                          ("expenditure", cells[6].strip()), ("progress", cells[7].strip())]:
-        if value not in MARKERS and not re.fullmatch(r"-?(?:\d+|\d{1,3}(?:,\d{3})+)\.\d+", value):
+        bare = value[1:-1] if label == "revised cost" and value.startswith("(") and value.endswith(")") else value
+        if value not in MARKERS and not re.fullmatch(r"-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?", bare):
             raise ValueError(f"Ambiguous {label}: {value!r}")
     return dict(
         serial_no=cells[0], project_name=name, agency=agency, project_code=match.group(1),
@@ -200,17 +201,18 @@ def read_pdf(source, limit=None):
     rows, disagreements, page_issues = [], [], []
     with pdfplumber.open(source) as pdf, pymupdf.open(source) as independent:
         divider = next((i for i, p in enumerate(independent)
-                        if re.search(r"Table\s*6\s*:\s*All Ongoing Projects", p.get_text())
+                        if re.search(r"Table\s*\d+\s*:\s*All Ongoing Projects", p.get_text())
                         and "CONTENTS" not in p.get_text()), None)
         if divider is None:
-            raise ValueError("Table 6 divider not found")
+            raise ValueError("All Ongoing Projects table divider not found")
+        discovered_table = re.search(r"Table\s*(\d+)\s*:\s*All Ongoing Projects", independent[divider].get_text()).group(1)
         report_counts = []
         for i in range(divider):
             independent_page = independent[i]
             text = independent_page.get_text()
             headline = re.search(r"(\d[\d,]*)\s*\|\s*(\d+)\s*\nOngoing Projects\s*\|", text)
             if headline:
-                report_counts.append(dict(pdf_page=i+1, ongoing_projects=int(headline.group(1).replace(",", "")),
+                report_counts.append(dict(table_number=discovered_table, table_divider_pdf_page=divider+1, pdf_page=i+1, ongoing_projects=int(headline.group(1).replace(",", "")),
                                           ministries=int(headline.group(2))))
         table1 = []
         allocated = ""
@@ -246,6 +248,13 @@ def read_pdf(source, limit=None):
             for table in page.find_tables():
                 values = table.extract()
                 if not values or values[0][0] != "Sl.No":
+                    continue
+                required_headers = ["Sl.No", "Project Name", "State", "Date of Approval",
+                                    "Orignal/Target DoC", "Orignal Cost", "Cumulative", "Physical Progress"]
+                if len(values[0]) != 8 or any(label not in normalize(value)
+                                                           for label, value in zip(required_headers, values[0])):
+                    page_issues.append(dict(kind="rejected", pdf_page=i+1,
+                                            reason="Unsupported ongoing-project schema", raw_header=values[0]))
                     continue
                 found = True
                 for j, cells in enumerate(values[1:], 1):

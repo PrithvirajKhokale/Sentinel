@@ -69,3 +69,5 @@ The generated validation JSON includes source SHA-256, both engines' cell text, 
 | 8 | 619054 | Keshod | 363.10 | 0.00 | 109.27 | 48.76 | (-) |
 | 9 | 701126 | Dholera | 1,305.00 | 0.00 | 987.56 | 89.00 | (09/2026) |
 | 10 | 611047 | Jammu | 861.37 | 0.00 | 388.13 | 61.35 | (11/2026) |
+
+Full-report follow-ups: [August full extraction](august-full-extraction.md) and [April extraction and comparison](april-extraction-comparison.md).
