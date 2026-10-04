@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 class StrictModel(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -96,5 +96,59 @@ class SnapshotResponse(StrictModel):
 
 class Envelope(StrictModel):
     data: list[SnapshotResponse] | SnapshotResponse
+    meta: dict
+    warnings: list[Warning]
+
+
+class HistoryQuery(StrictModel):
+    from_month: str | None = Field(default=None, pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
+    to_month: str | None = Field(default=None, pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
+    dataset_version: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
+    page: int = Field(default=1, ge=1)
+    page_size: int = Field(default=25, ge=1, le=100)
+
+    @model_validator(mode="after")
+    def ordered(self):
+        if self.from_month and self.to_month and self.from_month > self.to_month:
+            raise ValueError("from_month must not exceed to_month")
+        return self
+
+
+class PortfolioQuery(StrictModel):
+    report_month: str = Field(pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
+    comparison_month: str | None = Field(default=None, pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
+    dataset_version: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
+    ministry: list[str] = Field(default_factory=list)
+    sector: list[str] = Field(default_factory=list)
+    state: list[str] = Field(default_factory=list)
+    agency: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def adjacent(self):
+        if self.comparison_month:
+            def ordinal(month):
+                year,number = map(int,month.split("-"))
+                return year*12+number-1
+            if ordinal(self.report_month)-ordinal(self.comparison_month) != 1:
+                raise ValueError("comparison_month must immediately precede report_month")
+        return self
+
+
+class PortfolioCounts(StrictModel):
+    snapshot_records: int
+    distinct_project_codes: int
+    ministries: int
+    sectors: int
+
+
+class PortfolioData(StrictModel):
+    report_month: str
+    counts: PortfolioCounts
+    quality_counts: dict
+    comparison: dict | None
+
+
+class PortfolioEnvelope(StrictModel):
+    data: PortfolioData
     meta: dict
     warnings: list[Warning]

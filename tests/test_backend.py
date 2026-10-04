@@ -170,9 +170,11 @@ class BackendTests(unittest.TestCase):
             with empty_engine.begin() as c:
                 cfg=Config("alembic.ini");cfg.attributes["connection"]=c;command.upgrade(cfg,"head")
             with TestClient(create_app(empty_engine),raise_server_exceptions=False) as client:
-                r=client.get("/api/v1/projects?report_month=2026-08")
-                self.assertEqual(r.status_code,503)
-                self.assertEqual(r.json()["error"]["code"],"DATASET_NOT_VALIDATED")
+                for url in ["/api/v1/projects?report_month=2026-08","/api/v1/projects/701530/history",
+                            "/api/v1/portfolio-summary?report_month=2026-08"]:
+                    r=client.get(url)
+                    self.assertEqual(r.status_code,503)
+                    self.assertEqual(r.json()["error"]["code"],"DATASET_NOT_VALIDATED")
             with patch("backend.app.Session",side_effect=RuntimeError("sensitive-internal-text")):
                 r=self.client.get("/api/v1/projects?report_month=2026-08")
                 self.assertEqual(r.status_code,500)

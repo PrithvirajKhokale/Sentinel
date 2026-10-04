@@ -1,6 +1,6 @@
 # Local monitoring backend
 
-Implemented first delivery: Alembic migration for immutable revisions, monthly snapshots and adjacent comparisons; a fail-closed validating import/activation command; GET `/api/v1/projects` and GET `/api/v1/projects/{project_code}`. Uses FastAPI/Pydantic, SQLAlchemy and PostgreSQL through psycopg. No frontend, predictions, deployment or authentication implementation is included. History/portfolio HTTP endpoints remain unimplemented; their adjacent comparison data is stored for a later delivery.
+Implemented local delivery: Alembic migration for immutable revisions, monthly snapshots and adjacent comparisons; a fail-closed validating import/activation command; GET `/api/v1/projects`, GET `/api/v1/projects/{project_code}`, GET `/api/v1/projects/{project_code}/history`, and GET `/api/v1/portfolio-summary`. Uses FastAPI/Pydantic, SQLAlchemy and PostgreSQL through psycopg. No frontend, predictions, deployment or authentication implementation is included. History and portfolio reuse the validated stored adjacent comparisons; they never load April-August pair review decisions or recalculate eligibility.
 
 ## Local setup (PowerShell, repository root)
 
@@ -58,10 +58,30 @@ Backend integration tests require real loopback PostgreSQL and create a uniquely
 
 ## Remaining limitations
 
-This is a local first delivery, with synchronous DB access and no authentication, frontend, history/portfolio endpoint, load benchmark or automated revision retention. The catalog/manifest validator supports the reviewed five-month layout only; other months/schema/mappings need explicit versioned work. The archive and DB are separate resources: activation is atomic in PostgreSQL, not a cross-filesystem distributed transaction. Artifact archives and DB volumes need a future backup policy. Source values and identity/scope issues remain unresolved; passing import integrity checks does not certify all measurements. Conservative screening is not silently relaxed.
+This is a local first delivery, with synchronous DB access and no authentication, frontend, load benchmark or automated revision retention. The catalog/manifest validator supports the reviewed five-month layout only; other months/schema/mappings need explicit versioned work. The archive and DB are separate resources: activation is atomic in PostgreSQL, not a cross-filesystem distributed transaction. Artifact archives and DB volumes need a future backup policy. Source values and identity/scope issues remain unresolved; passing import integrity checks does not certify all measurements. Conservative screening is not silently relaxed.
 
-## Observed verification on this branch
+## First-delivery verification (merged baseline)
 
 Final run: 48 tests PASS (32 extraction/history regressions plus 16 backend/configuration/archive tests), with no PostgreSQL tests skipped. Alembic check reports no model drift; pip check reports no broken requirements. Actual import activated 9,321 snapshots and 7,202 adjacent comparisons under manifest revision 756d0304736b2f6a61a5fee7363a07e23c583611319fd4f17699ac6f4942d24a. Live loopback HTTP checks passed for list/detail 200, invalid requests 422 and absent snapshots 404. Generated logs and HTTP responses are under ignored data/validation/.
 
 Implementation references: [FastAPI query parameter models and extra rejection](https://fastapi.tiangolo.com/tutorial/query-param-models/) and [SQLAlchemy transaction context managers](https://docs.sqlalchemy.org/en/20/orm/session_basics.html).
+
+## History and portfolio requests
+
+```powershell
+Invoke-RestMethod 'http://127.0.0.1:8000/api/v1/projects/611752/history?page_size=1'
+Invoke-RestMethod 'http://127.0.0.1:8000/api/v1/projects/400298/history?from_month=2026-06&to_month=2026-07'
+Invoke-RestMethod 'http://127.0.0.1:8000/api/v1/portfolio-summary?report_month=2026-08&comparison_month=2026-07'
+```
+
+History defaults to the selected revision's report bounds, returns snapshots in ascending report month and explicitly lists not_observed_months. Comparisons are selected from stored adjacent pairs over the full requested range before pagination, including on an empty page beyond the end. A June gap for 611752 retains April-May and July-August comparisons only; it never creates a May-July trend. A known code with no observations in a supported range returns an empty history; an unknown code returns PROJECT_NOT_FOUND. Unavailable reports/version and invalid range/parameters use contract error envelopes. Explicit dataset_version works for all endpoints.
+
+Portfolio comparison_month must be the preceding calendar month; omitting it returns comparison null. Repeated exact ministry/sector/state/agency filters are OR within a field and AND across fields, applied independently to both reports. Unfiltered indexes distinguish not_in_filtered_scope from not_observed_in_report. For example, 400298 changes agency from (South Central Railway [SCR] - II) in June to (CAO/C/SCoR SCoR mor) in July: filtering either agency creates a scope membership change, not a claim of project entry/completion. Presence details and grouped reasons expose that difference. Before/after scope counts reconcile to shared and one-sided counts; missing-input counts use shared codes as denominator. Missing fields and exclusion reasons may overlap.
+
+Unfiltered July-August: 1,694 shared, 81 before-only, 37 after-only; progress/expenditure decreases 13/54; zero conservative trend-eligible matches because every shared revised-cost baseline changes to August's literal zero. This is a policy outcome, not proof of usability or unusability of any individual measurement. Raw values and field-specific reasons remain accessible in history; no causes or completion statuses are inferred. Report warning provenance is retained from the imported revision. Headline added/commissioned roll-forward alerts from the research audit are not stored in the first-delivery revision metadata and are not reconstructed from runtime files; see monthly-history documentation for those source limitations.
+
+All responses remain local and unauthenticated; no deployment is provided. Current summary computation loads the two months' snapshots and relevant comparisons into memory and has no load benchmark or cache. Summary presence details and history comparison metadata are unpaginated by contract, bounded by the current five-month dataset. Future larger datasets may require a separately reviewed pagination/performance contract. No schema migration or dataset reimport is needed for these read endpoints.
+
+## History/portfolio delivery verification
+
+Final code: 62 tests PASS against real PostgreSQL, with no integration tests skipped; all 48 baseline checks remain passing. New checks cover real missing-month gaps, comparisons before pagination, raw/normalized reference values, unchanged adjacent-pair review status, independent filter scope versus report absence, field-level missingness denominators, unsupported/invalid requests, pinned revisions, incomplete comparison failure and precise missing/decreasing-field warnings. Alembic check reports no schema drift; pip check reports no broken dependencies. Live loopback history and portfolio calls return 200 with the expected gaps/counts, invalid comparison requests return 422, and unknown codes return 404. Validation logs and HTTP examples remain ignored under data/validation/.
