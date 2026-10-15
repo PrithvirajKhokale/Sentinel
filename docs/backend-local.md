@@ -85,3 +85,13 @@ All responses remain local and unauthenticated; no deployment is provided. Curre
 ## History/portfolio delivery verification
 
 Final code: 62 tests PASS against real PostgreSQL, with no integration tests skipped; all 48 baseline checks remain passing. New checks cover real missing-month gaps, comparisons before pagination, raw/normalized reference values, unchanged adjacent-pair review status, independent filter scope versus report absence, field-level missingness denominators, unsupported/invalid requests, pinned revisions, incomplete comparison failure and precise missing/decreasing-field warnings. Alembic check reports no schema drift; pip check reports no broken dependencies. Live loopback history and portfolio calls return 200 with the expected gaps/counts, invalid comparison requests return 422, and unknown codes return 404. Validation logs and HTTP examples remain ignored under data/validation/.
+
+## Integration update (2026-10-15)
+
+The local behavior above remains available. The repository now also supports
+explicit bearer authentication, exact-origin CORS, a React frontend, same-origin
+static serving, and a production configuration that requires authentication and
+TLS PostgreSQL. This supersedes the earlier statement that authentication and a
+frontend are unimplemented. See [integration](frontend-integration.md) for current
+configuration and the remaining external hosting boundary. No full-data production
+deployment is implied by these code changes.

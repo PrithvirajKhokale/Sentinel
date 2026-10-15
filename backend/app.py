@@ -1,3 +1,9 @@
+import secrets
+from pathlib import Path
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
+from .access import AccessSettings
 from typing import Annotated
 from fastapi import FastAPI, Query
 from fastapi.exceptions import RequestValidationError
@@ -19,12 +25,43 @@ class APIError(Exception):
 
 
 def create_app(engine=None):
-    app = FastAPI(title="Sentinel local monitoring", version="1", docs_url="/docs")
+    access = AccessSettings.from_env()
+    app = FastAPI(title="Sentinel monitoring", version="1", docs_url=None if access.production else "/docs",
+                  redoc_url=None if access.production else "/redoc",
+                  openapi_url=None if access.production else "/openapi.json")
     app.state.engine = engine if engine is not None else engine_from_env()
 
     def error(status,code,message,version=None,details=None):
         return JSONResponse(status_code=status,content=dict(error=dict(code=code,message=message,details=details or []),
                             meta=dict(contract_version="1",dataset_version=version)))
+
+    @app.middleware("http")
+    async def authenticate(request, call_next):
+        protected = request.url.path == "/api" or request.url.path.startswith("/api/") or request.url.path in {"/docs", "/redoc", "/openapi.json"}
+        preflight = (request.method == "OPTIONS" and request.headers.get("origin") in access.origins
+                     and request.headers.get("access-control-request-method"))
+        if protected and access.token and not preflight:
+            authorization = request.headers.get("authorization", "")
+            scheme, _, candidate = authorization.partition(" ")
+            if scheme.lower() != "bearer" or not secrets.compare_digest(candidate.encode(), access.token.encode()):
+                response = error(401, "UNAUTHORIZED", "A valid API bearer token is required.")
+                response.headers["WWW-Authenticate"] = "Bearer"
+                return response
+        response = await call_next(request)
+        if protected:
+            response.headers["Cache-Control"] = "no-store"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Referrer-Policy"] = "same-origin"
+        return response
+
+    # Outermost CORS layer also covers authentication errors.
+    if access.origins:
+        app.add_middleware(CORSMiddleware, allow_origins=list(access.origins), allow_credentials=True,
+                           allow_methods=["GET"], allow_headers=["Authorization", "Content-Type"])
+
+    @app.get("/healthz", include_in_schema=False)
+    def health():
+        return {"status": "ok"}
 
     @app.exception_handler(APIError)
     async def api_error(request,exc):
@@ -195,4 +232,11 @@ def create_app(engine=None):
                         "Counts retain reported decreases; their causes are unknown.","pair"))
             return result
 
+    frontend = os.environ.get("SENTINEL_FRONTEND_DIR")
+    if frontend:
+        directory = Path(frontend).resolve()
+        if not (directory / "index.html").is_file():
+            raise ValueError("SENTINEL_FRONTEND_DIR must contain a built index.html")
+        # Mount last so API routes and their contract errors retain precedence.
+        app.mount("/", StaticFiles(directory=directory, html=True), name="frontend")
     return app

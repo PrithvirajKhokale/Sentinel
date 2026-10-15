@@ -55,3 +55,10 @@ Risk Engine        Explainability
 ## Local monitoring backend
 
 See [local setup, migrations, validated import and API checks](docs/backend-local.md). The backend provides project list/detail, history and portfolio-summary endpoints on loopback only, without predictions or shared deployment.
+
+## Integrated frontend and authenticated hosting
+
+The React + Vite interface is in [frontend](frontend/README.md), including dark mode.
+See [full-data integration](docs/frontend-integration.md) for the local proxy,
+one-origin UI/API serving, exact source recovery, authentication, and Docker image.
+Production remains pending a durable Python host and TLS PostgreSQL database.

@@ -1,0 +1,13 @@
+# The validated revision records hashes of the original Windows input bytes.
+# Preserve those bytes on Linux as well as Windows; changing them changes the revision.
+/config/monthly_reports.json text eol=crlf
+/requirements-extraction.txt text eol=crlf
+/scripts/extract_ongoing_projects.py text eol=crlf
+/scripts/build_monthly_history.py text eol=crlf
+/scripts/compare_project_reports.py text eol=crlf
+/tests/fixtures/april_2026_ongoing_visual_samples.json text eol=crlf
+/tests/fixtures/august_2026_table6_first10.json text eol=crlf
+/tests/fixtures/august_2026_table6_visual_samples.json text eol=crlf
+/tests/fixtures/july_2026_ongoing_visual_samples.json text eol=crlf
+/tests/fixtures/june_2026_ongoing_visual_samples.json text eol=crlf
+/tests/fixtures/may_2026_ongoing_visual_samples.json text eol=crlf
