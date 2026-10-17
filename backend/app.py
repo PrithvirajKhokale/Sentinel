@@ -16,7 +16,7 @@ from .models import ActiveDataset, Revision, Snapshot, Comparison
 from .monitoring import (month_range, month_number, present_comparison, portfolio_comparison,
                          quality_counts, scoped_codes, history_pair_warnings)
 from .presentation import warning
-from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope
+from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope, FilterOptionsEnvelope
 
 
 class APIError(Exception):
@@ -109,6 +109,30 @@ def create_app(engine=None):
         if filters.get("comparison_month"):
             months.add(filters["comparison_month"])
         return dict(data=data,meta=meta,warnings=[w for w in revision.warnings if w["report_month"] in months])
+
+    @app.get("/api/v1/filter-options",response_model=FilterOptionsEnvelope)
+    def filter_options(query: Annotated[PortfolioQuery, Query()]):
+        """Discover exact labels across the selected report and optional prior report.
+
+        Exposes only distinct already-public reported identity labels, not project
+        records. Values remain exact (including punctuation, case and spacing).
+        """
+        with Session(app.state.engine) as session:
+            rev = revision(session,query)
+            months = [query.report_month]
+            if query.comparison_month:
+                if query.comparison_month not in rev.reports:
+                    raise APIError(404,"REPORT_NOT_AVAILABLE","Comparison report month is unavailable.",rev.version)
+                months.append(query.comparison_month)
+            data = {}
+            for field in ("sector","ministry","state","agency"):
+                values = session.scalars(select(getattr(Snapshot,field)).where(
+                    Snapshot.version==rev.version, Snapshot.report_month.in_(months)).distinct()).all()
+                data[field] = sorted((value for value in values if value), key=str.casefold)
+            filters = dict(report_month=query.report_month)
+            if query.comparison_month:
+                filters["comparison_month"] = query.comparison_month
+            return envelope(data,rev,filters)
 
     @app.get("/api/v1/projects",response_model=Envelope)
     def projects(query: Annotated[ListQuery, Query()]):
