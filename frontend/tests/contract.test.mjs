@@ -7,10 +7,43 @@ import {
   queryString,
   decimal,
   VERSION,
+  matchingFilterOptions,
 } from "../src/api.js";
 const db = JSON.parse(
   fs.readFileSync(new URL("../public/reference-data.json", import.meta.url)),
 );
+test("filter suggestions are exact labels and support case-insensitive typing", () => {
+  const options = exampleResponse(db, "/filter-options", {
+    report_month: "2026-08",
+    comparison_month: "2026-07",
+  });
+  assert.equal(options.meta.dataset_version, VERSION);
+  for (const field of ["sector", "ministry", "state", "agency"]) {
+    assert.ok(options.data[field].length > 0);
+    assert.equal(options.data[field].length, new Set(options.data[field]).size);
+    assert.deepEqual(
+      options.data[field],
+      [...options.data[field]].sort((a, b) => a.localeCompare(b)),
+    );
+  }
+  const single = exampleResponse(db, "/filter-options", { report_month: "2026-08" });
+  const before = exampleResponse(db, "/filter-options", { report_month: "2026-07" });
+  for (const field of ["sector", "ministry", "state", "agency"]) {
+    assert.deepEqual(
+      new Set(options.data[field]),
+      new Set([...single.data[field], ...before.data[field]]),
+    );
+  }
+  const ministries = options.data.ministry;
+  const needle = ministries[0].slice(0, 4).toUpperCase();
+  assert.ok(matchingFilterOptions(ministries, needle).includes(ministries[0]));
+  assert.deepEqual(matchingFilterOptions(["Railways", "Water Resources"], "wATeR"), ["Water Resources"]);
+  assert.deepEqual(matchingFilterOptions(["Power", "Roads"], "no-match"), []);
+  assert.throws(() => exampleResponse(db, "/filter-options", {
+    report_month: "2026-08", comparison_month: "2026-06",
+  }), { code: "VALIDATION_ERROR" });
+});
+
 test("documented list and detail values remain exact, including zeros, nulls and source cells", () => {
   const examples = db.examples;
   assert.deepEqual(
