@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - feat/frontend-backend-integration
+      - feat/risk-intelligence
   pull_request:
     paths:
       - 'frontend/**'
@@ -58,4 +59,4 @@ jobs:
       - run: pip install -r requirements-backend.txt
       - run: python scripts/acquire_reports.py
       - run: python scripts/rebuild_dataset.py > /tmp/sentinel-dataset.log
-      - run: python -m unittest tests.test_backend -v
+      - run: python -m unittest tests.test_risk_intelligence tests.test_backend -v
