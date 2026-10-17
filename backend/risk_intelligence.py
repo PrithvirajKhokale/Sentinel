@@ -63,8 +63,8 @@ def signals_for_pair(pair, before, after):
             item = changes[field]
             evidence.append({
                 "field": field.removesuffix("_raw"),
-                "before_raw": item["april_raw"],
-                "after_raw": item["august_raw"],
+                "before_raw": item["before_raw"],
+                "after_raw": item["after_raw"],
                 "status": item["status"],
                 "delta": item.get("delta"),
             })
