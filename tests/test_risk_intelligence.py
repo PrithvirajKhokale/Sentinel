@@ -7,7 +7,7 @@ def fixture(progress=("5", "3", "decreased", "-2"), spending=("100", "120", "inc
             target=("06/2028", "07/2028", "postponed", "1"), review=None):
     values = [("physical_progress_pct_raw", progress), ("cumulative_expenditure_rs_crore_raw", spending),
               ("revised_doc_raw", target)]
-    changes = {k: dict(april_raw=a, august_raw=b, status=status, delta=delta)
+    changes = {k: dict(before_raw=a, after_raw=b, status=status, delta=delta)
                for k, (a,b,status,delta) in values}
     reasons = ["baseline_revised_cost_rs_crore_raw"] if review is None else review
     pair = {
