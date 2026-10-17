@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#164f43" />
+    <meta
+      name="description"
+      content="Sentinel — explore reported infrastructure projects, monthly changes, and the evidence behind them."
+    />
+    <script>
+      // Apply the saved theme before React loads to avoid a bright flash.
+      (() => {
+        let theme = "light";
+        try {
+          const saved = localStorage.getItem("sentinel-theme");
+          if (saved === "dark" || saved === "light") theme = saved;
+        } catch { /* Use the original light theme if storage is unavailable. */ }
+        document.documentElement.dataset.theme = theme;
+
+        if (theme === "dark") document.querySelector('meta[name="theme-color"]').content = "#111a16";
+      })();
+    </script>
+    <title>Sentinel · Project intelligence</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

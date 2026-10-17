@@ -1,0 +1,28 @@
+// Exercises the real frontend client against an imported, authenticated API.
+import assert from 'node:assert/strict';
+import { createClient, VERSION } from '../src/api.js';
+const base=process.env.SENTINEL_TEST_API_BASE;
+if (!base) throw Error('SENTINEL_TEST_API_BASE is required');
+const client=createClient(null,{mode:'live',base,token:process.env.SENTINEL_TEST_API_TOKEN});
+const list=await client.get('/projects',{report_month:'2026-08',page_size:2});
+assert.equal(list.meta.pagination.total_items,1731);
+assert.equal(client.version,VERSION);
+const page2=await client.get('/projects',{report_month:'2026-08',page_size:2,page:2});
+assert.notEqual(list.data[0].project_code,page2.data[0].project_code);
+const detail=await client.get('/projects/701530',{report_month:'2026-07'});
+assert.equal(detail.data.values.physical_progress_pct.normalized,'0');
+assert.equal(detail.data.values.approval_date.normalized,null);
+assert.ok(detail.data.provenance.pdf_pages.length);
+const history=await client.get('/projects/611752/history',{page_size:1});
+assert.ok(history.meta.not_observed_months.includes('2026-06'));
+assert.ok(!history.meta.comparisons.some(p=>p.before_month==='2026-05' && p.after_month==='2026-07'));
+const portfolio=await client.get('/portfolio-summary',{report_month:'2026-08',comparison_month:'2026-07'});
+assert.equal(portfolio.data.comparison.shared_scope_codes,1694);
+assert.equal(portfolio.data.comparison.trend_eligible,0);
+const scoped=await client.get('/portfolio-summary',{report_month:'2026-07',comparison_month:'2026-06',agency:['(CAO/C/SCoR SCoR mor)']});
+assert.equal(scoped.data.comparison.presence.find(p=>p.project_code==='400298').reason,'not_in_filtered_scope');
+const search=await client.get('/projects',{report_month:'2026-08',q:list.data[0].identity.project_name});
+assert.ok(search.data.some(s=>s.project_code===list.data[0].project_code));
+await assert.rejects(()=>client.get('/portfolio-summary',{report_month:'2026-08',comparison_month:'2026-06'}),{code:'VALIDATION_ERROR'});
+await assert.rejects(()=>client.get('/projects/unknown',{report_month:'2026-08'}),{code:'PROJECT_NOT_OBSERVED'});
+console.log('Full-data frontend client: list, paging, detail, zeros/nulls, provenance, gaps, portfolio, scope filters, search and errors passed.');

@@ -1,3 +1,9 @@
+import secrets
+from pathlib import Path
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
+from .access import AccessSettings
 from typing import Annotated
 from fastapi import FastAPI, Query
 from fastapi.exceptions import RequestValidationError
@@ -10,7 +16,7 @@ from .models import ActiveDataset, Revision, Snapshot, Comparison
 from .monitoring import (month_range, month_number, present_comparison, portfolio_comparison,
                          quality_counts, scoped_codes, history_pair_warnings)
 from .presentation import warning
-from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope
+from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope, FilterOptionsEnvelope
 
 
 class APIError(Exception):
@@ -19,12 +25,43 @@ class APIError(Exception):
 
 
 def create_app(engine=None):
-    app = FastAPI(title="Sentinel local monitoring", version="1", docs_url="/docs")
+    access = AccessSettings.from_env()
+    app = FastAPI(title="Sentinel monitoring", version="1", docs_url=None if access.production else "/docs",
+                  redoc_url=None if access.production else "/redoc",
+                  openapi_url=None if access.production else "/openapi.json")
     app.state.engine = engine if engine is not None else engine_from_env()
 
     def error(status,code,message,version=None,details=None):
         return JSONResponse(status_code=status,content=dict(error=dict(code=code,message=message,details=details or []),
                             meta=dict(contract_version="1",dataset_version=version)))
+
+    @app.middleware("http")
+    async def authenticate(request, call_next):
+        protected = request.url.path == "/api" or request.url.path.startswith("/api/") or request.url.path in {"/docs", "/redoc", "/openapi.json"}
+        preflight = (request.method == "OPTIONS" and request.headers.get("origin") in access.origins
+                     and request.headers.get("access-control-request-method"))
+        if protected and access.token and not preflight:
+            authorization = request.headers.get("authorization", "")
+            scheme, _, candidate = authorization.partition(" ")
+            if scheme.lower() != "bearer" or not secrets.compare_digest(candidate.encode(), access.token.encode()):
+                response = error(401, "UNAUTHORIZED", "A valid API bearer token is required.")
+                response.headers["WWW-Authenticate"] = "Bearer"
+                return response
+        response = await call_next(request)
+        if protected:
+            response.headers["Cache-Control"] = "no-store"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Referrer-Policy"] = "same-origin"
+        return response
+
+    # Outermost CORS layer also covers authentication errors.
+    if access.origins:
+        app.add_middleware(CORSMiddleware, allow_origins=list(access.origins), allow_credentials=True,
+                           allow_methods=["GET"], allow_headers=["Authorization", "Content-Type"])
+
+    @app.get("/healthz", include_in_schema=False)
+    def health():
+        return {"status": "ok"}
 
     @app.exception_handler(APIError)
     async def api_error(request,exc):
@@ -72,6 +109,30 @@ def create_app(engine=None):
         if filters.get("comparison_month"):
             months.add(filters["comparison_month"])
         return dict(data=data,meta=meta,warnings=[w for w in revision.warnings if w["report_month"] in months])
+
+    @app.get("/api/v1/filter-options",response_model=FilterOptionsEnvelope)
+    def filter_options(query: Annotated[PortfolioQuery, Query()]):
+        """Discover exact labels across the selected report and optional prior report.
+
+        Exposes only distinct already-public reported identity labels, not project
+        records. Values remain exact (including punctuation, case and spacing).
+        """
+        with Session(app.state.engine) as session:
+            rev = revision(session,query)
+            months = [query.report_month]
+            if query.comparison_month:
+                if query.comparison_month not in rev.reports:
+                    raise APIError(404,"REPORT_NOT_AVAILABLE","Comparison report month is unavailable.",rev.version)
+                months.append(query.comparison_month)
+            data = {}
+            for field in ("sector","ministry","state","agency"):
+                values = session.scalars(select(getattr(Snapshot,field)).where(
+                    Snapshot.version==rev.version, Snapshot.report_month.in_(months)).distinct()).all()
+                data[field] = sorted((value for value in values if value), key=str.casefold)
+            filters = dict(report_month=query.report_month)
+            if query.comparison_month:
+                filters["comparison_month"] = query.comparison_month
+            return envelope(data,rev,filters)
 
     @app.get("/api/v1/projects",response_model=Envelope)
     def projects(query: Annotated[ListQuery, Query()]):
@@ -195,4 +256,11 @@ def create_app(engine=None):
                         "Counts retain reported decreases; their causes are unknown.","pair"))
             return result
 
+    frontend = os.environ.get("SENTINEL_FRONTEND_DIR")
+    if frontend:
+        directory = Path(frontend).resolve()
+        if not (directory / "index.html").is_file():
+            raise ValueError("SENTINEL_FRONTEND_DIR must contain a built index.html")
+        # Mount last so API routes and their contract errors retain precedence.
+        app.mount("/", StaticFiles(directory=directory, html=True), name="frontend")
     return app

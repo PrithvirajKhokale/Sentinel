@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# API only: the frontend stays on the existing owner-private Sites URL.
+services:
+  - type: web
+    name: sentinel-api
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: feat/frontend-backend-integration
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeployTrigger: "off"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sentinel-db
+          property: connectionString
+      - key: SENTINEL_DB_SSLMODE
+        value: require
+      - key: SENTINEL_API_TOKEN
+        generateValue: true
+      - key: SENTINEL_ALLOWED_ORIGINS
+        value: https://sentinel-project-explorer.expertsky64.chatgpt.site
+      - key: SENTINEL_FRONTEND_DIR
+        value: ""
+# Uses the existing sentinel-db in the approved workspace.

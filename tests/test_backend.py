@@ -119,6 +119,28 @@ class BackendTests(unittest.TestCase):
         response=self.client.get("/api/v1/projects",params={"report_month":"2026-08","state":"Madhya Pradesh"})
         self.assertNotIn("701530",[s["project_code"] for s in response.json()["data"]])
 
+    def test_filter_options_use_exact_report_labels_and_consistent_version(self):
+        base="/api/v1/filter-options"
+        r=self.client.get(base,params={"report_month":"2026-08"})
+        self.assertEqual(r.status_code,200)
+        body=r.json()
+        self.assertEqual(body["meta"]["dataset_version"],self.bundle["version"])
+        self.assertEqual(set(body["data"]),{"sector","ministry","state","agency"})
+        august=self.client.get("/api/v1/projects",params={"report_month":"2026-08","page_size":1}).json()
+        for field in body["data"]:
+            label=august["data"][0]["identity"][field]
+            self.assertIn(label,body["data"][field])
+            self.assertEqual(len(body["data"][field]),len(set(body["data"][field])))
+            self.assertEqual(body["data"][field],sorted(body["data"][field],key=str.casefold))
+        before=self.client.get(base,params={"report_month":"2026-07"}).json()["data"]
+        combined=self.client.get(base,params={"report_month":"2026-08",
+                                               "comparison_month":"2026-07"}).json()["data"]
+        for field in body["data"]:
+            self.assertEqual(set(combined[field]),set(body["data"][field]) | set(before[field]))
+        self.assertEqual(self.client.get(base,params={"report_month":"2026-08",
+                             "comparison_month":"2026-06"}).status_code,422)
+        self.assertEqual(self.client.get(base,params={"report_month":"2026-09"}).status_code,404)
+
     def test_pagination_stable_and_empty(self):
         first=self.client.get("/api/v1/projects?report_month=2026-08&page_size=2").json()
         second=self.client.get("/api/v1/projects?report_month=2026-08&page_size=2&page=2").json()
