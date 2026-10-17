@@ -18,6 +18,14 @@ class ListQuery(StrictModel):
     page_size: int = Field(default=25, ge=1, le=100)
 
 
+class SignalsQuery(ListQuery):
+    signal_type: Literal[
+        "reported_progress_decrease",
+        "spending_without_reported_progress",
+        "reported_target_postponed",
+    ] | None = None
+
+
 class DetailQuery(StrictModel):
     report_month: str = Field(pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
     dataset_version: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
