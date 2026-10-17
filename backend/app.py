@@ -17,7 +17,7 @@ from .monitoring import (month_range, month_number, present_comparison, portfoli
                          quality_counts, scoped_codes, history_pair_warnings)
 from .presentation import warning
 from .risk_intelligence import signals_for_pair, summarize
-from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope, FilterOptionsEnvelope, SignalsEnvelope
+from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope, FilterOptionsEnvelope, SignalsEnvelope, SignalsQuery
 
 
 class APIError(Exception):
@@ -112,7 +112,7 @@ def create_app(engine=None):
         return dict(data=data,meta=meta,warnings=[w for w in revision.warnings if w["report_month"] in months])
 
     @app.get("/api/v1/risk-signals",response_model=SignalsEnvelope)
-    def risk_signals(query: Annotated[ListQuery, Query()]):
+    def risk_signals(query: Annotated[SignalsQuery, Query()]):
         """Factual reported-change flags for *adjacent*, same-code observations.
 
         No risk probability, score, verified field-wise comparability or
@@ -154,6 +154,9 @@ def create_app(engine=None):
                     pair = present_comparison(pairs[code].payload)
                     results.extend(signals_for_pair(pair,before[code].payload,after[code].payload))
                 summary = summarize(results,len(shared))
+            if query.signal_type:
+                values["signal_type"] = query.signal_type
+                results = [r for r in results if r["type"] == query.signal_type]
             offset = (query.page-1)*query.page_size
             pagination = dict(page=query.page,page_size=query.page_size,
                               total_items=len(results),total_pages=(len(results)+query.page_size-1)//query.page_size)
