@@ -114,6 +114,13 @@ class HistoryQuery(StrictModel):
         return self
 
 
+class FilterOptionsEnvelope(StrictModel):
+    # Exact labels from the selected report(s), not the reference sample.
+    data: dict[str, list[str]]
+    meta: dict
+    warnings: list[Warning]
+
+
 class PortfolioQuery(StrictModel):
     report_month: str = Field(pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
     comparison_month: str | None = Field(default=None, pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
