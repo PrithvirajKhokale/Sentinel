@@ -105,3 +105,35 @@ route. The source branch must exist remotely before the Blueprint can be applied
 Workspace selection and public repository publication were approved on 2026-10-15.
 Free resources are a demo starting point; check current expiry, sleeping and
 capacity limits in Render before relying on them for a persistent deployment.
+
+
+## Reproducible source archive deployment (2026-10-17)
+
+Render build previously failed in `scripts/acquire_reports.py` because the
+government portal timed out. All five original user-supplied PDFs now match the
+previously reviewed `config/monthly_reports.json` SHA-256 checksums byte-for-byte.
+The upload bundle is `sentinel-source-reports-2026.zip` (25,893,567 bytes;
+SHA-256 `a5da5970b6156935e93a20ef8a31e1aa16c5e805cbf21562ab27371c544f1680`).
+It contains exactly these files at ZIP root:
+`FlashReport_April2026.pdf`, `FlashReport_May2026.pdf`,
+`FlashReport_June_2026.pdf`, `FlashReport_July_2026.pdf`,
+`FlashReport_August_2026.pdf`.
+
+**One-time prerequisite:** Using the GitHub Releases web UI, publish a release
+tagged `source-reports-2026-v1` on this repository and upload that exact ZIP
+as an asset named `sentinel-source-reports-2026.zip`. This must be publicly
+reachable by Render; the repository is currently public. Do not put API tokens,
+database credentials, or private records in the release.
+
+The acquisition script downloads exactly this release asset once and verifies
+the pinned archive SHA-256, the exact member-name set, every PDF signature, and
+each catalog SHA-256 before placing the source files into `data/raw`.
+Cached sources are verified without network. Source mismatches stop the build.
+Extraction and dataset-manifest validation are unchanged.
+
+Before triggering Render manually (auto deploy is disabled), confirm
+the release URL serves the expected ZIP rather than a 404. Do not deploy before
+that prerequisite, because a missing release would fail the build. After
+deploying, check `/healthz`, dataset readiness, protected endpoints, the full
+9,321/7,202 counts, and frontend CORS/auth integration. No deployment or
+production tests are implied by this document.
