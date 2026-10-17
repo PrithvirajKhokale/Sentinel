@@ -71,10 +71,70 @@ def recover(report, root=ROOT):
     print(f"Recovered and verified {target.name}", flush=True)
 
 
+import io
+import zipfile
+
+# Immutable public source bundle prepared from the five reviewed PDFs.
+# Publish the verified archive as this GitHub Release asset before deploying.
+BUNDLE_URL = (
+    "https://github.com/PrithvirajKhokale/Sentinel/releases/download/"
+    "source-reports-2026-v1/sentinel-source-reports-2026.zip"
+)
+BUNDLE_SHA256 = "a5da5970b6156935e93a20ef8a31e1aa16c5e805cbf21562ab27371c544f1680"
+
+
+def recover_bundle(reports, root=ROOT):
+    """Recover the exact five reviewed PDFs from one immutable release asset.
+
+    Verify the archive and every member before writing any new source files.
+    Existing files are also hash checked; no alternate/changed data is accepted.
+    """
+    names = [Path(report["pdf"]).name for report in reports]
+    if len(names) != len(set(names)):
+        raise ValueError("Duplicate source filenames in report catalog")
+    pending = []
+    for report in reports:
+        target = root / report["pdf"]
+        if target.is_file():
+            actual = hashlib.sha256(target.read_bytes()).hexdigest()
+            if actual != report["source_sha256"]:
+                raise ValueError(f"Existing source differs from reviewed hash: {target.name}")
+            print(f"Verified existing {target.name}", flush=True)
+        else:
+            pending.append(report)
+    if not pending:
+        return
+
+    print("Downloading pinned, hash-verified Sentinel source archive", flush=True)
+    content = read_source(BUNDLE_URL, timeout=120)
+    if hashlib.sha256(content).hexdigest() != BUNDLE_SHA256:
+        raise ValueError("Source archive differs from pinned SHA-256")
+    try:
+        with zipfile.ZipFile(io.BytesIO(content)) as bundle:
+            if sorted(bundle.namelist()) != sorted(names):
+                raise ValueError("Source archive does not contain the exact reviewed file list")
+            verified = {}
+            for report in reports:
+                name = Path(report["pdf"]).name
+                raw = bundle.read(name)
+                if not raw.startswith(b"%PDF") or hashlib.sha256(raw).hexdigest() != report["source_sha256"]:
+                    raise ValueError(f"Source archive member differs from reviewed hash: {name}")
+                verified[name] = raw
+    except zipfile.BadZipFile as exc:
+        raise ValueError("Source archive is not a valid ZIP") from exc
+
+    for report in pending:
+        target = root / report["pdf"]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_suffix(".pdf.tmp")
+        temporary.write_bytes(verified[target.name])
+        temporary.replace(target)
+        print(f"Recovered and verified {target.name}", flush=True)
+
+
 def main():
     catalog = json.loads((ROOT / "config/monthly_reports.json").read_text())
-    with ThreadPoolExecutor(max_workers=3) as pool:
-        list(pool.map(recover, catalog["reports"]))
+    recover_bundle(catalog["reports"], ROOT)
 
 
 if __name__ == "__main__":
