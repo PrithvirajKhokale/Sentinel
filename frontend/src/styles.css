@@ -612,6 +612,45 @@ main {
   margin-top: 3px;
   flex-shrink: 0;
 }
+.filter-search label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary, #325f40);
+}
+.filter-search-row {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.filter-panel .filter-search-row input {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+.filter-search-row button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: 11px;
+}
+.filter-option-count {
+  color: var(--text-secondary, #86917e);
+  font-size: 11px;
+  margin-top: 12px;
+}
+.check-options {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.check-options label {
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.check-options label:hover {
+  color: var(--text-primary, #325f40);
+}
+
 .filter-panel form input {
   width: 100%;
   padding: 10px;
