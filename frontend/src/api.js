@@ -47,6 +47,12 @@ export function matches(s, filters) {
     (f) => !filters[f]?.length || filters[f].includes(s.identity[f]),
   );
 }
+// Filter choices retain exact report labels while allowing case-insensitive discovery.
+export function matchingFilterOptions(values, input) {
+  const needle = input.trim().toLocaleLowerCase();
+  return values.filter((v) => v.toLocaleLowerCase().includes(needle));
+}
+
 export function qualityCounts(snapshots) {
   const flags = new Map(),
     missing = new Map();
@@ -118,6 +124,20 @@ export function exampleResponse(db, path, params = {}) {
     };
     return rows.slice((page - 1) * size, page * size);
   };
+  if (path === "/filter-options") {
+    const other = params.comparison_month;
+    if (other && MONTHS.indexOf(report) - MONTHS.indexOf(other) !== 1)
+      throw new APIError("VALIDATION_ERROR", "Comparison must use the immediately preceding month.");
+    const months = [report, ...(other ? [other] : [])];
+    return envelope(Object.fromEntries(
+      IDENTITY_FIELDS.map((field) => [field, [
+        ...new Set(db.snapshots
+          .filter((s) => months.includes(s.report_month))
+          .map((s) => s.identity[field])
+          .filter(Boolean)),
+      ].sort((a, b) => a.localeCompare(b))]),
+    ));
+  }
   if (path === "/projects") {
     let rows = db.snapshots.filter(
       (s) => s.report_month === report && matches(s, params),
