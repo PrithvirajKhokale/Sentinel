@@ -33,3 +33,29 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m compileall -q backend tests scripts
+
+  backend-postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: sentinel
+          POSTGRES_PASSWORD: sentinel_test_only
+          POSTGRES_DB: sentinel_tests
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U sentinel -d sentinel_tests"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      BACKEND_TEST_DATABASE_URL: postgresql+psycopg://sentinel:sentinel_test_only@127.0.0.1:5432/sentinel_tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-backend.txt
+      - run: python scripts/acquire_reports.py
+      - run: python scripts/rebuild_dataset.py > /tmp/sentinel-dataset.log
+      - run: python -m unittest tests.test_backend -v
