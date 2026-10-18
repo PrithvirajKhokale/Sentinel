@@ -271,3 +271,67 @@ test("live client pins the dataset, handles error envelopes and refuses mixed re
     globalThis.fetch = previous;
   }
 });
+
+
+test("risk intelligence fails closed in reference mode and reuses authenticated revision-pinned client", async () => {
+  assert.throws(
+    () => exampleResponse(db, "/risk-signals", { report_month: "2026-08" }),
+    { code: "LIVE_API_REQUIRED" },
+  );
+  const previous = globalThis.fetch;
+  const calls = [];
+  const base = db.examples.project_list.response;
+  globalThis.fetch = async (url, init) => {
+    calls.push({ url, init });
+    return {
+      ok: true,
+      json: async () => calls.length === 1
+        ? base
+        : {
+          data: {
+            report_month: "2026-08",
+            comparison_month: "2026-07",
+            scope: "shared_observed_projects",
+            summary: {
+              shared_pairs_in_scope: 0,
+              projects_with_signals: 0,
+              total_signals: 0,
+              signal_counts: {},
+              signaled_projects_requiring_pair_review: 0,
+            },
+            signals: [],
+          },
+          meta: {
+            ...base.meta,
+            pagination: { page: 1, page_size: 20, total_items: 0, total_pages: 0 },
+          },
+          warnings: [],
+        },
+    };
+  };
+  try {
+    const client = createClient(db, {
+      mode: "live",
+      base: "https://sentinel-api.example/api/v1",
+      token: "unit-test-only-token",
+    });
+    await client.get("/projects", { report_month: "2026-08" });
+    const result = await client.get("/risk-signals", {
+      report_month: "2026-08",
+      q: "station",
+      project_code: ["400298"],
+      ministry: ["Railways"],
+      page: 1,
+      page_size: 20,
+    });
+    assert.equal(result.data.signals.length, 0);
+    assert.equal(calls.length, 2);
+    assert.ok(calls[1].url.startsWith("https://sentinel-api.example/api/v1/risk-signals?"));
+    assert.ok(calls[1].url.includes(`dataset_version=${VERSION}`));
+    assert.ok(calls[1].url.includes("project_code=400298"));
+    assert.ok(calls[1].url.includes("ministry=Railways"));
+    assert.equal(calls[1].init.headers.Authorization, "Bearer unit-test-only-token");
+  } finally {
+    globalThis.fetch = previous;
+  }
+});
