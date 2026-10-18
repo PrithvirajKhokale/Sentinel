@@ -1,3 +1,7 @@
+from pathlib import Path
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Annotated
 from fastapi import FastAPI, Query
 from fastapi.exceptions import RequestValidationError
@@ -10,7 +14,8 @@ from .models import ActiveDataset, Revision, Snapshot, Comparison
 from .monitoring import (month_range, month_number, present_comparison, portfolio_comparison,
                          quality_counts, scoped_codes, history_pair_warnings)
 from .presentation import warning
-from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope
+from .risk_intelligence import signals_for_pair, summarize
+from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope, FilterOptionsEnvelope, SignalsEnvelope, SignalsQuery
 
 
 class APIError(Exception):
@@ -19,12 +24,30 @@ class APIError(Exception):
 
 
 def create_app(engine=None):
-    app = FastAPI(title="Sentinel local monitoring", version="1", docs_url="/docs")
+    app = FastAPI(title="Sentinel monitoring", version="1", docs_url="/docs", redoc_url="/redoc",
+                  openapi_url="/openapi.json")
     app.state.engine = engine if engine is not None else engine_from_env()
 
     def error(status,code,message,version=None,details=None):
         return JSONResponse(status_code=status,content=dict(error=dict(code=code,message=message,details=details or []),
                             meta=dict(contract_version="1",dataset_version=version)))
+
+    @app.middleware("http")
+    async def headers(request, call_next):
+        response = await call_next(request)
+        if request.url.path == "/api" or request.url.path.startswith("/api/"):
+            response.headers["Cache-Control"] = "no-store"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Referrer-Policy"] = "same-origin"
+        return response
+
+    # Public read-only API: any site may call it; no credentials are involved.
+    app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=False,
+                       allow_methods=["GET"], allow_headers=["Content-Type"])
+
+    @app.get("/healthz", include_in_schema=False)
+    def health():
+        return {"status": "ok"}
 
     @app.exception_handler(APIError)
     async def api_error(request,exc):
@@ -72,6 +95,86 @@ def create_app(engine=None):
         if filters.get("comparison_month"):
             months.add(filters["comparison_month"])
         return dict(data=data,meta=meta,warnings=[w for w in revision.warnings if w["report_month"] in months])
+
+    @app.get("/api/v1/risk-signals",response_model=SignalsEnvelope)
+    def risk_signals(query: Annotated[SignalsQuery, Query()]):
+        """Factual reported-change flags for *adjacent*, same-code observations.
+
+        No risk probability, score, verified field-wise comparability or
+        completion outcome is inferred. The response is dataset-pinned.
+        """
+        with Session(app.state.engine) as session:
+            rev = revision(session,query)
+            current = query.report_month
+            prior = next((m for m in rev.reports if month_number(current)-month_number(m)==1),None)
+            values = dict(report_month=current)
+            conditions = [Snapshot.version==rev.version,Snapshot.report_month==current]
+            for field in ("ministry","sector","state","agency","project_code"):
+                selected = sorted(set(getattr(query,field)))
+                if selected:
+                    conditions.append(getattr(Snapshot,field).in_(selected))
+                    values[field] = selected
+            if query.q is not None:
+                literal = query.q.lower().replace("\\","\\\\").replace("%","\\%").replace("_","\\_")
+                conditions.append(func.lower(Snapshot.project_name).like("%"+literal+"%",escape="\\"))
+                values["q"] = query.q
+            if prior is None:
+                summary = summarize([],0)
+                results = []
+            else:
+                values["comparison_month"] = prior
+                after = {s.project_code:s for s in session.scalars(select(Snapshot).where(*conditions)).all()}
+                codes = list(after)
+                before = {s.project_code:s for s in session.scalars(select(Snapshot).where(
+                    Snapshot.version==rev.version,Snapshot.report_month==prior,
+                    Snapshot.project_code.in_(codes))).all()} if codes else {}
+                shared = sorted(set(after) & set(before))
+                pairs = {c.project_code:c for c in session.scalars(select(Comparison).where(
+                    Comparison.version==rev.version,Comparison.before_month==prior,
+                    Comparison.after_month==current,Comparison.project_code.in_(shared))).all()} if shared else {}
+                if set(pairs) != set(shared):
+                    raise APIError(500,"INTERNAL_ERROR","Validated adjacent comparison data is incomplete.",rev.version)
+                results = []
+                for code in shared:
+                    pair = present_comparison(pairs[code].payload)
+                    results.extend(signals_for_pair(pair,before[code].payload,after[code].payload))
+                summary = summarize(results,len(shared))
+            if query.signal_type:
+                values["signal_type"] = query.signal_type
+                results = [r for r in results if r["type"] == query.signal_type]
+            offset = (query.page-1)*query.page_size
+            pagination = dict(page=query.page,page_size=query.page_size,
+                              total_items=len(results),total_pages=(len(results)+query.page_size-1)//query.page_size)
+            reply = envelope(dict(report_month=current,comparison_month=prior,
+                                  scope="shared_observed_projects",summary=summary,
+                                  signals=results[offset:offset+query.page_size]),rev,values,pagination)
+            reply["warnings"].append(warning("reported_signals_not_predictions",[],current,[],
+                "Reported changes are factual screening cues, not independent project-risk assessments. Pair-wide review flags remain in each signal.","report"))
+            return reply
+
+    @app.get("/api/v1/filter-options",response_model=FilterOptionsEnvelope)
+    def filter_options(query: Annotated[PortfolioQuery, Query()]):
+        """Discover exact labels across the selected report and optional prior report.
+
+        Exposes only distinct already-public reported identity labels, not project
+        records. Values remain exact (including punctuation, case and spacing).
+        """
+        with Session(app.state.engine) as session:
+            rev = revision(session,query)
+            months = [query.report_month]
+            if query.comparison_month:
+                if query.comparison_month not in rev.reports:
+                    raise APIError(404,"REPORT_NOT_AVAILABLE","Comparison report month is unavailable.",rev.version)
+                months.append(query.comparison_month)
+            data = {}
+            for field in ("sector","ministry","state","agency"):
+                values = session.scalars(select(getattr(Snapshot,field)).where(
+                    Snapshot.version==rev.version, Snapshot.report_month.in_(months)).distinct()).all()
+                data[field] = sorted((value for value in values if value), key=str.casefold)
+            filters = dict(report_month=query.report_month)
+            if query.comparison_month:
+                filters["comparison_month"] = query.comparison_month
+            return envelope(data,rev,filters)
 
     @app.get("/api/v1/projects",response_model=Envelope)
     def projects(query: Annotated[ListQuery, Query()]):
@@ -195,4 +298,11 @@ def create_app(engine=None):
                         "Counts retain reported decreases; their causes are unknown.","pair"))
             return result
 
+    frontend = os.environ.get("SENTINEL_FRONTEND_DIR")
+    if frontend:
+        directory = Path(frontend).resolve()
+        if not (directory / "index.html").is_file():
+            raise ValueError("SENTINEL_FRONTEND_DIR must contain a built index.html")
+        # Mount last so API routes and their contract errors retain precedence.
+        app.mount("/", StaticFiles(directory=directory, html=True), name="frontend")
     return app
