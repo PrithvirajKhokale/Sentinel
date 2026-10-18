@@ -41,6 +41,24 @@ class RiskSignalsTests(unittest.TestCase):
         self.assertEqual(progress["evidence"][0],{"field":"physical_progress_pct",
             "before_raw":"5","after_raw":"3","status":"decreased","delta":"-2"})
 
+    def test_real_june_july_railway_case_matches_contract_and_original_pdf(self):
+        import json
+        from pathlib import Path
+        contract=json.loads(Path("docs/examples/project-data-contract.json").read_text(encoding="utf-8"))
+        response=contract["examples"]["monthly_history"]["response"]
+        before,after=response["data"]
+        pair=response["meta"]["comparisons"][0]
+        flags=signals_for_pair(pair,before,after)
+        progress=next(x for x in flags if x["type"]=="reported_progress_decrease")
+        self.assertEqual(progress["project_code"],"400298")
+        self.assertEqual(progress["evidence"][0]["before_raw"],"55.02")
+        self.assertEqual(progress["evidence"][0]["after_raw"],"2")
+        self.assertEqual(progress["evidence"][0]["delta"],"-53.02")
+        self.assertEqual(progress["source_pdf_pages"],{"before":[84],"after":[80]})
+        self.assertTrue(progress["pair_wide_review_required"])
+        self.assertIn("unreviewed_identity_change",progress["review_reasons"])
+        self.assertIn("baseline_start_date_raw",progress["review_reasons"])
+
     def test_spend_growth_with_static_progress_only_when_both_observed(self):
         pair,a,b=fixture(progress=("5","5","unchanged","0"),
                          spending=("100","120","increased","20"),
