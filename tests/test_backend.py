@@ -145,6 +145,24 @@ class BackendTests(unittest.TestCase):
         self.assertEqual(april["data"]["summary"]["total_signals"],0)
         self.assertEqual(self.client.get(path,params={"report_month":"2026-08","page_size":101}).status_code,422)
         self.assertEqual(self.client.get(path,params={"report_month":"2026-09"}).status_code,404)
+        # Real source-page cross-check: June and July PDFs both contain code 400298.
+        observed=self.client.get(path,params={"report_month":"2026-07","project_code":"400298",
+                                             "q":"NADIKUDE","signal_type":"reported_progress_decrease"})
+        self.assertEqual(observed.status_code,200,observed.text)
+        obj=observed.json()["data"]
+        self.assertEqual(obj["summary"]["shared_pairs_in_scope"],1)
+        self.assertEqual(len(obj["signals"]),1)
+        signal=obj["signals"][0]
+        self.assertEqual(signal["evidence"][0]["before_raw"],"55.02")
+        self.assertEqual(signal["evidence"][0]["after_raw"],"2")
+        self.assertEqual(signal["source_pdf_pages"],{"before":[84],"after":[80]})
+        self.assertIn("unreviewed_identity_change",signal["review_reasons"])
+        # The filtered matching count need not equal the unfiltered summary total.
+        self.assertEqual(observed.json()["meta"]["pagination"]["total_items"],1)
+        unknown=self.client.get(path,params={"report_month":"2026-07",
+                                              "signal_type":"not_a_signal"})
+        self.assertEqual(unknown.status_code,422)
+
 
     def test_filter_options_use_exact_report_labels_and_consistent_version(self):
         base="/api/v1/filter-options"
