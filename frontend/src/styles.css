@@ -2665,6 +2665,15 @@ summary span {
   color: var(--text-secondary, #86917e);
   font-size: 11px;
 }
+.signals-controls input {
+  color: var(--text-primary, #325f40);
+  background: var(--surface, #fff);
+  border: 1px solid var(--line, #dce3d7);
+  border-radius: 7px;
+  padding: 10px 12px;
+  min-width: 170px;
+  max-width: min(100%, 340px);
+}
 .signals-controls select {
   color: var(--text-primary, #325f40);
   background: var(--surface, #fff);
