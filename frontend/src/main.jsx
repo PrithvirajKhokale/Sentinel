@@ -1727,7 +1727,7 @@ function LiveRiskIntelligence({ db, client, month, setMonth, filters, setFilters
       </div>
       <div className="notice amber">
         <Info size={18} />
-        <p><strong>Not a risk score.</strong> These are changes between adjacent published reports, not verified project outcomes. A field may require further review even when its reported change is shown. Missing observations are not proof of completion.</p>
+        <p><strong>Reported warning signals only.</strong> These are reported warning signals, not independently verified problems, risk probabilities, or ML predictions. They describe changes between adjacent published reports, not verified project outcomes. A field may still require review, and missing observations are not proof of completion.</p>
       </div>
       <div className="signals-controls">
         <label>
@@ -1789,7 +1789,7 @@ function LiveRiskIntelligence({ db, client, month, setMonth, filters, setFilters
                 <article className="signal-card" key={s.id}>
                   <div className="signal-card-top">
                     <div>
-                      <span className="eyebrow">{s.category.toUpperCase()} · {monthLabel(s.before_month)} → {monthLabel(s.after_month)}</span>
+                      <span className="eyebrow">WARNING TYPE: {s.type} · {monthLabel(s.before_month)} → {monthLabel(s.after_month)}</span>
                       <h3>{s.title}</h3>
                       <p className="signal-project">{s.project_name} · {s.project_code}</p>
                     </div>
