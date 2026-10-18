@@ -88,6 +88,9 @@ export class APIError extends Error {
   }
 }
 export function exampleResponse(db, path, params = {}) {
+  // Never synthesize reported warning signals from the partial reference fixtures.
+  if (path === "/risk-signals")
+    throw new APIError("LIVE_API_REQUIRED", "Risk Intelligence requires the authenticated Live API.");
   if (params.dataset_version && params.dataset_version !== VERSION)
     throw new APIError(
       "DATASET_NOT_FOUND",
