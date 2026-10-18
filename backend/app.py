@@ -16,7 +16,8 @@ from .models import ActiveDataset, Revision, Snapshot, Comparison
 from .monitoring import (month_range, month_number, present_comparison, portfolio_comparison,
                          quality_counts, scoped_codes, history_pair_warnings)
 from .presentation import warning
-from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope, FilterOptionsEnvelope
+from .risk_intelligence import signals_for_pair, summarize
+from .schemas import DetailQuery, Envelope, ListQuery, HistoryQuery, PortfolioQuery, PortfolioEnvelope, FilterOptionsEnvelope, SignalsEnvelope, SignalsQuery
 
 
 class APIError(Exception):
@@ -109,6 +110,62 @@ def create_app(engine=None):
         if filters.get("comparison_month"):
             months.add(filters["comparison_month"])
         return dict(data=data,meta=meta,warnings=[w for w in revision.warnings if w["report_month"] in months])
+
+    @app.get("/api/v1/risk-signals",response_model=SignalsEnvelope)
+    def risk_signals(query: Annotated[SignalsQuery, Query()]):
+        """Factual reported-change flags for *adjacent*, same-code observations.
+
+        No risk probability, score, verified field-wise comparability or
+        completion outcome is inferred. The response is dataset-pinned.
+        """
+        with Session(app.state.engine) as session:
+            rev = revision(session,query)
+            current = query.report_month
+            prior = next((m for m in rev.reports if month_number(current)-month_number(m)==1),None)
+            values = dict(report_month=current)
+            conditions = [Snapshot.version==rev.version,Snapshot.report_month==current]
+            for field in ("ministry","sector","state","agency","project_code"):
+                selected = sorted(set(getattr(query,field)))
+                if selected:
+                    conditions.append(getattr(Snapshot,field).in_(selected))
+                    values[field] = selected
+            if query.q is not None:
+                literal = query.q.lower().replace("\\","\\\\").replace("%","\\%").replace("_","\\_")
+                conditions.append(func.lower(Snapshot.project_name).like("%"+literal+"%",escape="\\"))
+                values["q"] = query.q
+            if prior is None:
+                summary = summarize([],0)
+                results = []
+            else:
+                values["comparison_month"] = prior
+                after = {s.project_code:s for s in session.scalars(select(Snapshot).where(*conditions)).all()}
+                codes = list(after)
+                before = {s.project_code:s for s in session.scalars(select(Snapshot).where(
+                    Snapshot.version==rev.version,Snapshot.report_month==prior,
+                    Snapshot.project_code.in_(codes))).all()} if codes else {}
+                shared = sorted(set(after) & set(before))
+                pairs = {c.project_code:c for c in session.scalars(select(Comparison).where(
+                    Comparison.version==rev.version,Comparison.before_month==prior,
+                    Comparison.after_month==current,Comparison.project_code.in_(shared))).all()} if shared else {}
+                if set(pairs) != set(shared):
+                    raise APIError(500,"INTERNAL_ERROR","Validated adjacent comparison data is incomplete.",rev.version)
+                results = []
+                for code in shared:
+                    pair = present_comparison(pairs[code].payload)
+                    results.extend(signals_for_pair(pair,before[code].payload,after[code].payload))
+                summary = summarize(results,len(shared))
+            if query.signal_type:
+                values["signal_type"] = query.signal_type
+                results = [r for r in results if r["type"] == query.signal_type]
+            offset = (query.page-1)*query.page_size
+            pagination = dict(page=query.page,page_size=query.page_size,
+                              total_items=len(results),total_pages=(len(results)+query.page_size-1)//query.page_size)
+            reply = envelope(dict(report_month=current,comparison_month=prior,
+                                  scope="shared_observed_projects",summary=summary,
+                                  signals=results[offset:offset+query.page_size]),rev,values,pagination)
+            reply["warnings"].append(warning("reported_signals_not_predictions",[],current,[],
+                "Reported changes are factual screening cues, not independent project-risk assessments. Pair-wide review flags remain in each signal.","report"))
+            return reply
 
     @app.get("/api/v1/filter-options",response_model=FilterOptionsEnvelope)
     def filter_options(query: Annotated[PortfolioQuery, Query()]):

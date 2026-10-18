@@ -18,6 +18,14 @@ class ListQuery(StrictModel):
     page_size: int = Field(default=25, ge=1, le=100)
 
 
+class SignalsQuery(ListQuery):
+    signal_type: Literal[
+        "reported_progress_decrease",
+        "spending_without_reported_progress",
+        "reported_target_postponed",
+    ] | None = None
+
+
 class DetailQuery(StrictModel):
     report_month: str = Field(pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
     dataset_version: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
@@ -112,6 +120,56 @@ class HistoryQuery(StrictModel):
         if self.from_month and self.to_month and self.from_month > self.to_month:
             raise ValueError("from_month must not exceed to_month")
         return self
+
+
+class SignalSummary(StrictModel):
+    shared_pairs_in_scope: int
+    projects_with_signals: int
+    total_signals: int
+    signal_counts: dict[str, int]
+    signaled_projects_requiring_pair_review: int
+
+
+class SignalEvidence(StrictModel):
+    field: str
+    before_raw: str
+    after_raw: str
+    status: str
+    delta: str | None
+
+
+class ReportedSignal(StrictModel):
+    id: str
+    project_code: str
+    project_name: str
+    identity: Identity
+    before_month: str
+    after_month: str
+    type: str
+    category: str
+    title: str
+    explanation: str
+    evidence: list[SignalEvidence]
+    source_files: dict[str, str]
+    source_pdf_pages: dict[str, list[int]]
+    pair_wide_review_required: bool
+    review_reasons: list[str]
+    identity_review_status: str
+    policy: Literal["reported-signals-v1"]
+
+
+class SignalsData(StrictModel):
+    report_month: str
+    comparison_month: str | None
+    scope: Literal["shared_observed_projects"]
+    summary: SignalSummary
+    signals: list[ReportedSignal]
+
+
+class SignalsEnvelope(StrictModel):
+    data: SignalsData
+    meta: dict
+    warnings: list[Warning]
 
 
 class FilterOptionsEnvelope(StrictModel):

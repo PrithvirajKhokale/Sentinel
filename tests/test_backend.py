@@ -119,6 +119,51 @@ class BackendTests(unittest.TestCase):
         response=self.client.get("/api/v1/projects",params={"report_month":"2026-08","state":"Madhya Pradesh"})
         self.assertNotIn("701530",[s["project_code"] for s in response.json()["data"]])
 
+    def test_reported_signals_endpoint_is_pinned_scoped_and_paginated(self):
+        path="/api/v1/risk-signals"
+        first=self.client.get(path,params={"report_month":"2026-08","page_size":5})
+        self.assertEqual(first.status_code,200,first.text)
+        body=first.json()
+        self.assertEqual(body["meta"]["dataset_version"],self.bundle["version"])
+        self.assertEqual(body["data"]["comparison_month"],"2026-07")
+        self.assertEqual(body["data"]["summary"]["shared_pairs_in_scope"],1694)
+        self.assertEqual(body["meta"]["pagination"]["total_items"],
+                         body["data"]["summary"]["total_signals"])
+        for signal in body["data"]["signals"]:
+            self.assertEqual(signal["after_month"],"2026-08")
+            self.assertEqual(signal["before_month"],"2026-07")
+            self.assertTrue(signal["source_pdf_pages"]["before"])
+            self.assertTrue(signal["source_pdf_pages"]["after"])
+            self.assertEqual(signal["policy"],"reported-signals-v1")
+            self.assertNotIn("risk_score",signal)
+            self.assertNotIn("prediction",signal)
+        empty=self.client.get(path,params={"report_month":"2026-08","sector":"does_not_exist"}).json()
+        self.assertEqual(empty["data"]["summary"]["shared_pairs_in_scope"],0)
+        self.assertEqual(empty["data"]["signals"],[])
+        april=self.client.get(path,params={"report_month":"2026-04"}).json()
+        self.assertEqual(april["data"]["comparison_month"],None)
+        self.assertEqual(april["data"]["summary"]["total_signals"],0)
+        self.assertEqual(self.client.get(path,params={"report_month":"2026-08","page_size":101}).status_code,422)
+        self.assertEqual(self.client.get(path,params={"report_month":"2026-09"}).status_code,404)
+        # Real source-page cross-check: June and July PDFs both contain code 400298.
+        observed=self.client.get(path,params={"report_month":"2026-07","project_code":"400298",
+                                             "q":"NADIKUDE","signal_type":"reported_progress_decrease"})
+        self.assertEqual(observed.status_code,200,observed.text)
+        obj=observed.json()["data"]
+        self.assertEqual(obj["summary"]["shared_pairs_in_scope"],1)
+        self.assertEqual(len(obj["signals"]),1)
+        signal=obj["signals"][0]
+        self.assertEqual(signal["evidence"][0]["before_raw"],"55.02")
+        self.assertEqual(signal["evidence"][0]["after_raw"],"2")
+        self.assertEqual(signal["source_pdf_pages"],{"before":[84],"after":[80]})
+        self.assertIn("unreviewed_identity_change",signal["review_reasons"])
+        # The filtered matching count need not equal the unfiltered summary total.
+        self.assertEqual(observed.json()["meta"]["pagination"]["total_items"],1)
+        unknown=self.client.get(path,params={"report_month":"2026-07",
+                                              "signal_type":"not_a_signal"})
+        self.assertEqual(unknown.status_code,422)
+
+
     def test_filter_options_use_exact_report_labels_and_consistent_version(self):
         base="/api/v1/filter-options"
         r=self.client.get(base,params={"report_month":"2026-08"})
