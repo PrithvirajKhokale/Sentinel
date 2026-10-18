@@ -1695,11 +1695,21 @@ const RISK_TYPES = [
 ];
 function LiveRiskIntelligence({ db, client, month, setMonth, filters, setFilters, onInspect }) {
   const [kind, setKind] = useState("");
+  const [nameInput, setNameInput] = useState("");
+  const [codeInput, setCodeInput] = useState("");
+  const [nameSearch, setNameSearch] = useState("");
+  const [codeSearch, setCodeSearch] = useState("");
   const [page, setPage] = useState(1);
   const pageSize = 20;
-  useEffect(() => setPage(1), [kind, month, filters]);
+  useEffect(() => {
+    const timer = setTimeout(() => { setNameSearch(nameInput.trim()); setCodeSearch(codeInput.trim()); }, 250);
+    return () => clearTimeout(timer);
+  }, [nameInput, codeInput]);
+  useEffect(() => setPage(1), [kind, month, filters, nameSearch, codeSearch]);
   const { result, loading, error } = useRequest(client, "/risk-signals", {
     report_month: month, ...filters, page, page_size: pageSize,
+    ...(nameSearch ? { q: nameSearch } : {}),
+    ...(codeSearch ? { project_code: [codeSearch] } : {}),
     ...(kind ? { signal_type: kind } : {}),
   });
   const data = result?.data;
@@ -1720,6 +1730,18 @@ function LiveRiskIntelligence({ db, client, month, setMonth, filters, setFilters
         <p><strong>Not a risk score.</strong> These are changes between adjacent published reports, not verified project outcomes. A field may require further review even when its reported change is shown. Missing observations are not proof of completion.</p>
       </div>
       <div className="signals-controls">
+        <label>
+          <span>Project name contains</span>
+          <input aria-label="Search risk signals by project name"
+            placeholder="Type any part of the name…" value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)} />
+        </label>
+        <label>
+          <span>Project code (exact)</span>
+          <input aria-label="Filter risk signals by project code"
+            placeholder="e.g. 400298" value={codeInput}
+            onChange={(e) => setCodeInput(e.target.value)} />
+        </label>
         <label>
           <span>Reported signal type</span>
           <select aria-label="Reported signal type" value={kind} onChange={(e) => setKind(e.target.value)}>
