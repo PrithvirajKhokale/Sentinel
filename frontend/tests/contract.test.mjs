@@ -8,7 +8,7 @@ import {
   decimal,
   VERSION,
   matchingFilterOptions,
-} from "../src/api.js";
+} from "../src/api/index.js";
 const db = JSON.parse(
   fs.readFileSync(new URL("../public/reference-data.json", import.meta.url)),
 );

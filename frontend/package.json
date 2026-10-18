@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@sparticuz/chromium": "^138.0.2",
+    "@vitejs/plugin-react": "5.1.4",
     "playwright-core": "^1.55.0",
     "vite": "7.1.7"
   }

@@ -1,57 +1,6 @@
-export const MONTHS = ["2026-04", "2026-05", "2026-06", "2026-07", "2026-08"];
-export const IDENTITY_FIELDS = ["sector", "ministry", "state", "agency"];
-export const VERSION =
-  "756d0304736b2f6a61a5fee7363a07e23c583611319fd4f17699ac6f4942d24a";
-export const LABELS = {
-  legacy_ocms_code: "Legacy OCMS code",
-  pmgid: "PMG ID",
-  approval_date: "Approval month",
-  start_date: "Start month",
-  original_target_doc: "Original target month",
-  revised_doc: "Revised target month",
-  original_cost_rs_crore: "Original cost",
-  revised_cost_rs_crore: "Revised cost",
-  cumulative_expenditure_rs_crore: "Cumulative expenditure",
-  physical_progress_pct: "Physical progress",
-};
-export const pretty = (s) =>
-  LABELS[s?.replace(/_raw$/, "")] ||
-  (s || "").replaceAll("_", " ").replace(/^./, (c) => c.toUpperCase());
-export function monthLabel(m, short = false) {
-  if (!m) return "Unknown";
-  const [y, n] = m.split("-");
-  return `${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][Number(n) - 1]}${short ? "" : ` ${y}`}`;
-}
-// Decimal values remain strings. Formatting never rounds or converts money to floats.
-export function decimal(s) {
-  if (s === null || s === undefined) return "Unknown";
-  const [whole, frac] = String(s).split(".");
-  const grouped = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return grouped + (frac === undefined ? "" : "." + frac);
-}
-export function formatValue(v) {
-  if (!v || v.normalized === null) return "Unknown";
-  if (v.unit === "month") return monthLabel(v.normalized);
-  return `${v.unit === "Rs. crore" ? "₹" : ""}${decimal(v.normalized)}${v.unit === "percent" ? "%" : ""}`;
-}
-export function queryString(params) {
-  const q = new URLSearchParams();
-  for (const [k, v] of Object.entries(params)) {
-    if (v === undefined || v === null || v === "") continue;
-    for (const x of Array.isArray(v) ? v : [v]) q.append(k, String(x));
-  }
-  return q.toString();
-}
-export function matches(s, filters) {
-  return IDENTITY_FIELDS.every(
-    (f) => !filters[f]?.length || filters[f].includes(s.identity[f]),
-  );
-}
-// Filter choices retain exact report labels while allowing case-insensitive discovery.
-export function matchingFilterOptions(values, input) {
-  const needle = input.trim().toLocaleLowerCase();
-  return values.filter((v) => v.toLocaleLowerCase().includes(needle));
-}
+import { MONTHS, IDENTITY_FIELDS, VERSION } from "../constants.js";
+import { matches } from "../utils/filters.js";
+import { APIError } from "./errors.js";
 
 export function qualityCounts(snapshots) {
   const flags = new Map(),
@@ -80,13 +29,6 @@ export function qualityCounts(snapshots) {
   };
 }
 const counter = (a) => a.reduce((r, x) => ((r[x] = (r[x] || 0) + 1), r), {});
-export class APIError extends Error {
-  constructor(code, message, details = []) {
-    super(message);
-    this.code = code;
-    this.details = details;
-  }
-}
 export function exampleResponse(db, path, params = {}) {
   if (params.dataset_version && params.dataset_version !== VERSION)
     throw new APIError(
@@ -339,78 +281,4 @@ export function exampleResponse(db, path, params = {}) {
     return envelope(data);
   }
   throw new APIError("NOT_FOUND", "Unknown endpoint.");
-}
-export function createClient(db, config = { mode: "examples" }) {
-  let pinned = null;
-  return {
-    get version() {
-      return pinned;
-    },
-    async get(path, params = {}, signal) {
-      let result;
-      if (config.mode === "examples")
-        result = exampleResponse(db, path, {
-          ...params,
-          dataset_version: params.dataset_version || pinned,
-        });
-      else {
-        const base = config.base.replace(/\/$/, "");
-        const q = {
-          ...params,
-          dataset_version: params.dataset_version || pinned,
-        };
-        delete q.full_reference;
-        const timeout = AbortSignal.timeout(15000);
-        const requestSignal = signal
-          ? AbortSignal.any([signal, timeout])
-          : timeout;
-        let response;
-        try {
-          response = await fetch(`${base}${path}?${queryString(q)}`, {
-            signal: requestSignal,
-            credentials: "include",
-            headers: config.token
-              ? { Authorization: `Bearer ${config.token}` }
-              : {},
-          });
-        } catch (e) {
-          if (e.name === "AbortError") throw e;
-          throw new APIError(
-            "CONNECTION_FAILED",
-            "Could not reach the API. Check its URL, authentication, and CORS settings.",
-          );
-        }
-        try {
-          result = await response.json();
-        } catch {
-          throw new APIError(
-            "INVALID_RESPONSE",
-            "API returned a non-JSON response.",
-          );
-        }
-        if (!response.ok || result.error)
-          throw new APIError(
-            result.error?.code || `HTTP_${response.status}`,
-            result.error?.message || "Request failed.",
-            result.error?.details || [],
-          );
-      }
-      if (
-        result.meta?.contract_version !== "1" ||
-        !Array.isArray(result.warnings) ||
-        !result.meta?.dataset_version
-      )
-        throw new APIError(
-          "INVALID_RESPONSE",
-          "Response does not match Sentinel contract v1.",
-        );
-      if (pinned && result.meta.dataset_version !== pinned)
-        throw new APIError(
-          "DATASET_CHANGED",
-          "Dataset revision changed. Reconnect to start a consistent session.",
-        );
-      pinned = result.meta.dataset_version;
-      return result;
-    },
-  };
 }

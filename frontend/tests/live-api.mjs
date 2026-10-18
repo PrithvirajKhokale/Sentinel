@@ -1,6 +1,6 @@
 // Exercises the real frontend client against an imported, authenticated API.
 import assert from 'node:assert/strict';
-import { createClient, VERSION } from '../src/api.js';
+import { createClient, VERSION } from '../src/api/index.js';
 const base=process.env.SENTINEL_TEST_API_BASE;
 if (!base) throw Error('SENTINEL_TEST_API_BASE is required');
 const client=createClient(null,{mode:'live',base,token:process.env.SENTINEL_TEST_API_TOKEN});
