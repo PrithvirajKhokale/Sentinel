@@ -25,9 +25,8 @@ $env:SENTINEL_API_PROXY_TARGET = 'https://sentinel-api-waat.onrender.com'
 npm run dev
 ```
 
-The public API also allows cross-origin requests, so the Data connection dialog
-can use `https://sentinel-api-waat.onrender.com/api/v1` directly. A bearer token
-is only needed for a backend running in token mode.
+The API is public and allows cross-origin requests, so the Data connection
+dialog can also use `https://sentinel-api-waat.onrender.com/api/v1` directly.
 
 | Script | Purpose |
 |---|---|
@@ -76,15 +75,14 @@ Production same-origin build: `VITE_API_BASE_URL=/api/v1 npm run build` (PowerSh
 `$env:VITE_API_BASE_URL='/api/v1'; npm run build`). Serve `dist` using
 SENTINEL_FRONTEND_DIR on the backend (the Dockerfile does this). A build without
 VITE_API_BASE_URL defaults to reference examples, for static hosting.
-A separate HTTPS API can still be selected through Data connection. Connections
-are checked before applying; bearer tokens are held only in memory. Never put a
-token in a VITE_ environment variable: those variables become public browser code.
+A separate HTTPS API can still be selected through Data connection; connections
+are checked before applying. VITE_ variables become public browser code, so never
+put secrets in them.
 
 ## Further checks
 
 The optional live check is
 `SENTINEL_TEST_API_BASE=http://127.0.0.1:8000/api/v1 node tests/live-api.mjs`.
-Pass SENTINEL_TEST_API_TOKEN through the environment when API auth is enabled.
 This check requires the complete validated dataset, not a fixture-only database.
 
 `node tests/risk-browser-smoke.mjs` runs after `npm run build`. It uses

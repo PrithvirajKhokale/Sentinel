@@ -13,7 +13,7 @@ export function Filters({ db, client, month, comparisonMonth = "", filters, onCh
   const count = IDENTITY_FIELDS.reduce((n, f) => n + (filters[f]?.length || 0), 0);
 
   // Discover all distinct *actual* labels, not merely values on the current page.
-  // The live request is protected by the same bearer token and pinned revision.
+  // The live request uses the same pinned dataset revision.
   useEffect(() => {
     if (!open || mode !== "live") return;
     const controller = new AbortController();

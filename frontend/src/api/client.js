@@ -37,16 +37,14 @@ export function createClient(db, config = { mode: "examples" }) {
         try {
           response = await fetch(`${base}${path}?${queryString(q)}`, {
             signal: requestSignal,
-            credentials: "include",
-            headers: config.token
-              ? { Authorization: `Bearer ${config.token}` }
-              : {},
+            // Public API: no credentials or auth headers are sent.
+            credentials: "omit",
           });
         } catch (e) {
           if (e.name === "AbortError") throw e;
           throw new APIError(
             "CONNECTION_FAILED",
-            "Could not reach the API. Check its URL, authentication, and CORS settings.",
+            "Could not reach the API. Check its URL and that it is running.",
           );
         }
         try {

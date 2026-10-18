@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { createClient, VERSION } from '../src/api/index.js';
 const base=process.env.SENTINEL_TEST_API_BASE;
 if (!base) throw Error('SENTINEL_TEST_API_BASE is required');
-const client=createClient(null,{mode:'live',base,token:process.env.SENTINEL_TEST_API_TOKEN});
+const client=createClient(null,{mode:'live',base});
 const list=await client.get('/projects',{report_month:'2026-08',page_size:2});
 assert.equal(list.meta.pagination.total_items,1731);
 assert.equal(client.version,VERSION);

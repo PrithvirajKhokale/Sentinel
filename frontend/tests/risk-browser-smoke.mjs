@@ -1,8 +1,7 @@
 // Browser-level smoke test for the built Sentinel frontend.
 //
 // This uses a local mock API with a real, source-documented June–July 2026
-// comparison. It never connects to the user's private Sites deployment or
-// obtains a real production bearer token.
+// comparison. It never connects to the deployed API.
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
@@ -20,7 +19,6 @@ const [before, after] = history.data;
 const comparison = history.meta.comparisons[0];
 const version = fixture.examples.project_list.response.meta.dataset_version;
 const observed = [];
-const sentinelToken = "ci-smoke-token-not-production";
 
 function reply(data, { month = "2026-07", total = 0 } = {}) {
   return {
@@ -75,6 +73,7 @@ const server = createServer(async (req, res) => {
       path: url.pathname,
       query: Object.fromEntries([...url.searchParams.keys()].map(k => [k, url.searchParams.getAll(k)])),
       authorization: req.headers.authorization,
+      cookie: req.headers.cookie,
     });
     let payload;
     if (url.pathname === "/api/v1/projects") {
@@ -153,7 +152,6 @@ try {
   await page.getByRole("button", { name: "Connect API" }).click();
   await page.getByRole("radio", { name: /Live Sentinel API/ }).check();
   await page.getByLabel("API base URL").fill(`http://127.0.0.1:${port}/api/v1`);
-  await page.getByLabel("API bearer token").fill(sentinelToken);
   await page.getByRole("button", { name: "Connect API" }).last().click();
   await page.getByText("LIVE API SESSION").waitFor();
   await page.getByLabel("Report month").selectOption("2026-07");
@@ -184,14 +182,12 @@ try {
   assert.ok(observed.some(expectedFilteredCall),
     "Expected revision-pinned, filtered API request: " +
     JSON.stringify(observed.filter(x => x.path === "/api/v1/risk-signals").slice(-5)));
-  assert.ok(observed.every(x => x.authorization === `Bearer ${sentinelToken}`), "In-memory bearer token must be sent for all API requests");
-  const localStorageInfo = await page.evaluate(() => ({ ...localStorage }));
-  assert.ok(!JSON.stringify(localStorageInfo).includes(sentinelToken), "Bearer token must not be saved in localStorage");
+  assert.ok(observed.every(x => !x.authorization && !x.cookie), "Public API requests must not send credentials");
 
   await card.getByRole("button", { name: /Inspect project history/ }).click();
   await page.getByText("Nadikude-Srikalahasti 308.7 km").first().waitFor();
   assert.deepEqual(errors, [], "Unexpected browser JavaScript errors");
-  console.log("PASS: Risk Intelligence browser smoke — protected connection, source evidence, exact filters and history drilldown");
+  console.log("PASS: Risk Intelligence browser smoke — public connection, source evidence, exact filters and history drilldown");
 } finally {
   await browser?.close();
   await new Promise(resolve => server.close(resolve));

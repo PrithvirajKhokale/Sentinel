@@ -6,7 +6,6 @@ import { createClient } from "../api/client.js";
 export function Connection({ config, onApply, onClose }) {
   const [mode, setMode] = useState(config.mode),
     [base, setBase] = useState(config.base || ""),
-    [token, setToken] = useState(""),
     [error, setError] = useState(""),
     [connecting, setConnecting] = useState(false);
   useEffect(() => {
@@ -30,7 +29,7 @@ export function Connection({ config, onApply, onClose }) {
           )
         )
           throw Error(
-            "Use an authenticated HTTPS endpoint. Loopback HTTP is supported when the frontend also runs locally.",
+            "Use an HTTPS endpoint. Loopback HTTP is supported when the frontend also runs locally.",
           );
         if (u.username || u.password || u.search || u.hash)
           throw Error(
@@ -41,7 +40,7 @@ export function Connection({ config, onApply, onClose }) {
         return;
       }
     }
-    const next = { mode, base: base.trim().replace(/\/$/, ""), token };
+    const next = { mode, base: base.trim().replace(/\/$/, "") };
     if (mode === "live") {
       setConnecting(true);
       try {
@@ -121,22 +120,10 @@ export function Connection({ config, onApply, onClose }) {
                   required
                 />
               </label>
-              <label className="form-label">
-                Bearer token (if required)
-                <input
-                  type="password"
-                  aria-label="API bearer token"
-                  autoComplete="off"
-                  placeholder="Optional · held only in memory"
-                  value={token}
-                  onChange={(e) => setToken(e.target.value)}
-                />
-              </label>
               <p className="hint">
-                Use a reachable authenticated service with CORS configured for
-                this site's origin. Use /api/v1 when the API and interface share
-                a host. Credentials are never saved in
-                browser storage. A failed API request stays visible.
+                The Sentinel API is public; no token is needed. Use /api/v1 when
+                the API and interface share a host. A failed API request stays
+                visible.
               </p>
             </>
           )}

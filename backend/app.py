@@ -1,9 +1,7 @@
-import secrets
 from pathlib import Path
 import os
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from .access import AccessSettings
 from typing import Annotated
 from fastapi import FastAPI, Query
 from fastapi.exceptions import RequestValidationError
@@ -26,11 +24,8 @@ class APIError(Exception):
 
 
 def create_app(engine=None):
-    access = AccessSettings.from_env()
-    hide_docs = access.production and not access.public
-    app = FastAPI(title="Sentinel monitoring", version="1", docs_url=None if hide_docs else "/docs",
-                  redoc_url=None if hide_docs else "/redoc",
-                  openapi_url=None if hide_docs else "/openapi.json")
+    app = FastAPI(title="Sentinel monitoring", version="1", docs_url="/docs", redoc_url="/redoc",
+                  openapi_url="/openapi.json")
     app.state.engine = engine if engine is not None else engine_from_env()
 
     def error(status,code,message,version=None,details=None):
@@ -38,31 +33,17 @@ def create_app(engine=None):
                             meta=dict(contract_version="1",dataset_version=version)))
 
     @app.middleware("http")
-    async def authenticate(request, call_next):
-        protected = request.url.path == "/api" or request.url.path.startswith("/api/") or request.url.path in {"/docs", "/redoc", "/openapi.json"}
-        preflight = (request.method == "OPTIONS" and request.headers.get("origin") in access.origins
-                     and request.headers.get("access-control-request-method"))
-        if protected and access.token and not preflight:
-            authorization = request.headers.get("authorization", "")
-            scheme, _, candidate = authorization.partition(" ")
-            if scheme.lower() != "bearer" or not secrets.compare_digest(candidate.encode(), access.token.encode()):
-                response = error(401, "UNAUTHORIZED", "A valid API bearer token is required.")
-                response.headers["WWW-Authenticate"] = "Bearer"
-                return response
+    async def headers(request, call_next):
         response = await call_next(request)
-        if protected:
+        if request.url.path == "/api" or request.url.path.startswith("/api/"):
             response.headers["Cache-Control"] = "no-store"
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "same-origin"
         return response
 
-    # Outermost CORS layer also covers authentication errors.
-    if access.public:
-        app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=False,
-                           allow_methods=["GET"], allow_headers=["Content-Type"])
-    elif access.origins:
-        app.add_middleware(CORSMiddleware, allow_origins=list(access.origins), allow_credentials=True,
-                           allow_methods=["GET"], allow_headers=["Authorization", "Content-Type"])
+    # Public read-only API: any site may call it; no credentials are involved.
+    app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=False,
+                       allow_methods=["GET"], allow_headers=["Content-Type"])
 
     @app.get("/healthz", include_in_schema=False)
     def health():
