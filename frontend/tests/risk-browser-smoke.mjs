@@ -171,12 +171,19 @@ try {
   assert.match(text, /FlashReport_July_2026\.pdf/);
   assert.match(text, /unreviewed_identity_change/);
 
-  const calls = observed.filter(x => x.path === "/api/v1/risk-signals");
-  assert.ok(calls.some(x => x.query.report_month?.[0] === "2026-07"
+  const expectedFilteredCall = x => x.path === "/api/v1/risk-signals"
+    && x.query.report_month?.[0] === "2026-07"
     && x.query.project_code?.[0] === "400298"
     && x.query.q?.[0] === "NADIKUDE"
     && x.query.signal_type?.[0] === "reported_progress_decrease"
-    && x.query.dataset_version?.[0] === version), "Expected revision-pinned, filtered API request");
+    && x.query.dataset_version?.[0] === version;
+  const deadline = Date.now() + 10000;
+  while (!observed.some(expectedFilteredCall) && Date.now() < deadline) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  assert.ok(observed.some(expectedFilteredCall),
+    "Expected revision-pinned, filtered API request: " +
+    JSON.stringify(observed.filter(x => x.path === "/api/v1/risk-signals").slice(-5)));
   assert.ok(observed.every(x => x.authorization === `Bearer ${sentinelToken}`), "In-memory bearer token must be sent for all API requests");
   const localStorageInfo = await page.evaluate(() => ({ ...localStorage }));
   assert.ok(!JSON.stringify(localStorageInfo).includes(sentinelToken), "Bearer token must not be saved in localStorage");
