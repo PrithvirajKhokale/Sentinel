@@ -4,6 +4,7 @@ on:
     branches:
       - feat/frontend-backend-integration
       - feat/risk-intelligence
+      - test/risk-intelligence-browser-smoke
   pull_request:
     paths:
       - 'frontend/**'
@@ -25,6 +26,8 @@ jobs:
       - run: npm test
         working-directory: frontend
       - run: npm run build
+        working-directory: frontend
+      - run: node tests/risk-browser-smoke.mjs
         working-directory: frontend
   python-syntax:
     runs-on: ubuntu-latest
