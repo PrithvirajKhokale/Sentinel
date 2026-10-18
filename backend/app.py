@@ -27,9 +27,10 @@ class APIError(Exception):
 
 def create_app(engine=None):
     access = AccessSettings.from_env()
-    app = FastAPI(title="Sentinel monitoring", version="1", docs_url=None if access.production else "/docs",
-                  redoc_url=None if access.production else "/redoc",
-                  openapi_url=None if access.production else "/openapi.json")
+    hide_docs = access.production and not access.public
+    app = FastAPI(title="Sentinel monitoring", version="1", docs_url=None if hide_docs else "/docs",
+                  redoc_url=None if hide_docs else "/redoc",
+                  openapi_url=None if hide_docs else "/openapi.json")
     app.state.engine = engine if engine is not None else engine_from_env()
 
     def error(status,code,message,version=None,details=None):
@@ -56,7 +57,10 @@ def create_app(engine=None):
         return response
 
     # Outermost CORS layer also covers authentication errors.
-    if access.origins:
+    if access.public:
+        app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=False,
+                           allow_methods=["GET"], allow_headers=["Content-Type"])
+    elif access.origins:
         app.add_middleware(CORSMiddleware, allow_origins=list(access.origins), allow_credentials=True,
                            allow_methods=["GET"], allow_headers=["Authorization", "Content-Type"])
 

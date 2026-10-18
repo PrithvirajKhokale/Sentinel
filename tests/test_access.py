@@ -16,7 +16,7 @@ ORIGIN = "https://sentinel-project-explorer.expertsky64.chatgpt.site"
 class AccessTests(unittest.TestCase):
     def client(self, **env):
         context = patch.dict(os.environ, {"APP_ENV": "development", "SENTINEL_API_TOKEN": "",
-            "SENTINEL_ALLOWED_ORIGINS": "", "SENTINEL_FRONTEND_DIR": "", **env})
+            "SENTINEL_ALLOWED_ORIGINS": "", "SENTINEL_FRONTEND_DIR": "", "SENTINEL_PUBLIC_ACCESS": "false", **env})
         context.start(); self.addCleanup(context.stop)
         client = TestClient(create_app(engine=object()), raise_server_exceptions=False)
         self.addCleanup(client.close)
@@ -76,6 +76,27 @@ class AccessTests(unittest.TestCase):
             self.assertEqual(client.get("/api/v1/projects?report_month=2026-08").status_code, 401)
             self.assertEqual(client.get("/api/no-such-route").status_code, 401)
             self.assertEqual(client.get("/api/no-such-route", headers={"Authorization":"Bearer "+TOKEN}).status_code,404)
+
+    def test_public_mode_serves_without_token_and_allows_any_origin(self):
+        client = self.client(APP_ENV="production", SENTINEL_PUBLIC_ACCESS="true")
+        response = client.get("/api/v1/projects", headers={"Origin": "https://anyone.example"})
+        # No 401: requests reach contract validation, and CORS is open without credentials.
+        self.assertEqual(response.status_code, 422)
+        self.assertEqual(response.headers["access-control-allow-origin"], "*")
+        self.assertNotIn("access-control-allow-credentials", response.headers)
+        preflight = client.options("/api/v1/projects", headers={"Origin": "https://anyone.example",
+                                   "Access-Control-Request-Method": "GET"})
+        self.assertEqual(preflight.status_code, 200)
+        self.assertEqual(client.options("/api/v1/projects", headers={"Origin": "https://anyone.example",
+                         "Access-Control-Request-Method": "POST"}).status_code, 400)
+        self.assertEqual(client.get("/openapi.json").status_code, 200)
+
+    def test_public_mode_rejects_ambiguous_configuration(self):
+        for settings in [{"SENTINEL_API_TOKEN": TOKEN}, {"SENTINEL_ALLOWED_ORIGINS": ORIGIN},
+                         {"SENTINEL_PUBLIC_ACCESS": "yes"}]:
+            with patch.dict(os.environ, {"APP_ENV": "production", "SENTINEL_API_TOKEN": "",
+                                        "SENTINEL_ALLOWED_ORIGINS": "", "SENTINEL_PUBLIC_ACCESS": "true", **settings}):
+                with self.assertRaises(ValueError): AccessSettings.from_env()
 
     def test_local_unauthenticated_mode_retains_contract_validation(self):
         client=self.client()

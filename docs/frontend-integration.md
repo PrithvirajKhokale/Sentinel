@@ -1,5 +1,15 @@
 # Full-data integration
 
+## Public deployment (current)
+
+The Render service runs with `SENTINEL_PUBLIC_ACCESS=true`: the read-only API needs
+no token, CORS allows any origin (GET only, no credentials), `/docs` is enabled,
+and `SENTINEL_FRONTEND_DIR` serves the dashboard from the same public URL. The
+private ChatGPT Sites page is retired. Public mode refuses to start if
+`SENTINEL_API_TOKEN` or `SENTINEL_ALLOWED_ORIGINS` is also set, so token mode
+remains available by removing `SENTINEL_PUBLIC_ACCESS`. The sections below record
+the earlier authenticated/private setup.
+
 The repository now includes the React + Vite frontend, unchanged source-preserving
 API contract, persistent dark-mode preference, local same-origin development proxy,
 optional same-origin static serving, and a Docker build for the Python API plus UI.

@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://render.com/schema/render.yaml.json
-# API only: the frontend stays on the existing owner-private Sites URL.
+# Public: one service serves the read-only API and the dashboard, without a token.
 services:
   - type: web
     name: sentinel-api
@@ -22,10 +22,8 @@ services:
           property: connectionString
       - key: SENTINEL_DB_SSLMODE
         value: require
-      - key: SENTINEL_API_TOKEN
-        generateValue: true
-      - key: SENTINEL_ALLOWED_ORIGINS
-        value: https://sentinel-project-explorer.expertsky64.chatgpt.site
+      - key: SENTINEL_PUBLIC_ACCESS
+        value: "true"
       - key: SENTINEL_FRONTEND_DIR
-        value: ""
+        value: /app/frontend/dist
 # Uses the existing sentinel-db in the approved workspace.
